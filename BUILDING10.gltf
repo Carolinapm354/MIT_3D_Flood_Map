@@ -14,112 +14,112 @@
   "nodes": [
     {
       "extras": {
-        "layerId": 1,
+        "layerId": 0,
         "featureIdx": 0
       },
       "mesh": 0
     },
     {
       "extras": {
-        "layerId": 1,
+        "layerId": 0,
         "featureIdx": 1
       },
       "mesh": 1
     },
     {
       "extras": {
-        "layerId": 1,
+        "layerId": 0,
         "featureIdx": 2
       },
       "mesh": 2
     },
     {
       "extras": {
-        "layerId": 1,
+        "layerId": 0,
         "featureIdx": 3
       },
       "mesh": 3
     },
     {
       "extras": {
-        "layerId": 1,
+        "layerId": 0,
         "featureIdx": 4
       },
       "mesh": 4
     },
     {
       "extras": {
-        "layerId": 1,
+        "layerId": 0,
         "featureIdx": 5
       },
       "mesh": 5
     },
     {
       "extras": {
-        "layerId": 1,
+        "layerId": 0,
         "featureIdx": 6
       },
       "mesh": 6
     },
     {
       "extras": {
-        "layerId": 1,
+        "layerId": 0,
         "featureIdx": 7
       },
       "mesh": 7
     },
     {
       "extras": {
-        "layerId": 1,
+        "layerId": 0,
         "featureIdx": 8
       },
       "mesh": 8
     },
     {
       "extras": {
-        "layerId": 1,
+        "layerId": 0,
         "featureIdx": 9
       },
       "mesh": 9
     },
     {
       "extras": {
-        "layerId": 1,
+        "layerId": 0,
         "featureIdx": 10
       },
       "mesh": 10
     },
     {
       "extras": {
-        "layerId": 1,
+        "layerId": 0,
         "featureIdx": 11
       },
       "mesh": 11
     },
     {
       "extras": {
-        "layerId": 1,
+        "layerId": 0,
         "featureIdx": 12
       },
       "mesh": 12
     },
     {
       "extras": {
-        "layerId": 1,
+        "layerId": 0,
         "featureIdx": 13
       },
       "mesh": 13
     },
     {
       "extras": {
-        "layerId": 1,
+        "layerId": 0,
         "featureIdx": 14
       },
       "mesh": 14
     },
     {
       "extras": {
-        "layerId": 1,
+        "layerId": 0,
         "featureIdx": 15
       },
       "mesh": 15
@@ -145,7 +145,7 @@
       ],
       "name": "Building10",
       "extras": {
-        "layerId": 1
+        "layerId": 0
       },
       "children": [
         0,
