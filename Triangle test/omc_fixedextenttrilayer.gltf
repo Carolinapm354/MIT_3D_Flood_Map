@@ -1,0 +1,174 @@
+{
+  "asset": {
+    "version": "2.0",
+    "generator": "THREE.GLTFExporter"
+  },
+  "scenes": [
+    {
+      "nodes": [
+        1
+      ]
+    }
+  ],
+  "scene": 0,
+  "nodes": [
+    {
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        3.048,
+        1
+      ],
+      "extras": {
+        "layerId": 0,
+        "featureIdx": 0
+      },
+      "mesh": 0
+    },
+    {
+      "matrix": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        -2.220446049250313e-16,
+        -1.0000000000000002,
+        0,
+        0,
+        1.0000000000000002,
+        -2.220446049250313e-16,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "name": "triangulo",
+      "extras": {
+        "layerId": 0
+      },
+      "children": [
+        0
+      ]
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 864,
+      "target": 34962,
+      "byteStride": 12
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 864,
+      "byteLength": 576,
+      "target": 34962,
+      "byteStride": 8
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 1440,
+      "byteLength": 864,
+      "target": 34962,
+      "byteStride": 12
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 2304,
+      "uri": "data:application/octet-stream;base64,7cXhyjY++kkAAAAA3s7iypbK/UkAAAAA3s7iyqvK/UkAAAAANgThyhb3/UkAAAAA58XhyjY++kkAAAAA7cXhyjY++kkAAAAArQThyif3/UkAAAAANgThyif3/UkAAAAANgThyhb3/UkAAAAA7cXhyjY++kkAAAAA3s7iyqvK/UkAAAAArQThyif3/UkAAAAArQThyif3/UkAAAAANgThyhb3/UkAAAAA7cXhyjY++kkAAAAA3s7iyqvK/UkAAHpE3s7iypbK/UkAAHpE7cXhyjY++kkAAHpE7cXhyjY++kkAAHpE58XhyjY++kkAAHpENgThyhb3/UkAAHpENgThyhb3/UkAAHpENgThyif3/UkAAHpErQThyif3/UkAAHpErQThyif3/UkAAHpE3s7iyqvK/UkAAHpE7cXhyjY++kkAAHpE7cXhyjY++kkAAHpENgThyhb3/UkAAHpErQThyif3/UkAAHpE7cXhyjY++kkAAAAA58XhyjY++kkAAAAA7cXhyjY++kkAAHpE58XhyjY++kkAAAAA58XhyjY++kkAAHpE7cXhyjY++kkAAHpE58XhyjY++kkAAAAANgThyhb3/UkAAAAA58XhyjY++kkAAHpENgThyhb3/UkAAAAANgThyhb3/UkAAHpE58XhyjY++kkAAHpENgThyhb3/UkAAAAANgThyif3/UkAAAAANgThyhb3/UkAAHpENgThyif3/UkAAAAANgThyif3/UkAAHpENgThyhb3/UkAAHpENgThyif3/UkAAAAArQThyif3/UkAAAAANgThyif3/UkAAHpErQThyif3/UkAAAAArQThyif3/UkAAHpENgThyif3/UkAAHpErQThyif3/UkAAAAA3s7iyqvK/UkAAAAArQThyif3/UkAAHpE3s7iyqvK/UkAAAAA3s7iyqvK/UkAAHpErQThyif3/UkAAHpE3s7iyqvK/UkAAAAA3s7iypbK/UkAAAAA3s7iyqvK/UkAAHpE3s7iypbK/UkAAAAA3s7iypbK/UkAAHpE3s7iyqvK/UkAAHpE3s7iypbK/UkAAAAA7cXhyjY++kkAAAAA3s7iypbK/UkAAHpE7cXhyjY++kkAAAAA7cXhyjY++kkAAHpE3s7iypbK/UkAAHpE7cXhyjY++knezuLKlsr9Sd7O4sqryv1JNgThyhb3/UnnxeHKNj76Se3F4co2PvpJrQThyif3/Uk2BOHKJ/f9STYE4coW9/1J7cXhyjY++knezuLKq8r9Sa0E4con9/1JrQThyif3/Uk2BOHKFvf9Se3F4co2PvpJ3s7iyqvK/UnezuLKlsr9Se3F4co2PvpJ7cXhyjY++knnxeHKNj76STYE4coW9/1JNgThyhb3/Uk2BOHKJ/f9Sa0E4con9/1JrQThyif3/UnezuLKq8r9Se3F4co2PvpJ7cXhyjY++kk2BOHKFvf9Sa0E4con9/1J7cXhygAAgD/nxeHKAACAP+3F4coAwHnE58XhygAAgD/nxeHKAMB5xO3F4coAwHnENj76SQAAgD8W9/1JAACAPzY++kkAwHnEFvf9SQAAgD8W9/1JAMB5xDY++kkAwHnEFvf9SQAAgD8n9/1JAACAPxb3/UkAwHnEJ/f9SQAAgD8n9/1JAMB5xBb3/UkAwHnENgThygAAgD+tBOHKAACAPzYE4coAwHnErQThygAAgD+tBOHKAMB5xDYE4coAwHnEJ/f9SQAAgD+ryv1JAACAPyf3/UkAwHnEq8r9SQAAgD+ryv1JAMB5xCf3/UkAwHnEq8r9SQAAgD+Wyv1JAACAP6vK/UkAwHnElsr9SQAAgD+Wyv1JAMB5xKvK/UkAwHnElsr9SQAAgD82PvpJAACAP5bK/UkAwHnENj76SQAAgD82PvpJAMB5xJbK/UkAwHnEAAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAgAAAAIAAAIC/AAAAgAAAAIAAAIC/AAAAgAAAAIAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAgAAAAAAAAIC/AAAAgAAAAAAAAIC/AAAAgAAAAAAAAIC/AAAAgAAAAAAAAIA/AAAAgAAAAAAAAIA/AAAAgAAAAAAAAIA/AAAAAAAAAIAAAIA/AAAAAAAAAIAAAIA/AAAAAAAAAIAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAgAAAAAAAAIA/AAAAgAAAAAAAAIA/AAAAgAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAgAAAgL8AAACAAAAAgAAAgL8AAACAAAAAgAAAgL8AAACA66BGP1iAIb8AAAAA66BGP1iAIb8AAAAA66BGP1iAIb8AAAAA66BGP1iAIb8AAAAA66BGP1iAIb8AAAAA66BGP1iAIb8AAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAgAAAgD8AAAAAAAAAgAAAgD8AAAAAAAAAgAAAgD8AAAAAgMbGvLTsfz8AAAAAgMbGvLTsfz8AAAAAgMbGvLTsfz8AAAAAgMbGvLTsfz8AAAAAgMbGvLTsfz8AAAAAgMbGvLTsfz8AAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAYpomv4peQr8AAAAAYpomv4peQr8AAAAAYpomv4peQr8AAAAAYpomv4peQr8AAACAYpomv4peQr8AAACAYpomv4peQr8AAACA"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 72,
+      "max": [
+        -7373339,
+        2080484.875,
+        1000
+      ],
+      "min": [
+        -7432047,
+        2049990.75,
+        0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 72,
+      "max": [
+        2080484.875,
+        2080484.875
+      ],
+      "min": [
+        -7432047,
+        -999
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 72,
+      "max": [
+        1,
+        1,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC3"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.7686274509803922,
+          0.23529411764705882,
+          0.2235294117647059,
+          1
+        ],
+        "metallicFactor": 0.5,
+        "roughnessFactor": 0.5
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "mode": 4,
+          "attributes": {
+            "POSITION": 0,
+            "TEXCOORD_0": 1,
+            "NORMAL": 2
+          },
+          "material": 0
+        }
+      ]
+    }
+  ]
+}
