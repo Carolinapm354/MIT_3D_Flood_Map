@@ -12,10 +12,15 @@
 2. [Introduction](#introduction)
    
    2.1 [Objectives](#objectivesofthestudy)
+   
    2.2 [Purpose](#Purpose)
+   
    2.3 [Hypothesis](#hypothesis)
+   
    2.4 [Scope](#scope)
+   
    2.5 [Prerequisites](#prerequisites)
+   
 4. [Methodology](#methodology)
    3.1 [Strategizing and Literature Review](#strategizing-and-literature-review)
    3.2 [Starting with Mapbox Studio Style](#starting-with-mapbox-studio-style)
