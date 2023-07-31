@@ -163,7 +163,7 @@ E.3 Shapefiles: is a digital vector data file format used for geographic informa
 
 E.4 OBJ: is a 3d standard format. It has the ability to recognixe 3d objects' surface properties, including texture mapping and shading, making it efficient for developing realistic render of a model.
 
-**IV. Methodology**
+# **Methodology**
 
   1. Strategizing and Researching Past Projects
 
@@ -560,3 +560,10 @@ Once the model is uploaded, open it in blender find the model origin and use "bb
   1. Attaching Metadata to the GLTF file
   2. 3d water layer
   3. Raycasting & Pop Ups
+# **Results**
+===============
+# **Discussion**
+# **Results**
+# **Conclusion**
+# **Appendix**
+# **Acknowledgements**
