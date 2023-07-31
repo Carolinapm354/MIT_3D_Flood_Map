@@ -8,28 +8,26 @@
 
 # **Table of Contents**
 
-1. Abstract 2
-2. List of Figures 2
-
-1. Introduction 3
-  1. Objectives 5
-  2. Purpose 6
-  3. Hypothesis 6
-  4. Scope 6
-  5. Prerequisites 7
-2. Methodology 2
-  1. Strategizing and Literature Review2
-  2. Starting with Mapbox Studio Style 2
-  3. Setting up the code 2
-  4. Uploading my own model into Mapbox 2
-  5. Setting up the water layer 2
-  6. Attaching the Metadata to the glTF 2
-  7. Style, lights, and popups 2
-3. Results 2
-4. Discussion 2
-5. Conclusion 2
-  1. Research Poster
-6. Appendix 2
+1. Abstract 
+2. Introduction 
+  2.1 Objectives 
+  2.2 Purpose 
+  2.3 Hypothesis 
+  2.4 Scope 
+  2.5 Prerequisites 
+3. Methodology 
+  3.1 Strategizing and Literature Review
+  3.2 Starting with Mapbox Studio Style 
+  3.3 Setting up the code 
+  3.4 Uploading my own model into Mapbox 
+  3.5 Setting up the water layer 
+  3.6 Attaching the Metadata to the glTF 
+  3.7 Style, lights, and popups 
+4. Results 
+5. Discussion 
+6. Conclusion 
+  6.1. Research Poster
+7. Appendix 
 
 # **Abstract**
 
