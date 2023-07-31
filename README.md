@@ -9,13 +9,14 @@
 # **Table of Contents**
 
 1. [Abstract](#abstract)
-2. [Introduction](#introduction)<br>
+2. [Introduction](#introduction)
+   
    2.1 [Objectives](#objectivesofthestudy)
    2.2 [Purpose](#Purpose)
    2.3 [Hypothesis](#hypothesis)
    2.4 [Scope](#scope)
    2.5 [Prerequisites](#prerequisites)
-3. [Methodology](#methodology)
+4. [Methodology](#methodology)
    3.1 [Strategizing and Literature Review](#strategizing-and-literature-review)
    3.2 [Starting with Mapbox Studio Style](#starting-with-mapbox-studio-style)
    3.3 [Setting up the code](#setting-up-the-code)
@@ -23,11 +24,11 @@
    3.5 [Setting up the water layer](#setting-up-the-water-layer)
    3.6 [Attaching the Metadata to the glTF](#attaching-the-metadata-to-the-gltf)
    3.7 [Style, lights, and popups](#style-lights-and-popups)
-4. [Results](#results)
-5. [Discussion](#discussion)
-6. [Conclusion](#conclusion)
+5. [Results](#results)
+6. [Discussion](#discussion)
+7. [Conclusion](#conclusion)
    6.1 [Research Poster](#research-poster)
-7. [Appendix](#appendix)
+8. [Appendix](#appendix)
 
 
 # **Abstract**
