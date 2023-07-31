@@ -11,15 +11,15 @@
 1. [Abstract](#abstract)
 2. [Introduction](#introduction)
    
-   2.1 [Objectives](#objectivesofthestudy)
+   2.1 [Objectives](#objectivesofthestudy)<br>
    
-   2.2 [Purpose](#Purpose)
+   2.2 [Purpose](#Purpose)<br>
    
-   2.3 [Hypothesis](#hypothesis)
+   2.3 [Hypothesis](#hypothesis)<br>
    
-   2.4 [Scope](#scope)
+   2.4 [Scope](#scope)<br>
    
-   2.5 [Prerequisites](#prerequisites)
+   2.5 [Prerequisites](#prerequisites)<br>
    
 4. [Methodology](#methodology)
    3.1 [Strategizing and Literature Review](#strategizing-and-literature-review)
