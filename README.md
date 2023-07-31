@@ -10,7 +10,7 @@
 
 1. Abstract 
 2. Introduction 
-  2.1 Objectives 
+  2.1. Objectives 
   2.2 Purpose 
   2.3 Hypothesis 
   2.4 Scope 
