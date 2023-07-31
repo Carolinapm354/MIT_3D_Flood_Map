@@ -26,16 +26,23 @@
    3.1 [Strategizing and Literature Review](#strategizing-and-literature-review)<br>
    
    3.2 [Starting with Mapbox Studio Style](#starting-with-mapbox-studio-style)<br>
+   
    3.3 [Setting up the code](#setting-up-the-code)<br>
+   
    3.4 [Uploading my own model into Mapbox](#uploading-my-own-model-into-mapbox)<br>
+   
    3.5 [Setting up the water layer](#setting-up-the-water-layer)<br>
+   
    3.6 [Attaching the Metadata to the glTF](#attaching-the-metadata-to-the-gltf)<br>
+   
    3.7 [Style, lights, and popups](#style-lights-and-popups)<br>
-6. [Results](#results)
-7. [Discussion](#discussion)
-8. [Conclusion](#conclusion)
+   
+4. [Results](#results)
+5. [Discussion](#discussion)
+6. [Conclusion](#conclusion)
    6.1 [Research Poster](#research-poster)
-9. [Appendix](#appendix)
+7. [Appendix](#appendix)
+8. [Acknowledgments](#acknowledgements)
 
 
 # **Abstract**
