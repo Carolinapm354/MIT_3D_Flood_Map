@@ -69,16 +69,9 @@ In conclusion, this research report explores the technical aspects and challenge
 
 **2.1 Objectives of the study**
 
-![Shape3](RackMultipart20230731-1-ifxyyx_html_55d1d6d0da9e15f6.gif) ![Shape2](RackMultipart20230731-1-ifxyyx_html_55d1d6d0da9e15f6.gif) ![Shape1](RackMultipart20230731-1-ifxyyx_html_55d1d6d0da9e15f6.gif)
+![Objectives Diagram](Assets/Objectives_diagram.png)
 
-3
-
-2
-
-1
-
- ![Shape4](RackMultipart20230731-1-ifxyyx_html_6795c5966541bb29.gif)
-
+Figure 2: Objectives Diagram
 **2.2 Purpose**
 
 The research that will be conducted during the summer holds significant importance as it not only expands on architectural data visualization strategies for communicating flood risk but also contributes to advancing the field. It can enhance both the quality of representation and analysis and lower the knowledge barriers that impede non-expert audiences' understanding of flood hazards in risk communication. ("3D Geovisualization Interfaces as Flood Risk Management Platforms: Capability, Potential, and Implications for Practice," 2020) The findings and insights gained from this research can potentially inform future practices in architectural data visualization, benefiting both the field itself and the broader community involved in flood risk management and decision-making.
@@ -563,7 +556,8 @@ Once the model is uploaded, open it in blender find the model origin and use "bb
 # **Results**
 ===============
 # **Discussion**
-# **Results**
 # **Conclusion**
+6.1 ![MSRP 2023 Poster](Assets/Poster.png)
+
 # **Appendix**
 # **Acknowledgements**
