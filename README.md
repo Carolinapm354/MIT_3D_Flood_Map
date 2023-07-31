@@ -11,10 +11,10 @@
 1. Abstract 
 2. Introduction 
   2.1. Objectives 
-  2.2 Purpose 
-  2.3 Hypothesis 
-  2.4 Scope 
-  2.5 Prerequisites 
+  2.2. Purpose 
+  2.3. Hypothesis 
+  2.4. Scope 
+  2.5. Prerequisites 
 3. Methodology 
   3.1 Strategizing and Literature Review
   3.2 Starting with Mapbox Studio Style 
