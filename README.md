@@ -153,7 +153,7 @@ D.3 Sketchup (optional): a "3d modeling Computer-Aided Design (CAD) program" use
 
 E.1 glTF: is a freely available standard used for transmitting and loading 3D scenes and models in applications. It aims to optimize the efficiency of transmitting 3D assets by reducing their size and minimizing the processing required to unpack and utilize them.
 
-![GLTF overview by Khronos](https://raw.githubusercontent.com/Carolinapm354/test3d/main/)
+![GLTF overview by Khronos](Assets/GLTF_overview.png)
 
 Figure 1: Overview of glTF by Khronos
 
@@ -163,7 +163,7 @@ E.3 Shapefiles: is a digital vector data file format used for geographic informa
 
 E.4 OBJ: is a 3d standard format. It has the ability to recognixe 3d objects' surface properties, including texture mapping and shading, making it efficient for developing realistic render of a model.
 
-**IV. Methodology**
+# **Methodology**
 
   1. Strategizing and Researching Past Projects
 
@@ -560,3 +560,10 @@ Once the model is uploaded, open it in blender find the model origin and use "bb
   1. Attaching Metadata to the GLTF file
   2. 3d water layer
   3. Raycasting & Pop Ups
+# **Results**
+===============
+# **Discussion**
+# **Results**
+# **Conclusion**
+# **Appendix**
+# **Acknowledgements**
