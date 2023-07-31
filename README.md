@@ -1,14 +1,12 @@
 <<<<<<< HEAD
 # Communicating Flood Risk through Interactive Data Visualization
 
-## MIT Summer Research Program Case Study with MIT's Urban Risk Lab
-## By Carolina Pérez Méndez
-## Supervised under Mayank Ojha and Miho Mazereeuw
+### MIT Summer Research Program Case Study with MIT's Urban Risk Lab
+### By Carolina Pérez Méndez
+### Supervised under Mayank Ojha and Miho Mazereeuw
 
-### Heading 1
 =======
-# test3d
->>>>>>> ce0d5c5c850a742ea8c980c5d4a451ccfc6c15ac
+>>>>>>> 
 
 # **Table of Contents**
 
