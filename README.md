@@ -153,7 +153,7 @@ D.3 Sketchup (optional): a "3d modeling Computer-Aided Design (CAD) program" use
 
 E.1 glTF: is a freely available standard used for transmitting and loading 3D scenes and models in applications. It aims to optimize the efficiency of transmitting 3D assets by reducing their size and minimizing the processing required to unpack and utilize them.
 
-![GLTF overview by Khronos](https://raw.githubusercontent.com/Carolinapm354/test3d/main/)
+![GLTF overview by Khronos](Assets/GLTF_overview.png)
 
 Figure 1: Overview of glTF by Khronos
 
