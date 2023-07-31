@@ -9,9 +9,9 @@
 # **Table of Contents**
 
 1. [Abstract](#abstract)
-2. [Introduction](#introduction)
-   2.1 [Objectives](#objectives)
-   2.2 [Purpose](#purpose)
+2. [Introduction](#introduction)<br>
+   2.1 [Objectives](#objectivesofthestudy)
+   2.2 [Purpose](#Purpose)
    2.3 [Hypothesis](#hypothesis)
    2.4 [Scope](#scope)
    2.5 [Prerequisites](#prerequisites)
