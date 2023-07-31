@@ -1,12 +1,10 @@
-<<<<<<< HEAD
+
 # Communicating Flood Risk through Interactive Data Visualization
 
 ### MIT Summer Research Program Case Study with MIT's Urban Risk Lab
 ### By Carolina Pérez Méndez
 ### Supervised under Mayank Ojha and Miho Mazereeuw
 
-=======
->>>>>>> 
 
 # **Table of Contents**
 
@@ -33,17 +31,11 @@
   1. Research Poster
 6. Appendix 2
 
-1. **Abstract**
+# **Abstract**
 
 Effective flood risk communication is crucial for promoting resilience and informed decision-making in flood-prone areas. However, current flood maps and risk communication techniques have inherent limitations that hinder their effectiveness. This research addresses these gaps by developing interactive data visualization strategies to enhance flood risk communication. It aims to improve understanding, engagement, and proactive measures for mitigating flood risks. The focus is on the development of three-dimensional mapping techniques to depict flood hazards in a more realistic and immersive manner. The research leverages Mapbox GL JS, a JavaScript library for developing web maps and applications with Mapbox's advanced mapping technology, to create an interactive three-dimensional flood map of the MIT campus as a living laboratory. This map will enable the sharing of flood risk information with different departments, facilitating adaptation and mitigation projects. The main challenge lies in importing and transforming 2D data into three-dimensional GIS data and employing suitable visualization techniques. The results are expected to enhance the accuracy, visual representation, and accessibility of flood risk data, empowering stakeholders to better understand and respond to flood risks. This research holds significance for architectural data visualization strategies, advancing the field and benefiting the broader community involved in flood risk management.
 
-1. **List of Figures**
-
-Figure 1. Overview of glTF by Khronos 2
-
-Figure 2. Overview of glTF by Khronos 2
-
-1. **Introduction**
+# **Introduction**
 
 With the rise of interactive data visualization and advancements in technology, vulnerable communities are more equipped with powerful tools to understand and mitigate the risks posed by floods. Flood mapping has emerged as one of the most effective strategies for communicating flood risks, enabling individuals and organizations to grasp the nature, magnitude, and likelihood of hazards in their area. However, current flood maps often fall short of accurately representing the true extent of flood risk due to limitations and sources of uncertainty in data gathering and analysis processes.
 
