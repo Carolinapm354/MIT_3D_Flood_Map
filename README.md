@@ -23,17 +23,17 @@
    
 3. [Methodology](#methodology)
    
-   3.1 [Strategizing and Literature Review](#strategizing-and-literature-review)<br>
+   3.1 [Strategizing and Researching Past Projects](#strategizing-and-literature-review)<br>
    
    3.2 [Starting with Mapbox Studio Style](#starting-with-mapbox-studio-style)<br>
    
-   3.3 [Setting up the code](#setting-up-the-code)<br>
+   3.3 [Setting Up the Code](#setting-up-the-code)<br>
    
    3.4 [Uploading my own model into Mapbox](#uploading-my-own-model-into-mapbox)<br>
    
-   3.5 [Setting up the water layer](#setting-up-the-water-layer)<br>
-   
-   3.6 [Attaching the Metadata to the glTF](#attaching-the-metadata-to-the-gltf)<br>
+   3.5 [Attaching the Metadata to the glTF](#attaching-the-metadata-to-the-gltf)<br>
+
+   3.6 [Adding more Models, Scaling and Positioning](#adding-more-models,-scaling-and-positioning)<br>
    
    3.7 [Style, lights, and popups](#style-lights-and-popups)<br>
    
@@ -151,7 +151,7 @@ E.1 glTF: is a freely available standard used for transmitting and loading 3D sc
 
 ![GLTF overview by Khronos](Assets/GLTF_overview.png)
 
-Figure 1: Overview of glTF by Khronos
+<p align="center"><em> Figure 1: Overview of glTF by Khronos</em>.<p>
 
 E.2 GeoJson: is a geospatial data interchange format that showcases geographic features and their attributes.
 
@@ -161,21 +161,39 @@ E.4 OBJ: is a 3d standard format. It has the ability to recognixe 3d objects' su
 
 # **Methodology**
 
-  1. Strategizing and Researching Past Projects
+  **1. Strategizing and Researching Past Projects**
 
-Getting started by identifying creative innovative ways to communicate flood risk. By brainstorming an effective way to carry this mission out, we agreed that the best experimental approach for this summer's case study was developing a three-dimensional map of the MIT campus, which allows us to study flood problems in depth. It allows for the experimentation of Mapbox mapping capabilities, the cloud mapping platform used to employ the task.
+Getting started by identifying creative innovative ways to communicate flood risk. By brainstorming an effective way to execute this mission, we agreed that the best experimental approach for this summer's case study was developing a three-dimensional map of the MIT campus, which allows us to study flood problems in depth. It gives us the opportunity to experiment with Mapbox mapping capabilities, the cloud mapping platform used to employ the task.
 
 At the beginning, a project done by Smart City Cologne was used as an example for understanding risk assessment through 3d mapping.
 
+
+![Colgne_Flood_Plan_Smart_City_Cologne](Assets/cologne_flood_plan.jpg)
+
+<p align="center"> <em>Figure 2: Smart City Cologne Flood Plan.
+
 Article: Planning the City of Tomorrow in 3D, written by Jim Baumann
+[(https://www.esri.com/about/newsroom/arcuser/planning-the-city-of-tomorrow-in-3d/)](https://www.esri.com/about/newsroom/arcuser/planning-the-city-of-tomorrow-in-3d/)</em>. <p>
 
-[https://www.esri.com/about/newsroom/arcuser/planning-the-city-of-tomorrow-in-3d/](https://www.esri.com/about/newsroom/arcuser/planning-the-city-of-tomorrow-in-3d/)
+Morgenstadt: City of the Future, an initiative by Fraunhofer Society in 2010, Their main goal was “to develop and implement technologies for future cities that are climate-adapted, carbon dioxide neutral, and energy efficient.” (Baumann, 2019) They “used GIS technologies combined with geodesign planning methodology to support the implementation of a holistic approach to sustainable urban development” (Baumann, 2019). They developed a 3d interactive model with ArcGIS City Engine to plan a new sustainable city in Cologne, a city in Germany on the Rhine River, responding to flood threats in the area. 
 
-![](RackMultipart20230731-1-ifxyyx_html_bdf7f181559f027c.jpg)
+By utilizing Esri CityEngine to model existing flood data, they provided visualizations of flood inundation levels in Mülheim Süd, a district in Cologne. The methodology recognized that information technology advancements, including real-time monitoring, GIS integration, and improved computer speed, are transforming the concept of smart communities into reality. As the world's population is projected to reach 9.7 billion by 2050, and the majority living in cities, integrated planning and analysis become crucial to address urban challenges. 
 
-FALTA
+ Developing an interactive 3D model with CityEngine for the revitalization of Mülheim Süd involved integrating various datasets and using advanced GIS technologies to create a comprehensive and detailed representation of the project area. The process was carefully planned and executed to account for different environmental factors, including flooding, noise levels, and energy consumption
 
-  1. Starting with Mapbox Studio and Style
+ Considering that Cologne is situated along a major European river, flooding was a critical concern. CityEngine was employed to model existing flood data, which provided visualizations of flood inundation levels in Mülheim Süd. By rasterizing and vectorizing water level data and the DTM, potential flooding scenarios and their impact on streets and buildings could be displayed effectively.
+
+ The methodology highlighted the cost-effectiveness and efficiency of 3D GIS technology for sustainable urban development. The workflow and tools developed for this project were adaptable for other communities.
+
+In our pursuit to enhance flood data visualizations, we have undertaken a holistic approach that seeks to revolutionize flood mapping and address previous limitations. Our research diverges from conventional efforts in two fundamental aspects, symbolizing our commitment to advancing flood risk management.
+
+Firstly, our primary focus revolves around the comprehensive development of flood maps for the existing conditions at MIT. By meticulously studying and understanding the intricate flood risk scenarios within the MIT campus area, we aim to create accurate and informative flood data visualizations. This profound understanding empowers us to identify vulnerable areas and potential mitigation strategies, laying the groundwork for a more resilient and prepared community.
+
+Secondly, we have embarked on executing the flood mapping process through a cutting-edge WebGL-powered mapping platform. This innovative platform introduces a host of unparalleled advantages, notably rendering high-performing maps that deliver lightweight and fast-running outcomes. By embracing this advanced technology, we transcend the limitations of conventional mapping approaches, enabling seamless access and usability of the flood maps for all users.
+
+Through these transformative changes, we are poised to revolutionize flood data visualizations, optimizing their effectiveness and applicability in decision-making processes. By harnessing the power of a holistic approach and innovative technology, we envision a future where flood risk management is elevated to new heights, fostering a safer, more resilient, and sustainable environment at MIT and beyond. As we continue to push the boundaries of flood data visualizations, our endeavor remains steadfast in making meaningful contributions to the field of urban resilience and disaster preparedness.
+
+ **2. Starting with Mapbox Studio and Style**
 
 Choosing Mapbox as our main platform allows the map to be published and shared in the Urban Risk Lab's dashboard. But most importantly it gives us the flexibility and versatility to edit the map directly in Mapbox Studio by importing, filtering, and styling layers from shapefiles and geojson. Simultaneously, it allows us to use Mapbox GL js to edit the map and add additional data to the map through code.
 
@@ -201,7 +219,7 @@ On the other side, ""MIT Building.geojson" was used as reference for placing the
 
 After editing, it is crucial to publish the style to preserve changes in future steps.
 
-  1. Setting up the Code
+  **3. Setting up the Code**
 
 For this step we first start by downloading Visual Studio Code, " a code editor redefined and optimized for building and debugging modern web and cloud applications". Start by creating a file and opening it in vs code. Create a basic "index.html".
 
@@ -501,7 +519,7 @@ map.addLayer(customLayer, 'waterway-label');
 
 Once it is saved in the index.html file of VS code it is visible when the live server is open. After going live, you will notice that it is wrongfully placed in another part of the world. You can use "bboxfinder once again to place the satellite accordingly, by changing the latitude and longitude in "const modelorigin: ()" under the "Parameters to ensure the model is georeferenced correctly on the map".
 
-  1. Uploading my own model into Mapbox
+  **4. Uploading my own model into Mapbox**
 
 We now know it is possible to load a 3d object into Mapbox. The challenge now is figuring out how to import one of our own models into Mapbox.
 
@@ -553,9 +571,51 @@ Once the model is uploaded, open it in blender find the model origin and use "bb
 
 ![](RackMultipart20230731-1-ifxyyx_html_4ca0faadf66809ec.png)
 
-  1. Attaching Metadata to the GLTF file
-  2. 3d water layer
-  3. Raycasting & Pop Ups
+  **5. Attaching Metadata to the GLTF file**
+
+  **6. Adding More Models, Scaling, and Positioning**
+
+  **3. Style, Lights, & Pop Ups**
+
+ *  Style: Changing the color of a 3d mode. 
+
+  There are two primary ways to do this. First, we can change the color by changing the base color factor of a material by modifying the appropriate properties in the glTF file. The base color factor is typically represented as a 4-component RGBA (Red, Green, Blue, Alpha) color value.
+
+1. Open the "MIT BUILDINGS" glTF file: it contains information about the 3D model, including its materials and textures. You can open the file using a text editor or a JSON editor.
+
+2. Locate the material: Look for the materials you want to modify (ctr + F: materials ). Materials are defined under the "materials" property in the glTF file. Each material has various properties, and the base color factor is typically represented as "pbrMetallicRoughness" under the "extensions" property.
+
+3. Change the base color factor: The base color factor is represented as an array of four numbers (RGBA) between 0.0 and 1.0. For example, [1.0, 0.0, 0.0, 1.0] represents a fully opaque red color. The Alpha component, represented by the last number (1 in this case), controls the opacity of the material, where 0.0 means completely transparent, and 1.0 means fully opaque. Modify these values to change the color as desired. In our code, we are using a hexadecimal value, which is a base-16 numbering system that uses a combination of digits 0-9 and letters A-F to represent values. The color represented in the code is light beige. 
+
+`Changing the baseColorFactor`
+  ```
+   "materials": [
+        {
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.9490196078431372,
+                    0.9215686274509803,
+                    0.8862745098039215,
+                    1
+                ],
+                "metallicFactor": 0.5,
+                "roughnessFactor": 0.5
+            },
+            "doubleSided": true
+        }
+    ],
+  ```
+  The second way is to directly change the style in Qgis using the Qgis2three.js plugin. We created a color ramp in QGIS and applied it directly to a 3D model (or extruded 3d shapefile) using QGIS2ThreeJS, following these steps:
+
+ 1. Create a Color Ramp in QGIS: Open QGIS and load your vector  for which you want to create the color ramp. Right-click on the layer in the Layers Panel and choose "Properties." In the Layer Properties dialog, go to the "Style" tab. Choose a rendering type appropriate for your data (we chose categorized). Click on the color ramp to access the "Color Ramp" dialog. Modify the color ramp to suit your visualization preferences. Click "OK" to apply the color ramp to your layer.
+ 
+ 2. 
+
+
+  * Lights 
+
+  To get started with lights, we suggest to read 
+
 # **Results**
 ===============
 # **Discussion**
@@ -867,9 +927,11 @@ Once the model is uploaded, open it in blender find the model origin and use "bb
 
 I would like to express my sincere gratitude to all the people who have supported me throughout this summer to complete this project. Your guidance, support and faith in my abilities have been invaluable and I am deeply grateful for all your support.
 
-First of all, I would like to extend my deepest gratitude to my mentor, Miho Mazereeuw, and supervisor, Mayank Ojhafor for their exceptional guidance. Your feedback, constructive criticism and support unconditional support have been fundamental in shaping the direction of this project. Your willingness to share your time and knowledge has been invaluable. I am truly grateful for the mentorship and dedication shown through this journey.
+Firstly, I would like to extend my deepest gratitude to my mentor, Miho Mazereeuw, and supervisor, Mayank Ojhafor for their exceptional guidance. Your feedback, constructive criticism and unconditional support have been fundamental in shaping the direction of this project. Your willingness to share your time and knowledge has been invaluable. I am truly grateful for the mentorship and dedication shown through this journey.
 
-Also, I wish to extend my gratitude to the Urban Risk Lab team for their valuable knowledge, thoughtful
+Secondly, I wish to extend my gratitude to the Urban Risk Lab team for their valuable knowledge, thoughtful
 comments and suggestions, which have significantly enriched the content and depth of this research project.
+
+Thirdly, I would like to thank Reihaneh Iranmanesh, a fellow MSRP intern, for all her help with code assistance, HTML and JavaScript guidance, computer science support, debugging, and most of all, for being an incredibly supportive and amazing friend. Her expertise and willingness to lend a hand have been invaluable during our time at MIT.
 
 Lastly, I want to express my heartfelt appreciation for the incredible opportunity to be part of MIT’s Summer Research Program. Throughout my time here, I have been fortunate to work alongside an exceptional team, receiving invaluable support and mentorship that has contributed significantly to my professional growth. I am deeply grateful for the trust placed in me, allowing me to take on meaningful responsibilities and contribute to the program’s success. 
