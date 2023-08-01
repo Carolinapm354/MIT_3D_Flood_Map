@@ -11,7 +11,7 @@
 1. [Abstract](#abstract)
 2. [Introduction](#introduction)
    
-   2.1 [Objectives](#objectivesofthestudy)<br>
+   2.1 [Objectives](**2.1Objectivesofthestudy**)<br>
    
    2.2 [Purpose](#Purpose)<br>
    
@@ -40,7 +40,9 @@
 4. [Results](#results)
 5. [Discussion](#discussion)
 6. [Conclusion](#conclusion)
+   
    6.1 [Research Poster](#research-poster)
+   
 7. [Appendix](#appendix)
 8. [Acknowledgments](#acknowledgements)
 
@@ -69,15 +71,9 @@ In conclusion, this research report explores the technical aspects and challenge
 
 **2.1 Objectives of the study**
 
-![Shape3](RackMultipart20230731-1-ifxyyx_html_55d1d6d0da9e15f6.gif) ![Shape2](RackMultipart20230731-1-ifxyyx_html_55d1d6d0da9e15f6.gif) ![Shape1](RackMultipart20230731-1-ifxyyx_html_55d1d6d0da9e15f6.gif)
+![Objectives Diagram](Assets/Objectives_diagram.png)
 
-3
-
-2
-
-1
-
- ![Shape4](RackMultipart20230731-1-ifxyyx_html_6795c5966541bb29.gif)
+Figure 2: Objectives Diagram
 
 **2.2 Purpose**
 
@@ -563,8 +559,12 @@ Once the model is uploaded, open it in blender find the model origin and use "bb
 # **Results**
 ===============
 # **Discussion**
-# **Results**
 # **Conclusion**
+
+**6.1 MSRP Research Forum Poster**
+
+![MSRP 2023 Poster](Assets/Poster.png)
+
 # **Appendix**
 
 `Full raw code`
@@ -864,3 +864,12 @@ Once the model is uploaded, open it in blender find the model origin and use "bb
 </html>
 ```
 # **Acknowledgements**
+
+I would like to express my sincere gratitude to all the people who have supported me throughout this summer to complete this project. Your guidance, support and faith in my abilities have been invaluable and I am deeply grateful for all your support.
+
+First of all, I would like to extend my deepest gratitude to my mentor, Miho Mazereeuw, and supervisor, Mayank Ojhafor for their exceptional guidance. Your feedback, constructive criticism and support unconditional support have been fundamental in shaping the direction of this project. Your willingness to share your time and knowledge has been invaluable. I am truly grateful for the mentorship and dedication shown through this journey.
+
+Also, I wish to extend my gratitude to the Urban Risk Lab team for their valuable knowledge, thoughtful
+comments and suggestions, which have significantly enriched the content and depth of this research project.
+
+Lastly, I want to express my heartfelt appreciation for the incredible opportunity to be part of MIT’s Summer Research Program. Throughout my time here, I have been fortunate to work alongside an exceptional team, receiving invaluable support and mentorship that has contributed significantly to my professional growth. I am deeply grateful for the trust placed in me, allowing me to take on meaningful responsibilities and contribute to the program’s success. 
