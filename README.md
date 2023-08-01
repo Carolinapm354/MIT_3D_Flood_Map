@@ -607,14 +607,47 @@ Once the model is uploaded, open it in blender find the model origin and use "bb
   ```
   The second way is to directly change the style in Qgis using the Qgis2three.js plugin. We created a color ramp in QGIS and applied it directly to a 3D model (or extruded 3d shapefile) using QGIS2ThreeJS, following these steps:
 
- 1. Create a Color Ramp in QGIS: Open QGIS and load your vector  for which you want to create the color ramp. Right-click on the layer in the Layers Panel and choose "Properties." In the Layer Properties dialog, go to the "Style" tab. Choose a rendering type appropriate for your data (we chose categorized). Click on the color ramp to access the "Color Ramp" dialog. Modify the color ramp to suit your visualization preferences. Click "OK" to apply the color ramp to your layer.
- 
- 2. 
+ 1. Create a Color Ramp in QGIS: Open QGIS and load your vector  for which you want to create the color ramp. Right-click on the layer in the Layers Panel and choose "Properties." In the Layer Properties dialog, go to the "Style" tab. Choose a rendering type appropriate for your data (we chose categorized). Click on the color ramp to access the "Color Ramp" dialog. Modify the color ramp to suit your visualization preferences. Click "OK" to apply the color ramp to your layer. 
 
+ <em>We created a color ramp called "Blues2". The HTML notation of the light Blue is #bddee8 and of the blue is #2b5d9e. </em>
+![Color_Ramp](Assets/Color_Ramp.png)
+<p align="center"><em>Figure #: Flood Hazard Layer Color Ramp</em><p>
+
+ 2. Open Qgis2three.js plugin. Right click on the flood hazard layer and open a vector layer settigs. A dialog box will appear, one of the setiing options is "Material". In "Color" drop down the menu and choose expression. In the expression box write "ramp_color('Blues2', DEPTH2d), as shown in figure #. 
+
+ ![Material Settings](Assets/Material_setting.png) 
+ <p align="center"><em> Figure#: Material settings to add Color Ramp. </em><p> 
+
+ After this, click on "apply" and "ok". The colors are set. 
 
   * Lights 
 
-  To get started with lights, we suggest to read 
+  Before working with lights, we suggest reading up on 
+
+  To get started with lights, we suggest to read the chapter on ""Lights" in the three.js manual. It will help cover the basics needed to execute this task. 
+
+  URL: https://threejs.org/manual/#en/lights
+
+  To iluminate our 3d models, we will use directional light and hemisphere light. After creating our costum layer and adding the camera and scene. We will add the code required to adjust lighting. This part is crucial for properly rendering and viewing the objects because without the lights the models appear dark. 
+
+ `Setting Lights code` 
+
+  ```
+    dirLight = new THREE.DirectionalLight(0xffffff, 0.25);
+        dirLight.position.set(-270, 1000, 500); //3, 3.5
+        dirLight.target.position.set(250, 0, 250);
+
+        // To visualize directional light
+        // const helper = new THREE.DirectionalLightHelper( dirLight, 5 );
+        // this.scene.add(helper);
+
+        this.scene.add(dirLight);
+        this.scene.add(dirLight.target);
+
+
+        const hemLight = new THREE.HemisphereLight(0xffffff, 0.8);
+        this.scene.add(hemLight);
+  ```
 
 # **Results**
 ===============
