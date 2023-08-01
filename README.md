@@ -566,4 +566,301 @@ Once the model is uploaded, open it in blender find the model origin and use "bb
 # **Results**
 # **Conclusion**
 # **Appendix**
+
+`Full raw code`
+
+```
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Add Multiple 3D Models</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    #lighting-controls {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 10px;
+      border-radius: 4px;
+    }
+
+    #map-angle {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: #fff;
+    }
+
+    .slider-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .slider-container span {
+      margin-left: 8px;
+    }
+
+    /* .mapboxgl-ctrl-logo {display: none !important;} */
+  </style>
+</head>
+
+<body>
+  <script src="https://unpkg.com/three@0.126.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
+  <div id="map"></div>
+  <!-- <div id="lighting-controls">
+  </div> -->
+  <div id="map-angle"></div>
+
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiY3BlcmV6bSIsImEiOiJjbGo0b3lhZjIwM3R2M2treGMwc3Z2NDhoIn0.Py5P82ue0Klm3gJYJsrc2g';
+
+    // const center = [-71.0821192, 42.3602075];
+    // const center = [-71.08884, 42.36076];
+    const map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/cperezm/clinodmuj01dm01p692cp3xh7/draft',
+      zoom: 15.334314053840895,
+      center: [-71.09280320649185, 42.35965244275371],
+      // center: [0, 0],
+      pitch: 66.0005904069893,
+      antialias: true
+    });
+
+
+    const modelOrigin = [-71.08884, 42.36076];;
+    // const modelOrigin = [0, 0];
+    const modelAltitude = 0;
+    const modelRotate = [Math.PI / 2, 0, 0];
+    const modelAsMercatorCoordinate = mapboxgl.MercatorCoordinate.fromLngLat(
+      modelOrigin,
+      modelAltitude
+    );
+
+    const modelTransform = {
+      translateX: modelAsMercatorCoordinate.x,
+      translateY: modelAsMercatorCoordinate.y,
+      translateZ: modelAsMercatorCoordinate.z,
+      rotateX: modelRotate[0],
+      rotateY: modelRotate[1],
+      rotateZ: modelRotate[2],
+      scale: modelAsMercatorCoordinate.meterInMercatorCoordinateUnits()
+    };
+
+    const THREE = window.THREE;
+    const scene = new THREE.Scene();
+
+    const loader = new THREE.GLTFLoader();
+    const loader2 = new THREE.GLTFLoader();
+    const loader3 = new THREE.GLTFLoader();
+    const loader4 = new THREE.GLTFLoader();
+
+    let model1, model2, model3, model4;
+    let directionalLight;
+
+    loader.load(
+      'https://raw.githubusercontent.com/Carolinapm354/test3d/main/RELOAD-Ed.gltf',
+      (gltf) => {
+        model1 = gltf;
+        gltf.scene.scale.set(.3048, .3048, .3048);
+        scene.add(gltf.scene);
+      }
+    );
+
+    loader2.load(
+      'https://raw.githubusercontent.com/Carolinapm354/test3d/main/E4pt3.gltf',
+      (gltf) => {
+        model2 = gltf;
+        gltf.scene.scale.set(.738, .738, .738);
+        gltf.scene.position.set(-348.4, 0, 64);
+        scene.add(gltf.scene);
+      }
+    );
+
+    loader3.load(
+      'https://raw.githubusercontent.com/Carolinapm354/test3d/main/E4.gltf',
+      (gltf) => {
+        model3 = gltf;
+        gltf.scene.scale.set(.738, .738, .738);
+        gltf.scene.position.set(0.5, 0, -0.8); // -71.0821192, 42.3602075
+        // -7912825.321416488, 5215090.434340221
+        scene.add(gltf.scene);
+      }
+    );
+
+    loader4.load(
+      'https://raw.githubusercontent.com/Carolinapm354/test3d/main/E4pt2.gltf',
+      (gltf) => {
+        model4 = gltf;
+        gltf.scene.scale.set(0.738, 0.738, 0.738);
+        gltf.scene.position.set(-348, 0, 63.8);
+        scene.add(gltf.scene);
+      }
+    );
+
+    const customLayer = {
+      id: '3d-model',
+      type: 'custom',
+      renderingMode: '3d',
+      onAdd: function (map, gl) {
+        this.camera = new THREE.Camera();
+        this.scene = scene;
+
+        dirLight = new THREE.DirectionalLight(0xffffff, 0.25);
+        dirLight.position.set(-270, 1000, 500); //3, 3.5
+        dirLight.target.position.set(250, 0, 250);
+
+        // To visualize directional light
+        // const helper = new THREE.DirectionalLightHelper( dirLight, 5 );
+        // this.scene.add(helper);
+
+        this.scene.add(dirLight);
+        this.scene.add(dirLight.target);
+
+
+        const hemLight = new THREE.HemisphereLight(0xffffff, 0.8);
+        // AmbientLight.position.set(0,10,0)
+        this.scene.add(hemLight);
+
+        this.map = map;
+        this.renderer = new THREE.WebGLRenderer({
+          canvas: map.getCanvas(),
+          context: gl,
+          antialias: true
+        });
+        this.renderer.autoClear = false;
+
+      },
+      render: function (gl, matrix) {
+        const rotationX = new THREE.Matrix4().makeRotationAxis(
+          new THREE.Vector3(1, 0, 0),
+          modelTransform.rotateX
+        );
+        const rotationY = new THREE.Matrix4().makeRotationAxis(
+          new THREE.Vector3(0, 1, 0),
+          modelTransform.rotateY
+        );
+        const rotationZ = new THREE.Matrix4().makeRotationAxis(
+          new THREE.Vector3(0, 0, 1),
+          modelTransform.rotateZ
+        );
+
+        const m = new THREE.Matrix4().fromArray(matrix);
+        const l = new THREE.Matrix4()
+          .makeTranslation(
+            modelTransform.translateX,
+            modelTransform.translateY,
+            modelTransform.translateZ
+          )
+          .scale(
+            new THREE.Vector3(
+              modelTransform.scale,
+              -modelTransform.scale,
+              modelTransform.scale
+            )
+          )
+          .multiply(rotationX)
+          .multiply(rotationY)
+          .multiply(rotationZ);
+
+        this.camera.projectionMatrix = m.multiply(l);
+        this.renderer.resetState();
+        this.renderer.render(this.scene, this.camera);
+        this.map.triggerRepaint();
+      }
+    };
+
+    map.on('style.load', () => {
+      map.addLayer(customLayer, 'waterway-label');
+    });
+
+
+
+    map.on('style.load', function () {
+      map.on('click', function (e) {
+        var description = null;
+
+        var coordinates = e.lngLat;
+        var latitude = coordinates.lat;
+        var longitude = coordinates.lng;
+        var scenes = model1.scenes[0].children[0].children;
+
+        var closestDistance = Number.MAX_VALUE;
+        var closestLatitude = 0;
+        var closestLongitude = 0;
+
+        // Iterate over the 'children' array and perform operations on each element.
+        scenes.forEach(function (child, index) {
+          // 'child' represents each element in the 'children' array.
+          // Here you can perform operations on each child, if needed.
+          var ud = child.userData;
+          var Center_Lat = ud.Center_Lat;
+          var Center_Lon = ud.Center_Lon;
+
+          var tempDistance = Math.sqrt((Center_Lat - latitude) ** 2 + (Center_Lon - longitude) ** 2);
+          if (tempDistance < closestDistance) {
+            closestDistance = tempDistance;
+            closestLatitude = Center_Lat;
+            closestLongitude = Center_Lon;
+            description = ud;
+          }
+
+        });
+
+        var popup = new mapboxgl.Popup({
+          maxWidth: "350px", // Set your desired maximum width here
+        });
+
+        // var popupContent = document.createElement('div');
+        // popupContent.style.maxHeight = "200px"; // Set your desired maximum height here
+        // popupContent.style.overflowY = "auto"; // Add vertical scrollbar when content overflows
+        console.log(description);
+        // popupContent.innerHTML = JSON.stringify(description);
+        
+        const popupContent = `<p>Building Name: <b>${description['Name']}</b></p>\
+          <p>Building ID: <b>${description['Building_I']}</b></p>\
+          <p>Ground Elevation (ft): <b>${description['Ground_Ele'].toFixed(2)}</b></p>\
+          <p>Max. Elevation (ft): <b>${description['Max_Elev_F'].toFixed(2)}</b></p>\
+          <p>Min. Elevation (ft): <b>${description['Min_Elev_F'].toFixed(2)}</b></p>\
+          <p>Height (ft): <b>${description['Height_Ft'].toFixed(2)}</b></p>`;
+        
+        popup.setHTML(popupContent);
+
+
+        // popup.setDOMContent(popupContent);
+        popup.setLngLat(coordinates).addTo(map);
+
+      });
+
+    });
+    map.on('moveend', () => {
+      const ctr = map.getCenter();
+      const zm = map.getZoom();
+      const ptc = map.getPitch();
+
+      const box = document.getElementById('map-angle');
+      box.innerHTML = `Center: ${ctr} | Zoom: ${zm} | Pitch: ${ptc}`;
+    });
+  </script>
+</body>
+
+</html>
+```
 # **Acknowledgements**
