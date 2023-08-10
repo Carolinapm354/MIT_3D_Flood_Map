@@ -165,6 +165,8 @@ E.4 OBJ: is a 3d standard format. It has the ability to recognixe 3d objects' su
 
 Getting started by identifying creative innovative ways to communicate flood risk. By brainstorming an effective way to execute this mission, we agreed that the best experimental approach for this summer's case study was developing a three-dimensional map of the MIT campus, which allows us to study flood problems in depth. It gives us the opportunity to experiment with Mapbox mapping capabilities, the cloud mapping platform used to employ the task.
 
+
+
 At the beginning, a project done by Smart City Cologne was used as an example for understanding risk assessment through 3d mapping.
 
 
@@ -175,15 +177,15 @@ At the beginning, a project done by Smart City Cologne was used as an example fo
 Article: Planning the City of Tomorrow in 3D, written by Jim Baumann
 [(https://www.esri.com/about/newsroom/arcuser/planning-the-city-of-tomorrow-in-3d/)](https://www.esri.com/about/newsroom/arcuser/planning-the-city-of-tomorrow-in-3d/)</em>. <p>
 
-Morgenstadt: City of the Future, an initiative by Fraunhofer Society in 2010, Their main goal was “to develop and implement technologies for future cities that are climate-adapted, carbon dioxide neutral, and energy efficient.” (Baumann, 2019) They “used GIS technologies combined with geodesign planning methodology to support the implementation of a holistic approach to sustainable urban development” (Baumann, 2019). They developed a 3d interactive model with ArcGIS City Engine to plan a new sustainable city in Cologne, a city in Germany on the Rhine River, responding to flood threats in the area. 
-
-By utilizing Esri CityEngine to model existing flood data, they provided visualizations of flood inundation levels in Mülheim Süd, a district in Cologne. The methodology recognized that information technology advancements, including real-time monitoring, GIS integration, and improved computer speed, are transforming the concept of smart communities into reality. As the world's population is projected to reach 9.7 billion by 2050, and the majority living in cities, integrated planning and analysis become crucial to address urban challenges. 
+Morgenstadt: City of the Future is an initiative by Fraunhofer Society in 2010 “to develop and implement technologies for future cities that are climate-adapted, carbon dioxide neutral, and energy efficient.” (Baumann, 2019) They “used GIS technologies combined with geodesign planning methodology to support the implementation of a holistic approach to sustainable urban development” (Baumann, 2019). They developed a 3d interactive model with ArcGIS City Engine to plan a new sustainable city in Cologne, a city in Germany on the Rhine River, responding to flood threats in the area. 
 
  Developing an interactive 3D model with CityEngine for the revitalization of Mülheim Süd involved integrating various datasets and using advanced GIS technologies to create a comprehensive and detailed representation of the project area. The process was carefully planned and executed to account for different environmental factors, including flooding, noise levels, and energy consumption
 
  Considering that Cologne is situated along a major European river, flooding was a critical concern. CityEngine was employed to model existing flood data, which provided visualizations of flood inundation levels in Mülheim Süd. By rasterizing and vectorizing water level data and the DTM, potential flooding scenarios and their impact on streets and buildings could be displayed effectively.
 
  The methodology highlighted the cost-effectiveness and efficiency of 3D GIS technology for sustainable urban development. The workflow and tools developed for this project were adaptable for other communities.
+
+
 
 In our pursuit to enhance flood data visualizations, we have undertaken a holistic approach that seeks to revolutionize flood mapping and address previous limitations. Our research diverges from conventional efforts in two fundamental aspects, symbolizing our commitment to advancing flood risk management.
 
@@ -195,53 +197,75 @@ Through these transformative changes, we are poised to revolutionize flood data 
 
  **2. Starting with Mapbox Studio and Style**
 
-Choosing Mapbox as our main platform allows the map to be published and shared in the Urban Risk Lab's dashboard. But most importantly it gives us the flexibility and versatility to edit the map directly in Mapbox Studio by importing, filtering, and styling layers from shapefiles and geojson. Simultaneously, it allows us to use Mapbox GL js to edit the map and add additional data to the map through code.
+Choosing Mapbox as our main platform was crucial because it is well-suited to create interactive 3d maps. Mapbox enables us to visualize the MIT campus in three dimensions, which is essential for accurately depicting elevation changes and simulating the impact of flooding. Most importantly it gives us the flexibility and versatility to edit the map directly in Mapbox Studio by importing, filtering, and styling layers from shapefiles and geojson. Simultaneously, it allows us to use Mapbox GL js to edit the map and add additional data to the map through code. And it also, allows the map to be published in the GitHub repository and it is compatible with the series of maps contained in the MIT Climate Resilience dashboard.
 
-First we start by opening Mapbox, creating an account with MIT institutional email and an access token, which Mapbox uses to associate your account with your requests to Mapbox API resources. Then we start by opening and editing a style in Mapbox Studio. For this particular map, I chose "Mapbox Light."
+First we start by opening Mapbox, creating an account with MIT institutional email and an access token, which Mapbox uses to associate your account with your requests to Mapbox API resources. Then we move to opening and editing a style in Mapbox Studio. For this particular map, I chose "Mapbox Light."
 
-Style URL: mapbox://styles/mapbox/light-v11
+`Style URL:`  mapbox://styles/mapbox/light-v11
 
 This style is useful for highlighting colored-data layers. Once the style has uploaded, one has editing capabilities to edit the style as one desires. Most importantly, we can start by importing layers.
 
-As provided by the Urban Risk Lab, the first two layers to be added were: "MIT Building.geojson", which demonstrates the silhouette of all MIT buildings on campus, and "2070\_100y\_Storm\_24h.geojson", which contains the flood hazard layer.
+As provided by the Urban Risk Lab, the first two layers to be added were: 
 
-The next constitutes following this tutorial:
+* <em>"MIT Building.geojson"</em> 
 
+The MIT Building layer which contains the silhouette of all MIT buildings on campus.
+
+* <em>"2070\_100y\_Storm\_24h.geojson"</em> 
+
+The Flood Hazard layer containing the highest water level during a flood caused by a hypothetical 11.7-inch rainfall over 24 hours on campus, considering altered climatic conditions, is referred to as the peak flood elevation. This event has a 10% chance of occurring every year. However, over a span of 50 years, there's a 39% likelihood of experiencing this particular event. The parameters for this simulated storm are founded on projected climate alterations anticipated for the year 2070.
+
+These 2D layers will be used as references for placing the 3D models.  
+
+After importing the layers, in the Mapbox Studio style editor turn on 3d buildings by clicking on the buildings component to open the component properties panel and click the 3d building toggle to "on". This step is important because it allows us to right click and drag on mouse to explore map three-dimensionally.
+
+
+<div class="side-note">
+  
+If you are interested in more details please review this documentation which gives direct instruction on how to create a 3d map, add 3d buildings in Mapbox Studio, and extrude imported layers. 
+
+`Adding 3d Buildings in Mapbox: `
 [https://docs.mapbox.com/help/tutorials/add-3d-buildings-studio/#option-2-style-an-individual-layer](https://docs.mapbox.com/help/tutorials/add-3d-buildings-studio/#option-2-style-an-individual-layer)
 
-It gives direct instruction on how to create a 3d map and add 3d buildings in Mapbox Studio. In the Mapbox Studio style editor, turn on 3d buildings by clicking on the buildings component to open the component properties panel and click the 3d building toggle to "on". The file below gives instructions if your style does not contain a building layer.
 
-After this, we can adjust the properties of our imported data by selecting the layer, choosing "select data" and changing the layer "type" into "fill extrusion". This will automatically create an extruded layer corresponding to the original layer data. After, we must style it accordingly by setting the height property, the base height property, and changing the color. We can style across data range but styling with a function is ideal.
 
-The "2070\_100y\_Storm\_24h.geojson" was extruded and styled by setting "fill height extrusion" to "depth2d\*.3048". This "\*.3048" is a necessary conversion for changing from feet to meters, which is the unit Mapbox uses. The base height was set to "grounddepth2d\*.3048". The layer was color-coded based on Maximum Depth with shades of blue indicating crucial areas.
+</div>
 
-On the other side, ""MIT Building.geojson" was used as reference for placing the 3d buildings model. In order to highlight the buildings presented in this layer, the mapbox's building layer was turned off.
+<style>
+.side-note {
+  background-color: #f5f5f5;
+  border-left: 4px solid #ff9900;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+</style>
+
+
+Note:  In order to highlight the buildings presented in the MIT Building layer, the mapbox's building layer was turned off.
+
+
 
 After editing, it is crucial to publish the style to preserve changes in future steps.
 
   **3. Setting up the Code**
 
-For this step we first start by downloading Visual Studio Code, " a code editor redefined and optimized for building and debugging modern web and cloud applications". Start by creating a file and opening it in vs code. Create a basic "index.html".
+For this step we first start by downloading Visual Studio Code. Start by creating a file and opening it in vs code. Create a basic "index.html" inside the file.
 
 Go back to Mapbox in the browser and install Mapbox GL JS to create a web map with Mapbox GL JS. There are two methods for installing it by using the Mapbox CDN or a module bundler, as recommended by Mapbox the node package manage (npm). After installing the npm package, include the GL JS CSS file by pasting this on the \<HEAD\>of the html file created previously.
 
+```Code Block 1: HTML code snippet including stylesheet to  Mapbox GL JS library version 2.8.1.```
+```javascript
+
 \<link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet' /\>
 
-And, by adding the map to your site by pasting this under \<BODY\> :
+```
 
-var mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
+And, by adding the map class to your site by pasting this code under "\<BODY\>" :
 
-mapboxgl.accessToken = 'YOUR\_MAPBOX\_ACCESS\_TOKEN';
+```Code Block 2: HTML code snippet initializing Mapbox map ```
 
-var map = new mapboxgl.Map({
-
-container: 'YOUR\_CONTAINER\_ELEMENT\_ID',
-
-style: 'mapbox://styles/mapbox/streets-v11'
-
-});
-
-Or add the Map class:
+```javascript
 
 mapboxgl.accessToken = '\<your access token here\>';
 
@@ -256,18 +280,463 @@ center: [-74.5, 40], // starting position [lng, lat]
 zoom: 9 // starting zoom
 
 });
+```
 
 Now, we are set to use Mapbox GL JS by accessing it through VS Code.
 
-First, we can start by inserting our Mapbox individual user access token to track our progress. Then, we can start setting a map style and an initial view. For changing the style, we can use the style URL from our published Mapbox style and copy-paste it after "style:" between the apostrophes. By downloading a VS code plugin called "Live Server", we can use it to open a window to view the index.html. Right-click and click on "Open with Live server" a window shall appear with the Mapbox style. Every time a change is made in Mapbox Studio style, it shall be published in order to view the updated version of the style in the HTML file. To set an initial view, we can use "bboxfinder" to find the latitude and longitude of a specific location and replace it where it says "center "on the map class code.
+First, we can start by inserting our Mapbox individual user access token to track our progress.
 
-The next step is loading a basic web map using a Mapbox example. And luckily, there is a code already written for adding 3d models into Mapbox using Three.js, a popular JavaScript library used for creating and rendering 3D graphics in web browsers. It provides a simple and efficient way to work with WebGL, a web standard for rendering 3D graphics on the GPU (Graphics Processing Unit). Three.js abstracts the complexities of WebGL, making it easier to build and display 3D content on the web.
+ Then, we can start setting a map style and an initial view. For changing the style, we can use the style URL from our published Mapbox style and copy-paste it after "style:" between the apostrophes. 
+ 
+ By downloading a VS code plugin called "Live Server", we can use it to open a window to view the index.html. Right-click and click on "Open with Live server" a window shall appear with the Mapbox style. Every time a change is made in Mapbox Studio style, it shall be published in order to view the updated version of the style in the HTML file. 
+ 
+ To set an initial view, we can use "bboxfinder" to find the latitude and longitude of a specific location and replace it where it says "center "on the map class code.
 
+The next step is loading a basic web map using a Mapbox example. And luckily, there is a code already written for adding 3d models into Mapbox using Three.js. You can do this by copy & pasting the entire code into the index.html file.
+
+*Note: This code already includes the Mapbox GL JS setup so it is not necesary to copy the entire code if you already did the previous part. 
+
+
+<div class="side-note">
+  
 This URL provides more information of the documentation of the plugin: [Three.js – JavaScript 3D Library (threejs.org)](https://threejs.org/)
 
-This URL provides the code and an introduction to [Add a 3D model | Mapbox GL JS | Mapbox](https://docs.mapbox.com/mapbox-gl-js/example/add-3d-model/)
+This URL provides the full code and an introduction to [Add a 3D model | Mapbox GL JS | Mapbox](https://docs.mapbox.com/mapbox-gl-js/example/add-3d-model/)
 
-And this is the code provided to import a Satellite as GLTF file in a Mapbox Style:
+</div>
+
+<style>
+.side-note {
+  background-color: #f5f5f5;
+  border-left: 4px solid #ff9900;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+</style>
+
+
+The code provided by Mapbox is used to import a Satellite as GLTF file in a Mapbox Style. 
+
+`Code Block 3: Add a 3d model using threejs (Mapbox Example)`
+
+```javascript
+\<!DOCTYPE html\>
+
+\<html\>
+
+\<head\>
+
+\<meta charset="utf-8"\>
+
+\<title\>Add a 3D model\</title\>
+
+\<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"\>
+
+\<link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet"\>
+
+\<script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"\>\</script\>
+
+\<style\>
+
+//... 
+
+```
+Please view full code in Appendix before continuing with the next steps.
+
+Lets break down this code.  
+
+1. **HTML Document Setup:**
+   
+   The code starts with the basic structure of an HTML document. It declares the document type, includes meta information, and links to external libraries and stylesheets.
+
+2. **Meta and Stylesheet Links:**
+
+   - `<meta charset="utf-8">`: This meta tag sets the character encoding of the document to UTF-8, which is a widely used character encoding for displaying various languages.
+   
+   - `<title>`: Sets the title of the HTML document, which is typically displayed in the browser's title bar or tab.
+   
+   - `<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">`: This meta tag defines the viewport settings for mobile devices, ensuring that the initial scale is set to 1 and users can't zoom the content.
+   
+   - `<link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">`: This `<link>` tag references the CSS stylesheet for Mapbox GL JS, which is used to style the map components.
+
+   - `<style>`: This section contains inline CSS styles for the HTML document. In this case, it sets some basic styles for the body and the map container.
+
+3. **JavaScript Libraries:**
+
+   - `<script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>`: This `<script>` tag links to the Mapbox GL JS JavaScript library, which provides the tools for creating interactive maps.
+   
+   - `<script src="https://unpkg.com/three@0.126.0/build/three.min.js"></script>`: This `<script>` tag links to the Three.js library, which is used for creating and manipulating 3D graphics in the browser.
+   
+   - `<script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>`: This `<script>` tag links to the GLTFLoader module of Three.js, which is responsible for loading 3D models in GLTF format.
+
+4. **Map Container:**
+
+   - `<div id="map"></div>`: This `<div>` element with the ID "map" is where the Mapbox map will be displayed. It serves as the container for the map.
+
+5. **JavaScript Code:**
+
+   - `mapboxgl.accessToken`: This line sets the access token for Mapbox, which is required for using Mapbox services and APIs. The access token is specific to your Mapbox account.
+
+   - `const map = new mapboxgl.Map({ ... })`: This initializes a Mapbox map object with various configuration options. These options include the container ID, style URL, initial zoom level, center coordinates, pitch (tilt angle), and antialiasing settings.
+
+   - **3D Model Parameters:** These lines define parameters for the 3D model's position, altitude, rotation, and transformation. They ensure that the 3D model is correctly positioned and aligned with the map's geospatial coordinates.
+
+   - `const THREE = window.THREE;`: This line assigns the Three.js library to the variable `THREE`, allowing you to use Three.js functions and classes.
+
+   - `const customLayer = { ... }`: This object defines a custom layer using Three.js for rendering the 3D model on the map. It includes methods like `onAdd` and `render` that handle adding the layer to the map and rendering the 3D model.
+
+6. **`map.on('style.load', () => { ... });`**:
+
+   This code attaches an event listener to the map's 'style.load' event, which triggers when the map style has finished loading. Inside this listener, the custom 3D model layer (`customLayer`) is added to the map. The layer is positioned to render on top of the 'waterway-label' layer.
+
+
+
+Once the is saved in the index.html file of VS code, the map and the 3D object (the satellite) must be visible when the live server is open. After going live, you will notice that it is wrongfully placed in another part of the world. You can use "bboxfinder once again to place the satellite accordingly, by changing the latitude and longitude in "const modelorigin: ()" under the "Parameters to ensure the model is georeferenced correctly on the map".
+
+  **4. Uploading my own model into Mapbox**
+
+We now know it is possible to load a 3d object into Mapbox. The challenge now is figuring out how to import one of our own models into Mapbox.
+
+Starting by visiting the City Cambridge GIS portal and downloading their new, sophisticated 3D GIS Data. In which they have 3d buildings of Cambridge in different formats including: Skechup, ESRI Shapefile, STL, OBJ, and GLTF.
+
+
+<div class="side-note">
+
+  Follow this URL to find 3D GIS resources of Cambridge: [3D GIS Data - City of Cambridge](https://www.cambridgema.gov/GIS/3D/3ddata)
+
+</div>
+
+<style>
+.side-note {
+  background-color: #f5f5f5;
+  border-left: 4px solid #ff9900;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+</style>
+
+
+We saw before, on the code that our satellite model was a GLTF uploaded through a GLTF loader from Three,js.
+
+A GLTF (GL Transmission Format) is an open standard file format designed for efficient transmission and loading of 3D scenes and models. It is specifically optimized for use in real-time graphics, such as web and mobile applications, virtual reality (VR), and augmented reality (AR) experiences.GLTF is developed by the Khronos Group, an industry consortium that focuses on the creation of open standards for graphics and media. The format was created to address the limitations of other 3D file formats, providing a more compact and efficient representation of 3D assets.
+
+If we observe, the part of the code that adds the GLTF loader we can view that highlighted link is the source for the 3d object.
+
+`3D Loader`
+
+```javascript
+const loader = new THREE.GLTFLoader();
+
+loader.load(
+
+'https://docs.mapbox.com/mapbox-gl-js/assets/34M\_17/34M\_17.gltf',
+
+(gltf) =\> {
+
+this.scene.add(gltf.scene);
+
+}
+
+);
+
+this.map = map;
+```
+
+This means that by changing that URL we are able to to replace it with our own model. We do this by creating a Github account, creating a folder in desktop to store the files and creating repository in Github. The next is to import GLTF models into the folder. We can create a GLTF model by exporting through Sketchup or Blender.
+
+Open the folder on VS Code to host the repository on your computer. Next, Ctr+Shift+P, and write \>git clone "enter" to clone your folder on repository. Choose "Clone from Github" and choose the file destination for repository.
+
+After this un a new terminal, write "cd .\test3d\" and then press "enter". On the next line, code "git add .", on the following, "git commit -m 'add message'" (Note: on the left side of the menu the name of the GLTF file stopped being green.) After all this, add the file to the repository by "git push".
+
+You can verify that this process was executed correctly by viewing the GLTF file directly on your repository through your Github account. If it appears this process was done correctly. If not, then trace back your steps to make sure you didn't miss anything.
+
+This process ensured uploading the file to the repository now we have to trace it by creating the URL.
+
+Its main composition is : 'https://raw.githubusercontent.com/username/repository\_name/branch/title\_of\_file'
+
+An example of the URL is:
+
+'https://raw.githubusercontent.com/example-user/3d-models /main/Building10'
+
+Once the model is uploaded, open it in blender find the model origin and use "bboxfinder" to recenter the model.
+
+![](RackMultipart20230731-1-ifxyyx_html_c72f221a44d21e2a.png)
+
+![](RackMultipart20230731-1-ifxyyx_html_4ca0faadf66809ec.png)
+
+  **5. Attaching Metadata to the GLTF file**
+
+  **6. Adding More Models, Scaling, and Positioning**
+
+  **3. Style, Lights, & Pop Ups**
+
+ *  **Style: Changing the color of a 3d model.** 
+
+  There are two primary ways to do this. First, we can change the color by changing the base color factor of a material by modifying the appropriate properties in the glTF file. The base color factor is typically represented as a 4-component RGBA (Red, Green, Blue, Alpha) color value.
+
+1. Open the "MIT BUILDINGS" glTF file: it contains information about the 3D model, including its materials and textures. You can open the file using a text editor or a JSON editor.
+
+2. Locate the material: Look for the materials you want to modify (ctr + F: materials ). Materials are defined under the "materials" property in the glTF file. Each material has various properties, and the base color factor is typically represented as "pbrMetallicRoughness" under the "extensions" property.
+
+3. Change the base color factor: The base color factor is represented as an array of four numbers (RGBA) between 0.0 and 1.0. For example, [1.0, 0.0, 0.0, 1.0] represents a fully opaque red color. The Alpha component, represented by the last number (1 in this case), controls the opacity of the material, where 0.0 means completely transparent, and 1.0 means fully opaque. Modify these values to change the color as desired. In our code, we are using a hexadecimal value, which is a base-16 numbering system that uses a combination of digits 0-9 and letters A-F to represent values. The color represented in the code is light beige. 
+
+`Changing the baseColorFactor`
+  ```javascript
+   "materials": [
+        {
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.9490196078431372,
+                    0.9215686274509803,
+                    0.8862745098039215,
+                    1
+                ],
+                "metallicFactor": 0.5,
+                "roughnessFactor": 0.5
+            },
+            "doubleSided": true
+        }
+    ],
+  ```
+  The second way is to directly change the style in Qgis using the Qgis2three.js plugin. We created a color ramp in QGIS and applied it directly to a 3D model (or extruded 3d shapefile) using QGIS2ThreeJS, following these steps:
+
+ 1. Create a Color Ramp in QGIS: Open QGIS and load your vector  for which you want to create the color ramp. Right-click on the layer in the Layers Panel and choose "Properties." In the Layer Properties dialog, go to the "Style" tab. Choose a rendering type appropriate for your data (we chose categorized). Click on the color ramp to access the "Color Ramp" dialog. Modify the color ramp to suit your visualization preferences. Click "OK" to apply the color ramp to your layer. 
+
+ <em>We created a color ramp called "Blues2". The HTML notation of the light Blue is #bddee8 and of the blue is #2b5d9e. </em>
+![Color_Ramp](Assets/Color_Ramp.png)
+<p align="center"><em>Figure #: Flood Hazard Layer Color Ramp</em><p>
+
+ 2. Open Qgis2three.js plugin. Right click on the flood hazard layer and open a vector layer settigs. A dialog box will appear, one of the setiing options is "Material". In "Color" drop down the menu and choose expression. In the expression box write "ramp_color('Blues2', DEPTH2d), as shown in figure #. 
+
+ ![Material Settings](Assets/Material_setting.png) 
+ <p align="center"><em> Figure#: Material settings to add Color Ramp. </em><p> 
+
+ After this, click on "apply" and "ok". The colors are set. 
+
+  *  **Lights**
+
+  To get started with lights, we suggest to read the chapter on ""Lights" in the three.js manual. It will help cover the basics needed to execute this task. 
+
+  URL: https://threejs.org/manual/#en/lights
+
+  To iluminate our 3d models, we will use directional light and hemisphere light.The directional light simulating sunlight coming from a specific direction and a hemisphere light simulating ambient sky lighting. These lights contribute to the overall lighting and shading of the 3D scene. 
+  
+  We will add the code required to adjust lighting after creating our costum layer and adding the camera and scene.  This part is crucial for properly rendering and viewing the objects because without the lights the models appear dark. 
+
+  Lets start by setting up the directional light.
+
+```javascript
+dirLight = new THREE.DirectionalLight(0xffffff, 0.25);
+```
+This line creates a new directional light with a color of pure white (0xffffff) and an intensity of 0.25. Directional lights simulate light coming from a specific direction and illuminate all objects uniformly, like sunlight.
+
+```javascript
+dirLight.position.set(-270, 1000, 500);
+```
+Sets the position of the directional light in 3D space. The parameters (-270, 1000, 500) represent the x, y, and z coordinates of the light source's position. This position determines the direction from which the light is coming.
+
+```javascript
+dirLight.target.position.set(250, 0, 250);
+```
+Sets the position of the target that the directional light is pointing at. This can influence the direction in which the light is oriented. In this case, the target's position is set at (250, 0, 250).
+
+```javascript
+this.scene.add(dirLight);
+this.scene.add(dirLight.target);
+```
+Adds the directional light and its target to the Three.js scene. This makes the light visible and affects the lighting conditions in the scene.
+
+After finishing up with the directional light, we can move on to setting up the hemisphere light.
+```javascript
+const hemLight = new THREE.HemisphereLight(0xffffff, 0.8);
+```
+This line creates a new hemisphere light with a color of pure white (0xffffff) and an intensity of 0.8. Hemisphere lights simulate the diffuse light coming from the sky, which can be particularly useful for creating ambient lighting in a scene.
+
+```javascript
+this.scene.add(hemLight);
+```
+Adds the hemisphere light to the scene.
+
+
+ `Setting Lights full code` 
+
+  ```javascript
+    dirLight = new THREE.DirectionalLight(0xffffff, 0.25);
+        dirLight.position.set(-270, 1000, 500); //3, 3.5
+        dirLight.target.position.set(250, 0, 250);
+
+        // To visualize directional light
+        // const helper = new THREE.DirectionalLightHelper( dirLight, 5 );
+        // this.scene.add(helper);
+
+        this.scene.add(dirLight);
+        this.scene.add(dirLight.target);
+
+
+        const hemLight = new THREE.HemisphereLight(0xffffff, 0.8);
+        this.scene.add(hemLight);
+  ```
+  
+
+  *  **Diaplay Popups**
+  
+  To create popups we can start by setting up an event listener that responds to clicks on the map. When the user clicks on the map, it captures the clicked coordinates, and in the provided example, it demonstrates how to create a popup showing the clicked coordinates. The commented-out lines indicate how you could create a popup to display the clicked location's coordinates as a simple example.
+
+`Event listeners for creating click on popup` 
+```javascript
+map.on('style.load', function () {
+      map.on('click', function (e) {
+        var description = null;
+
+        var coordinates = e.lngLat;
+        var latitude = coordinates.lat;
+        var longitude = coordinates.lng;
+        //new mapboxgl.Popup()
+      //.setLngLat(coordinates)
+      //.setHTML('you clicked here: <br/>' + coordinates)
+      //.addTo(map);
+  });
+});
+
+```
+The first few lines of code are the setup functions that allows us to click anywhere on the map and the following lines of this code allows us recognize which lat. and lng. correspond to the clicked coordinate. 
+
+First,
+
+<em>map.on('style.load', function () {...})</em> 
+
+sets up an event listener that waits for the map's style to finish loading. When the style finishes loading, the provided function is executed. This indicates that the map has been set up and is ready to be interacted with.
+
+
+<em>map.on('click', function (e) {...})</em>
+
+Inside the previous event listener, this line sets up another event listener that listens for a click event on the map. When the user clicks on the map, the provided function is executed, and the e parameter holds information about the click event, including the clicked location's latitude and longitude.
+
+After this setup, we start with "Data Preparation:
+
+The <em> var description = null</em> initializes a variable named description which will later hold the data associated with the closest building to the clicked location.
+The latitude and longitude of the clicked location are extracted from e.lngLat.
+scenes holds an array of scene elements which are later iterated over.
+
+This is how we create event listeners for clicking on map to display popups.
+
+---
+
+After setting the event listeners responding to the clicked coordinates, we have to find the closest building to where the user clicked. The code iterates over each child in the scenes array, which presumably represents different buildings or objects on the map:
+
+`Denest to find the Children of Model1` 
+
+```javascript
+var scenes = model1.scenes[0].children[0].children;
+```
+
+First, the userData of each child is accessed, presumably containing data about the building. For us to access this userData, we must "denest" in order for us to find the children corresponding to Model1 (as shown above).
+
+Second, the code calculates the distance between the clicked location and the center of each building using the Euclidean distance formula. If the calculated distance is closer than the previous closest distance, the code updates the closest distance and stores the building's data in the description variable.
+
+To do this we must first initialize variables.
+
+
+`Variable intialization` 
+```javascript
+  var closestDistance = Number.MAX_VALUE;
+        var closestLatitude = 0;
+        var closestLongitude = 0;
+```
+
+These variables are initialized to store information about the closest child based on distance calculations. closestDistance is initialized with the maximum possible value, and closestLatitude and closestLongitude are initialized with zeros.
+
+
+`Iteration Over Children and Distance Calculation` 
+
+```javascript
+scenes.forEach(function (child, index) {
+   var ud = child.userData;
+   var Center_Lat = ud.Center_Lat;
+   var Center_Lon = ud.Center_Lon;
+
+   var tempDistance = Math.sqrt((Center_Lat - latitude) ** 2 + (Center_Lon - longitude) ** 2);
+   if (tempDistance < closestDistance) {
+     closestDistance = tempDistance;
+     closestLatitude = Center_Lat;
+     closestLongitude = Center_Lon;
+     description = ud;
+   }
+});
+
+```
+Then we must iterates over each element (child) in the scenes array using the forEach loop. For each child, it accesses the userData property, which presumably holds additional data about the child.
+
+The latitude and longitude of the current child's center are extracted from userData and stored in Center_Lat and Center_Lon.
+A temporary distance (tempDistance) is calculated between the clicked location's latitude and longitude (latitude and longitude) and the current child's center latitude and longitude.
+If tempDistance is smaller than the current closestDistance, the code updates closestDistance, closestLatitude, and closestLongitude with the values of the current child. Additionally, it stores the userData of the current child in the description variable, suggesting that this child is currently the closest one.
+
+---
+
+Now, we can start by creating and stylizing the popup.
+
+`Creating the popup` 
+
+   ```javascript
+   var popup = new mapboxgl.Popup({
+     maxWidth: "350px", // Set your desired maximum width here
+   });
+   ```
+   This code creates a new instance of a Mapbox GL JS popup. The `maxWidth` option is set to limit the maximum width of the popup content to 350 pixels.
+
+`Popup filtering Content HTML`
+   ```javascript
+   const popupContent = `<p>Building Name: <b>${description['Name']}</b></p>\
+     <p>Building ID: <b>${description['Building_I']}</b></p>\
+     <p>Ground Elevation (ft): <b>${description['Ground_Ele'].toFixed(2)}</b></p>\
+     <p>Max. Elevation (ft): <b>${description['Max_Elev_F'].toFixed(2)}</b></p>\
+     <p>Min. Elevation (ft): <b>${description['Min_Elev_F'].toFixed(2)}</b></p>\
+     <p>Height (ft): <b>${description['Height_Ft'].toFixed(2)}</b></p>`;
+   ```
+   This code constructs a string `popupContent`. It contains various placeholders `${...}` that are replaced with values from the `description` object. These values are properties of the building or object that was clicked.
+
+`Setting up the popupContent`
+
+   ```javascript
+   popup.setHTML(popupContent);
+   ```
+   This line sets the content of the popup to the HTML content defined in the `popupContent` variable. This content will be displayed inside the popup when it's opened.
+
+ `Setting Popup Position and Display`
+   ```javascript
+   popup.setLngLat(coordinates).addTo(map);
+   ```
+   This line sets the geographic position of the popup using the `setLngLat` method and the `coordinates` variable (latitude and longitude of the clicked location). Then, the popup is added to the map using the `addTo` method, which makes the popup visible on the map.
+
+
+# **Results**
+
+# **Discussion**
+
+
+* Extruding Flood Hazard Layer in Mapbox instead of using Qgis2three.js plugin
+
+ To adjust the properties of our imported data by selecting the layer, choosing "select data" and changing the layer "type" into "fill extrusion". This will automatically create an extruded layer corresponding to the original layer data. After executing  this step, we must style it accordingly by setting the height property, the base height property, and changing the color. We recommend styling with a formula.
+
+If you are going to extrude the flood hazard layer directly in Mapbox, these are the recommended formulas for extrusions:
+
+The <em>"2070\_100y\_Storm\_24h.geojson"</em> must be extruded and styled by setting <em>"fill height extrusion"</em> to "depth2d\*.3048". This "\*.3048" is a necessary conversion for changing from feet to meters, which is the unit Mapbox uses. The base height must be set to "grounddepth2d\*.3048". The layer was color-coded based on Maximum Depth with shades of blue indicating crucial areas.
+
+The problem with extruding the flood hazard layer is that it creates an unecesary base, like the one you are seeing below creating inaccurate results.  
+
+# **Conclusion**
+
+**6.1 MSRP Research Forum Poster**
+
+![MSRP 2023 Poster](Assets/Poster.png)
+
+# **Appendix**
+
+`Full Code Block 3: Add a 3d model using threejs (Mapbox Example)`
+
+```javascript
 
 \<!DOCTYPE html\>
 
@@ -340,6 +809,7 @@ modelOrigin,
 modelAltitude
 
 );
+
 
 // transformation parameters to position, rotate and scale the 3D model onto the map
 
@@ -516,153 +986,12 @@ map.addLayer(customLayer, 'waterway-label');
 \</body\>
 
 \</html\>
+```
 
-Once it is saved in the index.html file of VS code it is visible when the live server is open. After going live, you will notice that it is wrongfully placed in another part of the world. You can use "bboxfinder once again to place the satellite accordingly, by changing the latitude and longitude in "const modelorigin: ()" under the "Parameters to ensure the model is georeferenced correctly on the map".
-
-  **4. Uploading my own model into Mapbox**
-
-We now know it is possible to load a 3d object into Mapbox. The challenge now is figuring out how to import one of our own models into Mapbox.
-
-Starting by visiting the City Cambridge GIS portal and downloading their new, sophisticated 3d GIS Data. In which they have 3d buildings of Cambridge in different formats including: Skechup, ESRI Shapefile, STL, OBJ, and GLTF.
-
-We saw before, on the code that our satellite model was a GLTF uploaded through a GLTF loader from Three,js.
-
-A GLTF (GL Transmission Format) is an open standard file format designed for efficient transmission and loading of 3D scenes and models. It is specifically optimized for use in real-time graphics, such as web and mobile applications, virtual reality (VR), and augmented reality (AR) experiences.GLTF is developed by the Khronos Group, an industry consortium that focuses on the creation of open standards for graphics and media. The format was created to address the limitations of other 3D file formats, providing a more compact and efficient representation of 3D assets.
-
-If we observe, the part of the code that adds the GLTF loader we can view that highlighted link is the source for the 3d object.
-
-Code Block 1: Example Showing 3D Loader
-
-const loader = new THREE.GLTFLoader();
-
-loader.load(
-
-'https://docs.mapbox.com/mapbox-gl-js/assets/34M\_17/34M\_17.gltf',
-
-(gltf) =\> {
-
-this.scene.add(gltf.scene);
-
-}
-
-);
-
-this.map = map;
-
-This means that by changing that URL we are able to to replace it with our own model. We do this by creating a Github account, creating a folder in desktop to store the files and creating repository in Github. The next is to import GLTF models into the folder. We can create a GLTF model by exporting through Sketchup or Blender.
-
-Open the folder on VS Code to host the repository on your computer. Next, Ctr+Shift+P, and write \>git clone "enter" to clone your folder on repository. Choose "Clone from Github" and choose the file destination for repository.
-
-After this un a new terminal, write "cd .\test3d\" and then press "enter". On the next line, code "git add .", on the following, "git commit -m 'add message'" (Note: on the left side of the menu the name of the GLTF file stopped being green.) After all this, add the file to the repository by "git push".
-
-You can verify that this process was executed correctly by viewing the GLTF file directly on your repository through your Github account. If it appears this process was done correctly. If not, then trace back your steps to make sure you didn't miss anything.
-
-This process ensured uploading the file to the repository now we have to trace it by creating the URL.
-
-Its main composition is : 'https://raw.githubusercontent.com/username/repository\_name/branch/title\_of\_file'
-
-An example of the URL is:
-
-'https://raw.githubusercontent.com/example-user/3d-models /main/Building10'
-
-Once the model is uploaded, open it in blender find the model origin and use "bboxfinder" to recenter the model.
-
-![](RackMultipart20230731-1-ifxyyx_html_c72f221a44d21e2a.png)
-
-![](RackMultipart20230731-1-ifxyyx_html_4ca0faadf66809ec.png)
-
-  **5. Attaching Metadata to the GLTF file**
-
-  **6. Adding More Models, Scaling, and Positioning**
-
-  **3. Style, Lights, & Pop Ups**
-
- *  Style: Changing the color of a 3d mode. 
-
-  There are two primary ways to do this. First, we can change the color by changing the base color factor of a material by modifying the appropriate properties in the glTF file. The base color factor is typically represented as a 4-component RGBA (Red, Green, Blue, Alpha) color value.
-
-1. Open the "MIT BUILDINGS" glTF file: it contains information about the 3D model, including its materials and textures. You can open the file using a text editor or a JSON editor.
-
-2. Locate the material: Look for the materials you want to modify (ctr + F: materials ). Materials are defined under the "materials" property in the glTF file. Each material has various properties, and the base color factor is typically represented as "pbrMetallicRoughness" under the "extensions" property.
-
-3. Change the base color factor: The base color factor is represented as an array of four numbers (RGBA) between 0.0 and 1.0. For example, [1.0, 0.0, 0.0, 1.0] represents a fully opaque red color. The Alpha component, represented by the last number (1 in this case), controls the opacity of the material, where 0.0 means completely transparent, and 1.0 means fully opaque. Modify these values to change the color as desired. In our code, we are using a hexadecimal value, which is a base-16 numbering system that uses a combination of digits 0-9 and letters A-F to represent values. The color represented in the code is light beige. 
-
-`Changing the baseColorFactor`
-  ```
-   "materials": [
-        {
-            "pbrMetallicRoughness": {
-                "baseColorFactor": [
-                    0.9490196078431372,
-                    0.9215686274509803,
-                    0.8862745098039215,
-                    1
-                ],
-                "metallicFactor": 0.5,
-                "roughnessFactor": 0.5
-            },
-            "doubleSided": true
-        }
-    ],
-  ```
-  The second way is to directly change the style in Qgis using the Qgis2three.js plugin. We created a color ramp in QGIS and applied it directly to a 3D model (or extruded 3d shapefile) using QGIS2ThreeJS, following these steps:
-
- 1. Create a Color Ramp in QGIS: Open QGIS and load your vector  for which you want to create the color ramp. Right-click on the layer in the Layers Panel and choose "Properties." In the Layer Properties dialog, go to the "Style" tab. Choose a rendering type appropriate for your data (we chose categorized). Click on the color ramp to access the "Color Ramp" dialog. Modify the color ramp to suit your visualization preferences. Click "OK" to apply the color ramp to your layer. 
-
- <em>We created a color ramp called "Blues2". The HTML notation of the light Blue is #bddee8 and of the blue is #2b5d9e. </em>
-![Color_Ramp](Assets/Color_Ramp.png)
-<p align="center"><em>Figure #: Flood Hazard Layer Color Ramp</em><p>
-
- 2. Open Qgis2three.js plugin. Right click on the flood hazard layer and open a vector layer settigs. A dialog box will appear, one of the setiing options is "Material". In "Color" drop down the menu and choose expression. In the expression box write "ramp_color('Blues2', DEPTH2d), as shown in figure #. 
-
- ![Material Settings](Assets/Material_setting.png) 
- <p align="center"><em> Figure#: Material settings to add Color Ramp. </em><p> 
-
- After this, click on "apply" and "ok". The colors are set. 
-
-  * Lights 
-
-  Before working with lights, we suggest reading up on 
-
-  To get started with lights, we suggest to read the chapter on ""Lights" in the three.js manual. It will help cover the basics needed to execute this task. 
-
-  URL: https://threejs.org/manual/#en/lights
-
-  To iluminate our 3d models, we will use directional light and hemisphere light. After creating our costum layer and adding the camera and scene. We will add the code required to adjust lighting. This part is crucial for properly rendering and viewing the objects because without the lights the models appear dark. 
-
- `Setting Lights code` 
-
-  ```
-    dirLight = new THREE.DirectionalLight(0xffffff, 0.25);
-        dirLight.position.set(-270, 1000, 500); //3, 3.5
-        dirLight.target.position.set(250, 0, 250);
-
-        // To visualize directional light
-        // const helper = new THREE.DirectionalLightHelper( dirLight, 5 );
-        // this.scene.add(helper);
-
-        this.scene.add(dirLight);
-        this.scene.add(dirLight.target);
-
-
-        const hemLight = new THREE.HemisphereLight(0xffffff, 0.8);
-        this.scene.add(hemLight);
-  ```
-
-# **Results**
-===============
-# **Discussion**
-# **Conclusion**
-
-**6.1 MSRP Research Forum Poster**
-
-![MSRP 2023 Poster](Assets/Poster.png)
-
-# **Appendix**
 
 `Full raw code`
 
-```
+```javascript
 <!DOCTYPE html>
 <html>
 
@@ -960,11 +1289,11 @@ Once the model is uploaded, open it in blender find the model origin and use "bb
 
 I would like to express my sincere gratitude to all the people who have supported me throughout this summer to complete this project. Your guidance, support and faith in my abilities have been invaluable and I am deeply grateful for all your support.
 
-Firstly, I would like to extend my deepest gratitude to my mentor, Miho Mazereeuw, and supervisor, Mayank Ojhafor for their exceptional guidance. Your feedback, constructive criticism and unconditional support have been fundamental in shaping the direction of this project. Your willingness to share your time and knowledge has been invaluable. I am truly grateful for the mentorship and dedication shown through this journey.
+Firstly, I would like to extend my deepest gratitude to my mentor, Miho Mazereeuw, and supervisor, Mayank Ojha for for their exceptional guidance. Your feedback, constructive criticism and unconditional support have been fundamental in shaping the direction of this project. Your willingness to share your time and knowledge has been very valuable. I am truly grateful for the mentorship and dedication shown through this journey.
 
 Secondly, I wish to extend my gratitude to the Urban Risk Lab team for their valuable knowledge, thoughtful
 comments and suggestions, which have significantly enriched the content and depth of this research project.
 
-Thirdly, I would like to thank Reihaneh Iranmanesh, a fellow MSRP intern, for all her help with code assistance, HTML and JavaScript guidance, computer science support, debugging, and most of all, for being an incredibly supportive and amazing friend. Her expertise and willingness to lend a hand have been invaluable during our time at MIT.
+Thirdly, I would like to thank Reihaneh Iranmanesh, a fellow MSRP intern, for all her help with coding assistance for being an incredibly supportive and amazing friend. Her expertise and willingness to lend a hand have been vital during our time at MIT.
 
-Lastly, I want to express my heartfelt appreciation for the incredible opportunity to be part of MIT’s Summer Research Program. Throughout my time here, I have been fortunate to work alongside an exceptional team, receiving invaluable support and mentorship that has contributed significantly to my professional growth. I am deeply grateful for the trust placed in me, allowing me to take on meaningful responsibilities and contribute to the program’s success. 
+Lastly, I want to express my heartfelt appreciation for the incredible opportunity to be part of MIT’s Summer Research Program. Throughout my time here, I have been fortunate to work alongside an exceptional team, receiving incredible support and mentorship that has contributed significantly to my professional growth. I am deeply grateful for the trust placed in me, allowing me to take on meaningful responsibilities and contribute to the program’s success. 
