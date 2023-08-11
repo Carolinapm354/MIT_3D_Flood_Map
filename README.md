@@ -220,29 +220,13 @@ These 2D layers will be used as references for placing the 3D models.
 After importing the layers, in the Mapbox Studio style editor turn on 3d buildings by clicking on the buildings component to open the component properties panel and click the 3d building toggle to "on". This step is important because it allows us to right click and drag on mouse to explore map three-dimensionally.
 
 
-<div class="side-note">
-  
-If you are interested in more details please review this documentation which gives direct instruction on how to create a 3d map, add 3d buildings in Mapbox Studio, and extrude imported layers. 
 
-`Adding 3d Buildings in Mapbox: `
-[https://docs.mapbox.com/help/tutorials/add-3d-buildings-studio/#option-2-style-an-individual-layer](https://docs.mapbox.com/help/tutorials/add-3d-buildings-studio/#option-2-style-an-individual-layer)
+> **Note:** This URL provides more information about the documentation of the plugin: [Three.js – JavaScript 3D Library (threejs.org)](https://threejs.org/)
+>
+> This URL provides the full code and an introduction to [Add a 3D model | Mapbox GL JS | Mapbox](https://docs.mapbox.com/mapbox-gl-js/example/add-3d-model/)
 
 
-
-</div>
-
-<style>
-.side-note {
-  background-color: #f5f5f5;
-  border-left: 4px solid #ff9900;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 4px;
-}
-</style>
-
-
-Note:  In order to highlight the buildings presented in the MIT Building layer, the mapbox's building layer was turned off.
+ Keep in mind that in order to highlight the buildings presented in the MIT Building layer, the mapbox's building layer was turned off.
 
 
 
@@ -294,17 +278,16 @@ First, we can start by inserting our Mapbox individual user access token to trac
 
 The next step is loading a basic web map using a Mapbox example. And luckily, there is a code already written for adding 3d models into Mapbox using Three.js. You can do this by copy & pasting the entire code into the index.html file.
 
-*Note: This code already includes the Mapbox GL JS setup so it is not necesary to copy the entire code if you already did the previous part. 
 
----
-> <div style="background-color: #ff0000; padding: 10px; border-radius: 4px;">
+
+> **Note:** This code already includes the Mapbox GL JS setup so it is not necesary to copy the entire code if you already did the previous part. 
+
 >   
-> This URL provides more information about the documentation of the plugin: [Three.js – JavaScript 3D Library (threejs.org)](https://threejs.org/)
+> **Note:** This URL provides more information about the documentation of the plugin: [Three.js – JavaScript 3D Library (threejs.org)](https://threejs.org/)
 > 
 > This URL provides the full code and an introduction to [Add a 3D model | Mapbox GL JS | Mapbox](https://docs.mapbox.com/mapbox-gl-js/example/add-3d-model/)
 > 
-> </div>
----
+
 
 
 
@@ -440,7 +423,7 @@ This means that by changing that URL we are able to to replace it with our own m
 
 Open the folder on VS Code to host the repository on your computer. Next, Ctr+Shift+P, and write \>git clone "enter" to clone your folder on repository. Choose "Clone from Github" and choose the file destination for repository.
 
-After this un a new terminal, write "cd .\test3d\" and then press "enter". On the next line, code "git add .", on the following, "git commit -m 'add message'" (Note: on the left side of the menu the name of the GLTF file stopped being green.) After all this, add the file to the repository by "git push".
+After this un a new terminal, write "cd .\test3d\" and then press "enter". On the next line, code "git add .", on the following, "git commit -m 'add message'" (Notice that on the left side of the menu the name of the GLTF file stopped being green.) After all this, add the file to the repository by "git push".
 
 You can verify that this process was executed correctly by viewing the GLTF file directly on your repository through your Github account. If it appears this process was done correctly. If not, then trace back your steps to make sure you didn't miss anything.
 
