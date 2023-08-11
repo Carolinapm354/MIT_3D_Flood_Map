@@ -296,25 +296,7 @@ The next step is loading a basic web map using a Mapbox example. And luckily, th
 
 *Note: This code already includes the Mapbox GL JS setup so it is not necesary to copy the entire code if you already did the previous part. 
 
-
-<div class="side-note">
-  
-This URL provides more information of the documentation of the plugin: [Three.js – JavaScript 3D Library (threejs.org)](https://threejs.org/)
-
-This URL provides the full code and an introduction to [Add a 3D model | Mapbox GL JS | Mapbox](https://docs.mapbox.com/mapbox-gl-js/example/add-3d-model/)
-
-</div>
-
-<style>
-.side-note {
-  background-color: #f5f5f5;
-  border-left: 4px solid #ff9900;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 4px;
-}
-</style>
-
+---
 > <div style="background-color: #ff0000; padding: 10px; border-radius: 4px;">
 >   
 > This URL provides more information about the documentation of the plugin: [Three.js – JavaScript 3D Library (threejs.org)](https://threejs.org/)
@@ -322,6 +304,7 @@ This URL provides the full code and an introduction to [Add a 3D model | Mapbox 
 > This URL provides the full code and an introduction to [Add a 3D model | Mapbox GL JS | Mapbox](https://docs.mapbox.com/mapbox-gl-js/example/add-3d-model/)
 > 
 > </div>
+---
 
 
 
