@@ -317,7 +317,7 @@ The code provided by Mapbox is used to import a Satellite as GLTF file in a Mapb
 //... 
 
 ```
-Please view full code in Appendix before continuing with the next steps.
+> **Important:** Please view full code in Appendix before continuing with the next steps.
 
 Lets break down this code.  
 
@@ -373,33 +373,13 @@ Once the is saved in the index.html file of VS code, the map and the 3D object (
 
 We now know it is possible to load a 3d object into Mapbox. The challenge now is figuring out how to import one of our own models into Mapbox.
 
-Starting by visiting the City Cambridge GIS portal and downloading their new, sophisticated 3D GIS Data. In which they have 3d buildings of Cambridge in different formats including: Skechup, ESRI Shapefile, STL, OBJ, and GLTF.
 
 
-<div class="side-note">
-
-  Follow this URL to find 3D GIS resources of Cambridge: [3D GIS Data - City of Cambridge](https://www.cambridgema.gov/GIS/3D/3ddata)
-
-</div>
-
-<style>
-.side-note {
-  background-color: #f5f5f5;
-  border-left: 4px solid #ff9900;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 4px;
-}
-</style>
 
 
-We saw before, on the code that our satellite model was a GLTF uploaded through a GLTF loader from Three,js.
+We saw before, on the code that our satellite model was a GLTF uploaded through a GLTF loader from Three,js. If we observe the part of the code that adds the GLTF loader, we can view that highlighted link is the source for the 3d object.
 
-A GLTF (GL Transmission Format) is an open standard file format designed for efficient transmission and loading of 3D scenes and models. It is specifically optimized for use in real-time graphics, such as web and mobile applications, virtual reality (VR), and augmented reality (AR) experiences.GLTF is developed by the Khronos Group, an industry consortium that focuses on the creation of open standards for graphics and media. The format was created to address the limitations of other 3D file formats, providing a more compact and efficient representation of 3D assets.
-
-If we observe, the part of the code that adds the GLTF loader we can view that highlighted link is the source for the 3d object.
-
-`3D Loader`
+`Code Block 4: 3D Object Loader (GLTFLoader)`
 
 ```javascript
 const loader = new THREE.GLTFLoader();
@@ -419,33 +399,244 @@ this.scene.add(gltf.scene);
 this.map = map;
 ```
 
-This means that by changing that URL we are able to to replace it with our own model. We do this by creating a Github account, creating a folder in desktop to store the files and creating repository in Github. The next is to import GLTF models into the folder. We can create a GLTF model by exporting through Sketchup or Blender.
+This means that by changing that URL we are able to to replace it with our own URL containing our own model. We do this by creating a Github account, creating a folder in desktop to store the files and creating repository in Github. The next step is to import a GLTF model into the folder. We can create a GLTF model by exporting through Sketchup or Blender.
 
-Open the folder on VS Code to host the repository on your computer. Next, Ctr+Shift+P, and write \>git clone "enter" to clone your folder on repository. Choose "Clone from Github" and choose the file destination for repository.
+Open the folder on VS Code to host the repository on your computer. Next, <em>Ctr+Shift+P</em>, and code <em>\>git clone</em>. Press "enter" to clone your folder on repository. Choose <em>"Clone from Github"</em> and choose the file destination for repository.
 
-After this un a new terminal, write "cd .\test3d\" and then press "enter". On the next line, code "git add .", on the following, "git commit -m 'add message'" (Notice that on the left side of the menu the name of the GLTF file stopped being green.) After all this, add the file to the repository by "git push".
+After this open a new terminal and enter: 
 
-You can verify that this process was executed correctly by viewing the GLTF file directly on your repository through your Github account. If it appears this process was done correctly. If not, then trace back your steps to make sure you didn't miss anything.
+`Code Block 5: Pushing to the Github repository `
 
-This process ensured uploading the file to the repository now we have to trace it by creating the URL.
+`1. `
 
-Its main composition is : 'https://raw.githubusercontent.com/username/repository\_name/branch/title\_of\_file'
+ ```
+ cd .\test3d\
+ ```
+
+ Press "enter" and on the next line code: 
+ 
+ `2.`
+ ```
+ git add .
+ ``` 
+  On the following,
+
+  `3.`
+  ```
+  git commit -m "Add message" 
+  ``` 
+ Notice that on the left side of the menu the name of the GLTF file stopped being green.
+ 
+After all this, add the file to the repository by entering:
+
+`4. `
+
+```
+git push
+```
+
+You can verify that this process was executed correctly by viewing the GLTF file directly on your repository through your Github account. If it appears, this process was done correctly. If not, then trace back your steps to make sure you didn't miss anything.
+
+This process ensured uploading the GLTF file to the repository now we have to trace it by creating the URL.
+
+> **Its main composition is:**
+> 'https://raw.githubusercontent.com/username/repository\_name/branch/title\_of\_file'
 
 An example of the URL is:
 
-'https://raw.githubusercontent.com/example-user/3d-models /main/Building10'
+'https://raw.githubusercontent.com/example-user/3d-models/main/Building10.gltf'
 
 Once the model is uploaded, open it in blender find the model origin and use "bboxfinder" to recenter the model.
 
-![](RackMultipart20230731-1-ifxyyx_html_c72f221a44d21e2a.png)
-
-![](RackMultipart20230731-1-ifxyyx_html_4ca0faadf66809ec.png)
-
   **5. Attaching Metadata to the GLTF file**
+
+  
+
+  Having established a method for uploading our custom model, our next step involves downloading and editing a Cambridge building shapefile.
+
+  Start by visiting the City Cambridge GIS portal and downloading their new, sophisticated 3D GIS Data. In which they have 3D buildings of Cambridge in different formats including: Skechup, ESRI Shapefile, STL, OBJ, and GLTF.
+
+> **Note:**  Follow this URL to find 3D GIS resources of Cambridge: [3D GIS Data - City of Cambridge](https://www.cambridgema.gov/GIS/3D/3ddata)
+>
+> Follow this URL to download:  [ESRI Shapefile Cambridge Citywide Data](https://www.cambridgema.gov/GIS/3D/3ddata/esrishapefile)
+
+The specific file we are looking for is called <em>"Camb3D_Bldg_Active_MP_SHP.zip"</em>. This file contains all of Cambridge 3D buildings with corresponding metadata. Extract this zip file and open this file on Qgis. 
+
+In addition to this step, open the 2D MIT Building layer on top of it. 
+
+Right Click on the <em>"Camb3D_Bldg_Active_MP_SHP.zip"</em> layer and select toggle editing. On Qgis main ribbon, choose <em>"Select Features by Area or Single Click"</em> and start deleting all the buildings that are not part of MIT (the color of the building will change to yellow when selected). We are mainly doing this to reduce file size, but it is also important to emphasize the MIT buildings only in our map. It is important to use the imported 2D MIT Building layer as reference when deleting. 
+
+Once all the unwanted buildings are deleted. Right Click on <em>"Camb3D_Bldg_Active_MP_SHP.zip"</em> and click on  <em>"Save Layer Edits"</em>. 
+
+Great! Now you ready to download Qgis2three.js plugin by first searching on the "Menu tool bar" on Qgis and clicking on "Manage and Install Plugins". Search for "Qgis2three.js" and install the plugin. 
+
+Once the plugin has been installed, make sure the CRS is set to "EPSG:3857" and open the plugin. 
+
+>**Note:**  Set Coordinate Reference System to EPSG:3857. This important because the GLTF model we will be exporting might be distorted based on the CRS it is placed. 
+
+A window must popup with the plugin displaying a blue sky gradient. On the left side of the window turn on <em>"Camb3D_Bldg_Active_MP_SHP.zip"</em> by checking the box on the left side of the name. Since the layer already had 3D properties there is no need to extrude the layer, but we must right click on the layer open the layer properties and check the box for "Export attributes" in the Attributes section. As of right now, you should be seeing the three-dimensional layer. If not, right click on the layer found in the layer panel and select "Zoom to layer Objects".
+
+Before exporting the scene, we can adjust the scene settings by opening the "scene setting" and changing the "World Coordinates (WC)" and "Base Extent (BE)". For this particular 3d model we left the WC as "Center of Base Extent" and BE as "Use map canvas extent".
+
+Now, we can finally exporting the scene as a GLTF by clicking on "file" and "Save scene as GLTF". 
+
+Now that we have our gltf file, we may want to open it on the gltfeditor website online. In doing so, we can study the strusture of the GLTF file by identifying the children, nodes, and meshes. Every children has a number that corresponds to each building. This helpful because it allows to make sure that everybuilding has the correct ttributes or metadata. 
+
+So, the GLTF file exported from the plugin contained the correct attribute the problem is that all attributes we exported as strings. We needed them to be keys and values. 
+
+We fixed this by temporarily using python and coding the following: 
+
+`Code Block 6: Converting Metadata from strings to keys and values`
+
+```python
+import json
+
+# Custom serialization function
+def custom_serializer(obj):
+    if isinstance(obj, (int, float)):
+        return obj  # Return the original value
+    raise TypeError(f'Type {type(obj)} not serializable')
+
+f = open('test3d/RELOAD-Ed.json')
+
+# returns JSON object as
+# a dictionary
+data = json.load(f)
+
+names = ["Model_ID", "Building_I", "Name", "POI_Type", "Model_Date", "Model_Sour", 
+         "Ground_Ele", "Max_Elev_F", "Min_Elev_F", "Height_Ft", "Center_Lat", "Center_Lon", 
+         "Google_Lin",	"Nearmap_Li", "Editor", "Edit_Date", "Edit_Note", "Tile", "Model_Cred", 
+         "Status", "created_us", "created_da"]
+
+
+for item in data['nodes']:
+    try:
+        properties = item["extras"]["properties"]
+
+        tempdict = {}
+        for n in range(len(names)):
+            try:
+                tempdict[names[n]] = float(properties[n])
+            except:
+                tempdict[names[n]] = properties[n]
+
+        item["extras"] = tempdict
+
+        with open('test3d/RELOAD-Ed.json', 'w') as file:
+            json.dump(data, file, default=custom_serializer)
+    except:
+        break
+```
+
+Lets break down the code, step by step:
+
+1. Import the `json` module:
+   ```python
+   import json
+   ```
+
+2. Define a custom serialization function:
+   ```python
+   def custom_serializer(obj):
+       if isinstance(obj, (int, float)):
+           return obj
+       raise TypeError(f'Type {type(obj)} not serializable')
+   ```
+
+   This function is used to handle the serialization of certain types (specifically, `int` and `float`) during the JSON dumping process.
+
+3. Open a JSON file for reading:
+   ```python
+   f = open('test3d/RELOAD-Ed.json')
+   ```
+
+   The code is opening a JSON file named `'test3d/RELOAD-Ed.json'` in read mode.
+
+4. Load JSON data from the file into a dictionary:
+   ```python
+   data = json.load(f)
+   ```
+
+   The JSON content from the file is loaded into the `data` dictionary.
+
+5. Define a list of property names:
+   ```python
+   names = ["Model_ID", "Building_I", ... "created_da"]
+   ```
+
+   This list contains names corresponding to various properties of the building.
+
+6. Loop through each item in the 'nodes' section of the JSON data:
+   ```python
+   for item in data['nodes']:
+   ```
+
+   This loop iterates through each item in the 'nodes' section of the JSON data.
+
+7. Attempt to extract properties from 'extras':
+   ```python
+   try:
+       properties = item["extras"]["properties"]
+   ```
+
+   The code tries to access the "properties" key within the "extras" section of the current item.
+
+8. Create a temporary dictionary for property manipulation:
+   ```python
+   tempdict = {}
+   ```
+
+   This dictionary will hold the modified properties for the current item.
+
+9. Loop through property names and populating `tempdict`:
+   ```python
+   for n in range(len(names)):
+       try:
+           tempdict[names[n]] = float(properties[n])
+       except:
+           tempdict[names[n]] = properties[n]
+   ```
+
+   This loop iterates through the `names` list, attempting to convert each property's value to a float (if it's numeric). If the conversion fails, it simply assigns the original value to the `tempdict`.
+
+10. Update the 'extras' section of the item. Adding on the 'extra' section is crucial because it allows to making the necessary changes to add attributes without altering the code. 
+    ```python
+    item["extras"] = tempdict
+    ```
+
+    The original 'extras' section of the current item is updated with the modified properties stored in `tempdict`.
+
+11. Write the modified JSON data back to the file:
+    ```python
+    with open('test3d/RELOAD-Ed.json', 'w') as file:
+        json.dump(data, file, default=custom_serializer)
+    ```
+
+    The modified JSON data is written back to the same file, utilizing the custom serialization function defined earlier.
+
+12. Exception handling for handling errors:
+    ```python
+    except:
+        break
+    ```
+
+    If any exception occurs during the above process, the loop is broken.
+
+    After doing this save the GLTF file and push it through the Github reposity and loaded onto the map. 
+
 
   **6. Adding More Models, Scaling, and Positioning**
 
-  **3. Style, Lights, & Pop Ups**
+  * **Adding More than one model** 
+    * Altering the code to add more than one model
+    * Adding Flood Hazard Layer 
+
+  * **Scaling Models**
+
+  * **Positioning Models** 
+
+
+  **7. Style, Lights, & Pop Ups**
 
  *  **Style: Changing the color of a 3d model.** 
 
@@ -700,6 +891,10 @@ If you are going to extrude the flood hazard layer directly in Mapbox, these are
 The <em>"2070\_100y\_Storm\_24h.geojson"</em> must be extruded and styled by setting <em>"fill height extrusion"</em> to "depth2d\*.3048". This "\*.3048" is a necessary conversion for changing from feet to meters, which is the unit Mapbox uses. The base height must be set to "grounddepth2d\*.3048". The layer was color-coded based on Maximum Depth with shades of blue indicating crucial areas.
 
 The problem with extruding the flood hazard layer is that it creates an unecesary base, like the one you are seeing below creating inaccurate results.  
+
+* Creting a GLTF with Metadata through Qgisthree.js
+
+So throughout this entire, you might of noticed that 3D GIS Data Ciy of Cambridge has a GLTF file with all the building. So why go through all the trouble of downloading it as a ESRI Shapefile and then using the Qgisthree.js Plugin to create a GLTF file. The reason is that the GLTF does not contain individual metadata coresponding to each children and the ESRI Shapefile does and it was already a 3d GIS vector layer. So what we had to do was find a way to export it as a gltF file and qgis2three.js was the tool we used for executing the task. It is easier to do this than to individually add metadata from a CSV file into GLTF without the medata or proper structure. 
 
 # **Conclusion**
 
