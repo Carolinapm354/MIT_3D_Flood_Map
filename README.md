@@ -315,14 +315,14 @@ This URL provides the full code and an introduction to [Add a 3D model | Mapbox 
 }
 </style>
 
+> <div style="background-color: #ff0000; padding: 10px; border-radius: 4px;">
+>   
+> This URL provides more information about the documentation of the plugin: [Three.js – JavaScript 3D Library (threejs.org)](https://threejs.org/)
+> 
+> This URL provides the full code and an introduction to [Add a 3D model | Mapbox GL JS | Mapbox](https://docs.mapbox.com/mapbox-gl-js/example/add-3d-model/)
+> 
+> </div>
 
-<div style="background-color: #ff0000; border-left: 4px solid #ff9900; padding: 10px; margin: 10px 0; border-radius: 4px;">
-  
-This URL provides more information about the documentation of the plugin: [Three.js – JavaScript 3D Library (threejs.org)](https://threejs.org/)
-
-This URL provides the full code and an introduction to [Add a 3D model | Mapbox GL JS | Mapbox](https://docs.mapbox.com/mapbox-gl-js/example/add-3d-model/)
-
-</div>
 
 
 The code provided by Mapbox is used to import a Satellite as GLTF file in a Mapbox Style. 
