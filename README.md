@@ -41,7 +41,9 @@
 5. [Discussion](#discussion)
 6. [Conclusion](#conclusion)
    
-   6.1 [Research Poster](#research-poster)
+   6.1 [General Conclusion](#general-conclusion)
+  
+   6.2 [Research Poster](#research-poster)
    
 7. [Appendix](#appendix)
 8. [Acknowledgments](#acknowledgements)
@@ -217,7 +219,7 @@ The Flood Hazard layer containing the highest water level during a flood caused 
 
 These 2D layers will be used as references for placing the 3D models.  
 
-After importing the layers, in the Mapbox Studio style editor turn on 3d buildings by clicking on the buildings component to open the component properties panel and click the 3d building toggle to "on". This step is important because it allows us to right click and drag on mouse to explore map three-dimensionally.
+After importing the layers, in the Mapbox Studio style editor turn on 3d buildings by clicking on the buildings component to open the component properties panel and click the 3d building toggle to "on". This step is important because it allows us to right click and drag on mouse to explore map three-dimensionally. You can also "toggle on" the 3D terrain to demonstate different terrain elevation in three-dimensions. 
 
 
 
@@ -464,9 +466,9 @@ The specific file we are looking for is called <em>"Camb3D_Bldg_Active_MP_SHP.zi
 
 In addition to this step, open the 2D MIT Building layer on top of it. 
 
-Right Click on the <em>"Camb3D_Bldg_Active_MP_SHP.zip"</em> layer and select toggle editing. On Qgis main ribbon, choose <em>"Select Features by Area or Single Click"</em> and start deleting all the buildings that are not part of MIT (the color of the building will change to yellow when selected). We are mainly doing this to reduce file size, but it is also important to emphasize the MIT buildings only in our map. It is important to use the imported 2D MIT Building layer as reference when deleting. 
+Right Click on the <em>"Camb3D_Bldg_Active_MP_SHP"</em> layer and select toggle editing. On Qgis main ribbon, choose <em>"Select Features by Area or Single Click"</em> and start deleting all the buildings that are not part of MIT (the color of the building will change to yellow when selected). We are mainly doing this to reduce file size, but it is also important to emphasize the MIT buildings only in our map. It is important to use the imported 2D MIT Building layer as reference when deleting. 
 
-Once all the unwanted buildings are deleted. Right Click on <em>"Camb3D_Bldg_Active_MP_SHP.zip"</em> and click on  <em>"Save Layer Edits"</em>. 
+Once all the unwanted buildings are deleted. Right Click on <em>"Camb3D_Bldg_Active_MP_SHP"</em> and click on  <em>"Save Layer Edits"</em>. 
 
 Great! Now you ready to download Qgis2three.js plugin by first searching on the "Menu tool bar" on Qgis and clicking on "Manage and Install Plugins". Search for "Qgis2three.js" and install the plugin. 
 
@@ -474,7 +476,7 @@ Once the plugin has been installed, make sure the CRS is set to "EPSG:3857" and 
 
 >**Note:**  Set Coordinate Reference System to EPSG:3857. This important because the GLTF model we will be exporting might be distorted based on the CRS it is placed. 
 
-A window must popup with the plugin displaying a blue sky gradient. On the left side of the window turn on <em>"Camb3D_Bldg_Active_MP_SHP.zip"</em> by checking the box on the left side of the name. Since the layer already had 3D properties there is no need to extrude the layer, but we must right click on the layer open the layer properties and check the box for "Export attributes" in the Attributes section. As of right now, you should be seeing the three-dimensional layer. If not, right click on the layer found in the layer panel and select "Zoom to layer Objects".
+A window must popup with the plugin displaying a blue sky gradient. On the left side of the window turn on <em>"Camb3D_Bldg_Active_MP_SHP"</em> by checking the box on the left side of the name. Since the layer already had 3D properties there is no need to extrude the layer, but we must right click on the layer open the layer properties and check the box for "Export attributes" in the Attributes section. As of right now, you should be seeing the three-dimensional layer. If not, right click on the layer found in the layer panel and select "Zoom to layer Objects".
 
 Before exporting the scene, we can adjust the scene settings by opening the "scene setting" and changing the "World Coordinates (WC)" and "Base Extent (BE)". For this particular 3d model we left the WC as "Center of Base Extent" and BE as "Use map canvas extent".
 
@@ -530,110 +532,236 @@ for item in data['nodes']:
 
 Lets break down the code, step by step:
 
-1. Import the `json` module:
-   ```python
-   import json
-   ```
+1. Fist, we start by importing the json module: <em>import json</em>, then we define a custom serialization function (lines 3-7). This function is used to handle the serialization of certain types (specifically, `int` and `float`) during the JSON dumping process.
 
-2. Define a custom serialization function:
-   ```python
-   def custom_serializer(obj):
-       if isinstance(obj, (int, float)):
-           return obj
-       raise TypeError(f'Type {type(obj)} not serializable')
-   ```
+2. We move on to open our JSON file containing the 3D object for reading: <em>f = open('test3d/RELOAD-Ed.json')</em>. 
+Then, we load JSON data from the file into a dictionary:<em>
+data = json.load(f)</em>. The JSON content from the file is loaded into the `data` dictionary.
 
-   This function is used to handle the serialization of certain types (specifically, `int` and `float`) during the JSON dumping process.
+3. After this step, we define a list of property names: <em>names = ["Model_ID", "Building_I", ... "created_da"]</em>. This list contains names corresponding to various properties of each building.
 
-3. Open a JSON file for reading:
-   ```python
-   f = open('test3d/RELOAD-Ed.json')
-   ```
+4. Then loop through each item in the 'nodes' section of the JSON data by coding: <em>for item in data['nodes']:</em>
+. This loop iterates through each item in the 'nodes' section of the JSON data.
 
-   The code is opening a JSON file named `'test3d/RELOAD-Ed.json'` in read mode.
+5. After looping, extract properties from 'extras'by coding:
+   <em> try:
+       properties = item["extras"]["properties"]</em>.
+  By doing this, we are accessing the "properties" key within the "extras" section of the current item.
 
-4. Load JSON data from the file into a dictionary:
-   ```python
-   data = json.load(f)
-   ```
+6. After extracting the properties, create a temporary dictionary for property manipulation:
+  <em> tempdict = {}</em>. This dictionary will hold the modified properties for the current item.
 
-   The JSON content from the file is loaded into the `data` dictionary.
+9. Now, loop through property names and populating `tempdict`by adding lines 29-33 of code block 6.This loop iterates through the `names` list, attempting to convert each property's value to a float (if it's numeric). If the conversion fails, it simply assigns the original value to the `tempdict`.
 
-5. Define a list of property names:
-   ```python
-   names = ["Model_ID", "Building_I", ... "created_da"]
-   ```
-
-   This list contains names corresponding to various properties of the building.
-
-6. Loop through each item in the 'nodes' section of the JSON data:
-   ```python
-   for item in data['nodes']:
-   ```
-
-   This loop iterates through each item in the 'nodes' section of the JSON data.
-
-7. Attempt to extract properties from 'extras':
-   ```python
-   try:
-       properties = item["extras"]["properties"]
-   ```
-
-   The code tries to access the "properties" key within the "extras" section of the current item.
-
-8. Create a temporary dictionary for property manipulation:
-   ```python
-   tempdict = {}
-   ```
-
-   This dictionary will hold the modified properties for the current item.
-
-9. Loop through property names and populating `tempdict`:
-   ```python
-   for n in range(len(names)):
-       try:
-           tempdict[names[n]] = float(properties[n])
-       except:
-           tempdict[names[n]] = properties[n]
-   ```
-
-   This loop iterates through the `names` list, attempting to convert each property's value to a float (if it's numeric). If the conversion fails, it simply assigns the original value to the `tempdict`.
-
-10. Update the 'extras' section of the item. Adding on the 'extra' section is crucial because it allows to making the necessary changes to add attributes without altering the code. 
-    ```python
-    item["extras"] = tempdict
-    ```
-
-    The original 'extras' section of the current item is updated with the modified properties stored in `tempdict`.
+10. Update the 'extras' section of the item by: <em> item["extras"] = tempdict</em>>. The original 'extras' section of the current item is updated with the modified properties stored in `tempdict`.
+ Adding on the 'extra' section is crucial because it allows to making the necessary changes to add attributes without altering the code. 
 
 11. Write the modified JSON data back to the file:
-    ```python
-    with open('test3d/RELOAD-Ed.json', 'w') as file:
-        json.dump(data, file, default=custom_serializer)
-    ```
+<em>with open('test3d/RELOAD-Ed.json', 'w') as file:
+        json.dump(data, file, default=custom_serializer)</em>
 
     The modified JSON data is written back to the same file, utilizing the custom serialization function defined earlier.
 
-12. Exception handling for handling errors:
-    ```python
-    except:
-        break
-    ```
+12. And, finally add the exception handling for handling errors: <em>exccept: break</em>If any exception occurs during the above process, the loop is broken.
 
-    If any exception occurs during the above process, the loop is broken.
-
-    After doing this save the GLTF file and push it through the Github reposity and loaded onto the map. 
+After doing this save the GLTF file and push it through the Github reposity and loaded into the map. It should but you might notice something off with the model's position and scale. 
 
 
   **6. Adding More Models, Scaling, and Positioning**
-
+   
   * **Adding More than one model** 
+
+    * Adding Flood Hazard Layer
+    
+     Before we start scaling and positioning our model properly. Lets work on loading all of the models we need to load to develop this map. Now that we have our MIT Buildings model, lets work with our flood hazard layer. 
+    
+     Similarly, to how we imported <em>"Camb3D_Bldg_Active_MP_SHP"</em> layer into Qgis, do the same with <em>"2070\_100y\_Storm\_24h.geojson"</em> , our flood hazard layer. Create 3 copies of the layer by right clicking on the layer, choosing <em> Export > Save Feature as </em>. A window must appear with a heading that states: <em>Save Vector Layer as</em>. Choose ESRI Shapefile as format, create a nme for the shapefile, and save it on a file on your computer. Repeat this step 2 more times. Make sure they all have different names. (You can name them: FHpt1, FHpt2, and FHpt3) We are doing this because the original file is too large to push through the github repository (maximum is 50MB) and it would be too heavy to render properly on the map. In response eto this problem we split into three parts. The way you split is up to you but make sure you don't delete important data as you are spliting the files. We reduced the file size of each layer by doing the same thing with the MIT Buildings. (Toggle editing layer > "Select Features by Area or Single Click"> select the parts you want to delete > delete > "Save Layer Edits"). Repeat this step on all layers, until you have the 3 individual layers with three diferent parts of the original flood hazard layer. Be careful when executing this task, don't delete important data and don't duplicate data. If you accidentally delete something you can always revisit the <em>"2070\_100y\_Storm\_24h.geojson"</em> layer. 
+     
+     After setting the three layers, verify that the CRS is placed correctly and then open the plugin. Check the box of one of the layers (ex: FHpt1). 
+
+     >**Note:** If you see an infinite line, close the plugin and set the CRS to 3857.  
+     
+     Right click on the layer and select properties. A dialog box like this one shall appear: 
+     
+     ![Property_box](Assets/Property_box.png)
+     <p align="center"><em>Figure #: Layer Property Box </em><p>
+     
+     To extrude the layer accordingly, make sure that "Type" is on "Extruded", the "Altitude" is an "Expresion" and its formula is: <em>"GNDLEV2D * .3048"</em> meaning Ground ELevation (2D) x the conversion: 1ft=.3048m. (It is necesary to covert from feet to meters to avoid errorsthe units o. Its important to recognize that the layers are set to feet and mapbox uses meters.) The "Height must also be changed using the formula: <em>DEPTH2D * .3048</em>. 
+     
+     You can repeat this step for each layer. 
+     
+     When you start saving the scene to export the model as a GLTF make sure to have the checked boxes of the layers you want to export. Meaning that we want three seperate GLTF files and for each you must check the layer you want to export and hide (uncheck the box) the ones you don't want to export. If you don't hide the unwanted layers, everything will be exported as a single GLTF, and it will be too large to push through GitHub. You need to export the three GLTF files individually. 
+
     * Altering the code to add more than one model
-    * Adding Flood Hazard Layer 
+    
+    Now that we have all our models to create the map, lets alter the code to fit in more than one map. It is very simple we are going to be loading different models by using multiple loaders under the same camera. 
 
-  * **Scaling Models**
+Start by declaring the 4 variables named Model1, Model2, Model3, and Model4.
 
-  * **Positioning Models** 
+`Code Block 7: Declaring Variables `
+
+```javascript
+let model1, model2, model3, model4;
+```
+Then proceeds to load multiple 3D models using the THREE.GLTFLoader() from the Three.js library. Each model is loaded using its respective URL. The loader's load function takes a URL and a callback function that handles the loaded model.
+
+`Code Block 8: Loading mutliple 3D models`
+ ```javascript
+    loader.load('model1.gltf', (gltf) => {
+  model1 = gltf;
+  // Set scaling, position, and other properties
+  scene.add(gltf.scene);
+});
+
+loader2.load('model2.gltf', (gltf) => {
+  model2 = gltf;
+  // Set scaling, position, and other properties
+  scene.add(gltf.scene);
+});
+
+// ... Load other models (loader3, loader4) similarly
+```
+  
+Make sure to replace "model#.gltf with the URL from Github containg the GLTF. After this you can go live and all models must appear on the map. If you can't find a particular model than it must be related with the scale and or position of object. Let's see. 
+
+  * **Scaling and Positioning Models** 
+
+In this part, we will be scaling and positioning the models properly. We did not find a way to automatically execute the task, but we found a manual strategy that helped us scale and place the models correctly. 
+
+Start by placing:
+
+`Code Block 9: Setting Position and Scale`
+
+```
+gltf.scene.scale.set(.738, .738, .738);
+        gltf.scene.position.set(-348.4, 0, 64);
+```
+under each loader before adding the scene. 
+
+This will help set a particular models' scale and position in the x-y-z axis. In position you can maintain y=0, which marks the elevation of the model. 
+
+Now that we know how to manually control it we don't know the exact numbers to place. In response to this problem we created sliders to help us manually move an object on the live server without having to do run the code everytime guessing the correct numbers. 
+
+1. To create the sliders start by adding the HTML Input Elements:
+
+`Code Block 10: HTML input elements for control sliders.`
+
+``` Javascript
+ <div id="positioningandscaling-controls">
+    <h3>Controls</h3>
+    <!-- Model 2 Controls -->
+    <div class="slider-container">
+      <label for="model2-position-x-slider">Model 2 Position X</label>
+      <input id="model2-position-x-slider" type="range" min="-1690" max="-1660" step="1" value="-1673" />
+      <span id="model2-position-x-value">-1673</span>
+    </div>
+    <div class="slider-container">
+      <label for="model2-position-z-slider">Model 2 Position Z</label>
+      <input id="model2-position-z-slider" type="range" min="660" max="690" step="1" value="677" />
+      <span id="model2-position-z-value">677</span>
+    </div>
+    <div class="slider-container">
+      <label for="model2-rotation-y-slider">Model 2 Rotation Y</label>
+      <input id="model2-rotation-y-slider" type="range" min="-5" max="5" step="0.1" value="0" />
+      <span id="model2-rotation-y-value">0</span>
+    </div>
+    <div class="slider-container">
+      <label for="model2-scale-xyz-slider">Model 2 Scale XYZ</label>
+      <input id="model2-scale-xyz-slider" type="range" min="800" max="900" step="10" value="850" />
+      <span id="model2-scale-xyz-value">850</span>
+    </div>
+//Repeat for each model...
+  </div>
+  <script>
+```
+In this section, a container named "positioningandscaling-controls" holds all the control sliders. Inside this container, there are individual "slider-container" divs for each model's properties. Inside each "slider-container," there are labels, input sliders, and spans to display the current value.
+
+**<em>Model 2 Controls include:</em>**
+* Position X Slider This slider controls the X-axis position of Model 2.
+* Position Z Slider: This slider controls the Z-axis position of Model 2.
+* Rotation Y Slider: This slider controls the Y-axis rotation (in degrees) of Model 2.
+* Scale XYZ Slider: This slider controls the uniform scale (X, Y, Z) of Model 2.
+
+To create each slider: 
+
+*"input id="model2-position-x-slider" type="range" min="-1690" max="-1660" step="1" value="-1673" /"*
+
+This input element creates the actual slider control. It has several attributes:
+  * *id:* Uniquely identifies the slider, which is used for the label's for attribute.
+  * *type="range"*  Specifies that this is a range input slider.
+  * *min, max, step:* Define the range and stepping for the slider.
+  * *value:* Sets the initial value of the slider thumb.
+
+*span id="model2-position-x-value">-1673</span>*.
+
+This <span> element is used to display the current value of the slider. Initially, it displays the default value set in the slider's value attribute ("-1673" in this case).
+
+
+Copy and paste Model2 controls code for all models and change the model # accordingly. 
+
+2. Following this step, attach event listeners to each input slider. By adding these lines of codes underneath each model loader. 
+
+`Code Block 11: Adding Event listeners to create sliders.`
+
+``` Javascript
+// loader2.load(
+    //   'https://raw.githubusercontent.com/Carolinapm354/test3d/main/pt-3857.gltf',
+    //   (gltf) => {
+    //     model2 = gltf;
+    //     gltf.scene.scale.set(85000, 85000, 85000);
+    //     gltf.scene.position.set(-1673, 0, 677);
+    //     scene.add(gltf.scene);
+
+    // Select the HTML elements corresponding to each slider using their respective `id` attributes. 
+
+        const model2PositionXSlider = document.getElementById('model2-position-x-slider');
+        const model2PositionZSlider = document.getElementById('model2-position-z-slider');
+        const model2RotationYSlider = document.getElementById('model2-rotation-y-slider');
+        const model2ScaleXYZSlider = document.getElementById('model2-scale-xyz-slider');
+
+        model2PositionXSlider.addEventListener('input', (event) => {
+          const positionX = parseFloat(event.target.value);
+          model2.scene.position.x = positionX;
+          document.getElementById('model2-position-x-value').textContent = positionX.toFixed(1);
+        });
+
+        model2PositionZSlider.addEventListener('input', (event) => {
+          const positionZ = parseFloat(event.target.value);
+          model2.scene.position.z = positionZ;
+          document.getElementById('model2-position-z-value').textContent = positionZ.toFixed(1);
+        });
+
+        model2RotationYSlider.addEventListener('input', (event) => {
+          const rotationY = parseFloat(event.target.value);
+          model2.scene.rotation.y = rotationY * Math.PI / 180;
+          document.getElementById('model2-rotation-y-value').textContent = rotationY.toFixed(1);
+        });
+
+        model2ScaleXYZSlider.addEventListener('input', (event) => {
+          const scaleXYZ = parseFloat(event.target.value) * 100;
+          model2.scene.scale.set(scaleXYZ, scaleXYZ, scaleXYZ);
+          document.getElementById('model2-scale-xyz-value').textContent = (scaleXYZ / 100).toFixed(1);
+        });
+```
+These sliders will allow us us to freely move and scale our models on the live server. We will use the 2D layers from Mapbox style as a guide to place and scale the objects. Then we can erase or hide layers directly in mpapbox.
+
+3. Style the control box
+
+`Code Block 12: Styling Control box`
+
+```Javascript
+ <style>
+   // body { margin: 0; padding: 0; }
+    //#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+    #positioningandscaling-controls { position: absolute; top: 10px; right: 10px; background-color: rgba(255, 255, 255, 0.9); padding: 10px; border-radius: 4px; }
+    .slider-container { display: flex; align-items: center; }
+    .slider-container span { margin-left: 8px; }
+  </style>
+```
+On the right side of each slide a number appears with the values corresponding to the exact location and scale you desire. After obtaining the x-y-z numbers you must replace them here: 
+ *gltf.scene.scale.set(x,y,z);gltf.scene.position.set(x,y,z);* .
+ 
+ > **Note:** This is important to maintain a fixed position and scale. If you don't update these values, then your model will be out of place everytime you reload the page. Keep in mind the slider are used to figure out the numbers needed to place and scale the models properly but to save the location and scale you have to change the x-y-z values to the exact numbers. 
 
 
   **7. Style, Lights, & Pop Ups**
@@ -673,6 +801,7 @@ Lets break down the code, step by step:
  <em>We created a color ramp called "Blues2". The HTML notation of the light Blue is #bddee8 and of the blue is #2b5d9e. </em>
 ![Color_Ramp](Assets/Color_Ramp.png)
 <p align="center"><em>Figure #: Flood Hazard Layer Color Ramp</em><p>
+
 
  2. Open Qgis2three.js plugin. Right click on the flood hazard layer and open a vector layer settigs. A dialog box will appear, one of the setiing options is "Material". In "Color" drop down the menu and choose expression. In the expression box write "ramp_color('Blues2', DEPTH2d), as shown in figure #. 
 
@@ -879,26 +1008,109 @@ Now, we can start by creating and stylizing the popup.
 
 # **Results**
 
+Our main result was the development of the map. 
+
+
+![MIT_3D_Floodmap](Assets/Flood_map_pic1.png)
+
+
+![MIT_3D_Floodmap](Assets/Flood_map_pic2.png)
+
+
+![MIT_3D_Floodmap](Assets/Flood_map_pic3.png)
+
+
+![MIT_3D_Floodmap](Assets/Flood_map_pic4.png)
+
+For future steps, we would like to:
+
+* Export the attributes for the Flood Hazard Layer. 
+* Add more details to the 3D models. It would be ideal for us to add windows, basements, and doorways to the MIT buildings in order for us to see which entrances and inside features are vulnerble to flooding. 
+* Study different flood scenearios in respect to different modeled storm such as (10 year or 50 year storm) and we would also like to use this data visualization strategy in different parts of the world affected by severe flooding. 
+
 # **Discussion**
 
+In this part of the report we will be talking about some of the challenges we faced along the way. Our solutions to such problems and the questions that remain unanswered.
 
 * Extruding Flood Hazard Layer in Mapbox instead of using Qgis2three.js plugin
-
- To adjust the properties of our imported data by selecting the layer, choosing "select data" and changing the layer "type" into "fill extrusion". This will automatically create an extruded layer corresponding to the original layer data. After executing  this step, we must style it accordingly by setting the height property, the base height property, and changing the color. We recommend styling with a formula.
 
 If you are going to extrude the flood hazard layer directly in Mapbox, these are the recommended formulas for extrusions:
 
 The <em>"2070\_100y\_Storm\_24h.geojson"</em> must be extruded and styled by setting <em>"fill height extrusion"</em> to "depth2d\*.3048". This "\*.3048" is a necessary conversion for changing from feet to meters, which is the unit Mapbox uses. The base height must be set to "grounddepth2d\*.3048". The layer was color-coded based on Maximum Depth with shades of blue indicating crucial areas.
 
-The problem with extruding the flood hazard layer is that it creates an unecesary base, like the one you are seeing below creating inaccurate results.  
+The problem with extruding the flood hazard layer is that it creates an unnecessary base, like the one you are seeing below creating inaccurate results.  
 
-* Creting a GLTF with Metadata through Qgisthree.js
 
-So throughout this entire, you might of noticed that 3D GIS Data Ciy of Cambridge has a GLTF file with all the building. So why go through all the trouble of downloading it as a ESRI Shapefile and then using the Qgisthree.js Plugin to create a GLTF file. The reason is that the GLTF does not contain individual metadata coresponding to each children and the ESRI Shapefile does and it was already a 3d GIS vector layer. So what we had to do was find a way to export it as a gltF file and qgis2three.js was the tool we used for executing the task. It is easier to do this than to individually add metadata from a CSV file into GLTF without the medata or proper structure. 
+
+<table>
+  <tr>
+    <td>
+      <img src="Assets/FHLerror.png" alt="Image 1">
+       <p align="center"><em> Figure#: Flood Hazard Layer extruded without 3D terrain. </em><p>
+    </td>
+    <td>
+      <img src="Assets/FHLerror2.png" alt="Image 2">
+       <p align="center"><em> Figure#: Flood Hazard Layer extruded with 3D terrain.   </em><p>
+    </td>
+  </tr>
+</table>
+
+We were not able to eliminate this. What we didto solve this was extrude the 2D Flood Hazard layer in Qis2three.js to fix the the problem. 
+
+
+* Creating a GLTF with Metadata through Qgisthree.js
+
+So throughout this entire, you might of noticed that 3D GIS Data Ciy of Cambridge has a GLTF file with all the building. So why go through all the trouble of downloading it as a ESRI Shapefile and then using the Qgisthree.js Plugin to create a GLTF file. The reason is that the GLTF does not contain individual metadata coresponding to each children and the ESRI Shapefile does and it was already a 3d GIS vector layer. So what we had to do was find a way to export it as a gltF file. Qgis2three.js was the tool we used for executing the task. It is easier to do this than to individually add metadata from a CSV file into GLTF without the medata or proper structure. 
+
+* Scaling and Positioning the models 
+
+This was one of the most difficult task because we could not find an automatic way od doing it we had to
+
+* Reducing File size
+
+
+To reduce a model's file size we had to split the model into three parts. We tried compessing  he gltf but it did not work because a gltf is already includes compressed featuress. There is a way to push a large file size through the GitHub repositoy by using an extension called Git Large File Storage (LFS). The problem with pushing a large file though the Git causes difficulty loading on the map, making it impossible to render fast and properly. This is the reasn why we thought that splitting the model in three part was more efficient. It allowed us to consume less time and provide high quality visuals. 
+
+* Raycasting 
+
+Finally, Raycasting in Three.js refers to the process of casting a virtual ray from a point in a 3D scene and determining what that ray intersects with. This technique is commonly used for tasks like picking objects in a 3D environment, implementing interactive features, and detecting collisions between objects and the ray. We wanted to use it to intersect with our 3D model and read the properties of a clicked on child. But we were unsuccessful in doing this task. 
+
+`Code Block #: `
+```Javascript   
+ raycast: function (point) {
+        const mouse = new THREE.Vector2();
+        // // scale mouse pixel position to a percentage of the screen's width and height
+        mouse.x = ( point.x / this.map.transform.width ) * 2 - 1;
+        mouse.y = 1 - ( point.y / this.map.transform.height ) * 2;
+        // console.log(mouse);
+        this.camera.projectionMatrixInverse.getInverse(this.camera.projectionMatrix);
+        // const scale = 1 / this.center.meterInMercatorCoordinateUnits();
+        // this.camera.matrixWorld.makeScale(scale, scale, scale);
+        this.raycaster.setFromCamera(mouse, this.camera);
+        // calculate objects intersecting the picking ray
+        const intersects = this.raycaster.intersectObjects(this.scene.children, true);
+        if (intersects.length) {
+          const clickedMesh = intersects[0].object;
+          console.log(clickedMesh.userData.Building_I);
+        }
+      },
+    
+```
+Make sure to use the camera defined within the customLayer (this.camera) for both rendering and raycasting purposes.
+
+The problem we were having was that the x-y-z coordinates of the camera were off. We believe it has something to do the incompatibility of the coordinate spaces between Mapbox and Three.js. This means that Mapbox uses z to refer to the y-axis and Three.js uses y to refer to upward. As a result, would click on a specific child and it would refer to another. To avoid this error, we ended up adding event listener to display the popup with the attributes of a building corresponding to nearest lat. and long of where the user clicked.   
+
+We still recognize the importance of Raycating because to display popups for the Flood Hazard layer, we will have to overcome this. But in the mean time using Mapbox popups and event listeners will serve the purpose. 
+
+These were some of the main problems we faced in the different development stages of the MIT 3D Flood Map. Although we were able to manage most of them by finding different ways to execute the tasks, we still encourage user and developers to continue researching solutions to these types of problems. After all this is a project meant to help communites, architects and develop find interactive strategies to help communicate flood risk. 
 
 # **Conclusion**
 
-**6.1 MSRP Research Forum Poster**
+**6.1 General Conclusion**
+
+In conclusion, this summer research project was very sucessful 
+
+**6.2 MSRP Research Forum Poster**
 
 ![MSRP 2023 Poster](Assets/Poster.png)
 
