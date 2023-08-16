@@ -1084,6 +1084,8 @@ This was one of the most difficult task because we could not find an automatic w
 
 But we did research different strategies to try to execute the task. Among the results we found were: if you upload a GLTF model directly from sketchup it will maintain its scale but not its position nor its properties. 
 
+...
+
 * Reducing File size
 
 To reduce a model's file size we had to split the model into three parts. We tried compessing  he gltf but it did not work because a gltf is already includes compressed featuress. There is a way to push a large file size through the GitHub repositoy by using an extension called Git Large File Storage (LFS). The problem with pushing a large file though the Git causes difficulty loading on the map, making it impossible to render fast and properly. This is the reasn why we thought that splitting the model in three part was more efficient. It allowed us to consume less time and provide high quality visuals. 
