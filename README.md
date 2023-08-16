@@ -75,7 +75,7 @@ In conclusion, this research report explores the technical aspects and challenge
 
 ![Objectives Diagram](Assets/Objectives_diagram.png)
 
-Figure 2: Objectives Diagram
+Figure 1: Objectives Diagram
 
 **2.2 Purpose**
 
@@ -153,7 +153,7 @@ E.1 glTF: is a freely available standard used for transmitting and loading 3D sc
 
 ![GLTF overview by Khronos](Assets/GLTF_overview.png)
 
-<p align="center"><em> Figure 1: Overview of glTF by Khronos</em>.<p>
+<p align="center"><em> Figure 2: Overview of glTF by Khronos</em>.<p>
 
 E.2 GeoJson: is a geospatial data interchange format that showcases geographic features and their attributes.
 
@@ -174,7 +174,7 @@ At the beginning, a project done by Smart City Cologne was used as an example fo
 
 ![Colgne_Flood_Plan_Smart_City_Cologne](Assets/cologne_flood_plan.jpg)
 
-<p align="center"> <em>Figure 2: Smart City Cologne Flood Plan.
+<p align="center"> <em>Figure 3: Smart City Cologne Flood Plan.
 
 Article: Planning the City of Tomorrow in 3D, written by Jim Baumann
 [(https://www.esri.com/about/newsroom/arcuser/planning-the-city-of-tomorrow-in-3d/)](https://www.esri.com/about/newsroom/arcuser/planning-the-city-of-tomorrow-in-3d/)</em>. <p>
@@ -584,7 +584,7 @@ After doing this save the GLTF file and push it through the Github reposity and 
      Right click on the layer and select properties. A dialog box like this one shall appear: 
      
      ![Property_box](Assets/Property_box.png)
-     <p align="center"><em>Figure #: Layer Property Box </em><p>
+     <p align="center"><em>Figure 4: Layer Property Box </em><p>
      
      To extrude the layer accordingly, make sure that "Type" is on "Extruded", the "Altitude" is an "Expresion" and its formula is: <em>"GNDLEV2D * .3048"</em> meaning Ground ELevation (2D) x the conversion: 1ft=.3048m. (It is necesary to covert from feet to meters to avoid errorsthe units o. Its important to recognize that the layers are set to feet and mapbox uses meters.) The "Height must also be changed using the formula: <em>DEPTH2D * .3048</em>. 
      
@@ -776,7 +776,7 @@ On the right side of each slide a number appears with the values corresponding t
 
 3. Change the base color factor: The base color factor is represented as an array of four numbers (RGBA) between 0.0 and 1.0. For example, [1.0, 0.0, 0.0, 1.0] represents a fully opaque red color. The Alpha component, represented by the last number (1 in this case), controls the opacity of the material, where 0.0 means completely transparent, and 1.0 means fully opaque. Modify these values to change the color as desired. In our code, we are using a hexadecimal value, which is a base-16 numbering system that uses a combination of digits 0-9 and letters A-F to represent values. The color represented in the code is light beige. 
 
-`Changing the baseColorFactor`
+`Code Block 13: Changing the baseColorFactor`
   ```javascript
    "materials": [
         {
@@ -800,13 +800,13 @@ On the right side of each slide a number appears with the values corresponding t
 
  <em>We created a color ramp called "Blues2". The HTML notation of the light Blue is #bddee8 and of the blue is #2b5d9e. </em>
 ![Color_Ramp](Assets/Color_Ramp.png)
-<p align="center"><em>Figure #: Flood Hazard Layer Color Ramp</em><p>
+<p align="center"><em>Figure 5: Flood Hazard Layer Color Ramp</em><p>
 
 
- 2. Open Qgis2three.js plugin. Right click on the flood hazard layer and open a vector layer settigs. A dialog box will appear, one of the setiing options is "Material". In "Color" drop down the menu and choose expression. In the expression box write "ramp_color('Blues2', DEPTH2d), as shown in figure #. 
+ 2. Open Qgis2three.js plugin. Right click on the flood hazard layer and open a vector layer settigs. A dialog box will appear, one of the setiing options is "Material". In "Color" drop down the menu and choose expression. In the expression box write "ramp_color('Blues2', DEPTH2d), as shown in figure 6. 
 
  ![Material Settings](Assets/Material_setting.png) 
- <p align="center"><em> Figure#: Material settings to add Color Ramp. </em><p> 
+ <p align="center"><em> Figure 6: Material settings to add Color Ramp. </em><p> 
 
  After this, click on "apply" and "ok". The colors are set. 
 
@@ -822,20 +822,27 @@ On the right side of each slide a number appears with the values corresponding t
 
   Lets start by setting up the directional light.
 
+  `Code Block 14: Directional Light Setup`
+
 ```javascript
 dirLight = new THREE.DirectionalLight(0xffffff, 0.25);
 ```
 This line creates a new directional light with a color of pure white (0xffffff) and an intensity of 0.25. Directional lights simulate light coming from a specific direction and illuminate all objects uniformly, like sunlight.
+
+`Code Block 15: Setting Light Position`
 
 ```javascript
 dirLight.position.set(-270, 1000, 500);
 ```
 Sets the position of the directional light in 3D space. The parameters (-270, 1000, 500) represent the x, y, and z coordinates of the light source's position. This position determines the direction from which the light is coming.
 
+`Code Block 16: Setting Light Target Position`
 ```javascript
 dirLight.target.position.set(250, 0, 250);
 ```
 Sets the position of the target that the directional light is pointing at. This can influence the direction in which the light is oriented. In this case, the target's position is set at (250, 0, 250).
+
+`Code Block 17: Adding Directional Light to the scene. `
 
 ```javascript
 this.scene.add(dirLight);
@@ -844,10 +851,14 @@ this.scene.add(dirLight.target);
 Adds the directional light and its target to the Three.js scene. This makes the light visible and affects the lighting conditions in the scene.
 
 After finishing up with the directional light, we can move on to setting up the hemisphere light.
+
+`Code Block 18: Adding Hemisphere Light`
 ```javascript
 const hemLight = new THREE.HemisphereLight(0xffffff, 0.8);
 ```
 This line creates a new hemisphere light with a color of pure white (0xffffff) and an intensity of 0.8. Hemisphere lights simulate the diffuse light coming from the sky, which can be particularly useful for creating ambient lighting in a scene.
+
+`Code Block 19: Adding Hemisphere Light to the scene.`
 
 ```javascript
 this.scene.add(hemLight);
@@ -855,7 +866,7 @@ this.scene.add(hemLight);
 Adds the hemisphere light to the scene.
 
 
- `Setting Lights full code` 
+ `Code Block 20: Setting Lights full code` 
 
   ```javascript
     dirLight = new THREE.DirectionalLight(0xffffff, 0.25);
@@ -879,7 +890,7 @@ Adds the hemisphere light to the scene.
   
   To create popups we can start by setting up an event listener that responds to clicks on the map. When the user clicks on the map, it captures the clicked coordinates, and in the provided example, it demonstrates how to create a popup showing the clicked coordinates. The commented-out lines indicate how you could create a popup to display the clicked location's coordinates as a simple example.
 
-`Event listeners for creating click on popup` 
+`Code Block 21: Event listeners for creating click on popup` 
 ```javascript
 map.on('style.load', function () {
       map.on('click', function (e) {
@@ -921,7 +932,7 @@ This is how we create event listeners for clicking on map to display popups.
 
 After setting the event listeners responding to the clicked coordinates, we have to find the closest building to where the user clicked. The code iterates over each child in the scenes array, which presumably represents different buildings or objects on the map:
 
-`Denest to find the Children of Model1` 
+`COde Block 22: Denest to find the Children of Model1` 
 
 ```javascript
 var scenes = model1.scenes[0].children[0].children;
@@ -934,7 +945,7 @@ Second, the code calculates the distance between the clicked location and the ce
 To do this we must first initialize variables.
 
 
-`Variable intialization` 
+`Code Block 23: Variable intialization` 
 ```javascript
   var closestDistance = Number.MAX_VALUE;
         var closestLatitude = 0;
@@ -944,7 +955,7 @@ To do this we must first initialize variables.
 These variables are initialized to store information about the closest child based on distance calculations. closestDistance is initialized with the maximum possible value, and closestLatitude and closestLongitude are initialized with zeros.
 
 
-`Iteration Over Children and Distance Calculation` 
+`Code Block 24: Iteration Over Children and Distance Calculation` 
 
 ```javascript
 scenes.forEach(function (child, index) {
@@ -972,7 +983,7 @@ If tempDistance is smaller than the current closestDistance, the code updates cl
 
 Now, we can start by creating and stylizing the popup.
 
-`Creating the popup` 
+`Code Block 25: Creating the popup` 
 
    ```javascript
    var popup = new mapboxgl.Popup({
@@ -981,7 +992,7 @@ Now, we can start by creating and stylizing the popup.
    ```
    This code creates a new instance of a Mapbox GL JS popup. The `maxWidth` option is set to limit the maximum width of the popup content to 350 pixels.
 
-`Popup filtering Content HTML`
+`Code Block 26: Popup filtering Content HTML`
    ```javascript
    const popupContent = `<p>Building Name: <b>${description['Name']}</b></p>\
      <p>Building ID: <b>${description['Building_I']}</b></p>\
@@ -992,14 +1003,14 @@ Now, we can start by creating and stylizing the popup.
    ```
    This code constructs a string `popupContent`. It contains various placeholders `${...}` that are replaced with values from the `description` object. These values are properties of the building or object that was clicked.
 
-`Setting up the popupContent`
+`Code Block 27: Setting up the popupContent`
 
    ```javascript
    popup.setHTML(popupContent);
    ```
    This line sets the content of the popup to the HTML content defined in the `popupContent` variable. This content will be displayed inside the popup when it's opened.
 
- `Setting Popup Position and Display`
+ `Code Block 28: Setting Popup Position and Display`
    ```javascript
    popup.setLngLat(coordinates).addTo(map);
    ```
@@ -1013,14 +1024,19 @@ Our main result was the development of the map.
 
 ![MIT_3D_Floodmap](Assets/Flood_map_pic1.png)
 
+<p align="center"><em> Figure 7: MIT 3D Flood Map - Aerial view </em><p>
 
 ![MIT_3D_Floodmap](Assets/Flood_map_pic2.png)
 
+<p align="center"><em> Figure 8: Memorial Drive (Aerial)</em><p>
 
 ![MIT_3D_Floodmap](Assets/Flood_map_pic3.png)
 
+<p align="center"><em> Figure 9: Massachusetts Avenue (Aerial) </em><p>
 
 ![MIT_3D_Floodmap](Assets/Flood_map_pic4.png)
+
+<p align="center"><em> Figure 10: MIT Dome - Building 10 (Aerial) </em><p>
 
 For future steps, we would like to:
 
@@ -1046,11 +1062,11 @@ The problem with extruding the flood hazard layer is that it creates an unnecess
   <tr>
     <td>
       <img src="Assets/FHLerror.png" alt="Image 1">
-       <p align="center"><em> Figure#: Flood Hazard Layer extruded without 3D terrain. </em><p>
+       <p align="center"><em> Figure 11: Flood Hazard Layer extruded without 3D terrain. </em><p>
     </td>
     <td>
       <img src="Assets/FHLerror2.png" alt="Image 2">
-       <p align="center"><em> Figure#: Flood Hazard Layer extruded with 3D terrain.   </em><p>
+       <p align="center"><em> Figure 12: Flood Hazard Layer extruded with 3D terrain.   </em><p>
     </td>
   </tr>
 </table>
@@ -1064,10 +1080,11 @@ So throughout this entire, you might of noticed that 3D GIS Data Ciy of Cambridg
 
 * Scaling and Positioning the models 
 
-This was one of the most difficult task because we could not find an automatic way od doing it we had to
+This was one of the most difficult task because we could not find an automatic way to do it. We ended up manually doing it by setting the position and scale under the GLTF loader and by using slider to find the exact x-y-z values.
+
+But we did research different strategies to try to execute the task. Among the results we found were: if you upload a GLTF model directly from sketchup it will maintain its scale but not its position nor its properties. 
 
 * Reducing File size
-
 
 To reduce a model's file size we had to split the model into three parts. We tried compessing  he gltf but it did not work because a gltf is already includes compressed featuress. There is a way to push a large file size through the GitHub repositoy by using an extension called Git Large File Storage (LFS). The problem with pushing a large file though the Git causes difficulty loading on the map, making it impossible to render fast and properly. This is the reasn why we thought that splitting the model in three part was more efficient. It allowed us to consume less time and provide high quality visuals. 
 
@@ -1075,7 +1092,7 @@ To reduce a model's file size we had to split the model into three parts. We tri
 
 Finally, Raycasting in Three.js refers to the process of casting a virtual ray from a point in a 3D scene and determining what that ray intersects with. This technique is commonly used for tasks like picking objects in a 3D environment, implementing interactive features, and detecting collisions between objects and the ray. We wanted to use it to intersect with our 3D model and read the properties of a clicked on child. But we were unsuccessful in doing this task. 
 
-`Code Block #: Raycasting `
+`Code Block 29: Raycasting `
 ```Javascript   
  raycast: function (point) {
         const mouse = new THREE.Vector2();
@@ -1108,11 +1125,16 @@ These were some of the main problems we faced in the different development stage
 
 **6.1 General Conclusion**
 
-In conclusion, this summer research project was very sucessful 
+In conclusion, this summer research project was very successful. Although we had many challenges to overcome, we developed an MIT 3D Flood Map that holds the potential to significantly enhance flood risk communication through innovative interactive data visualization strategies. 
+
+Creating this type of flood map demonstrated the practicality and potential of the approach. This map's immersive nature and accessible interface promise to empower stakeholders with accurate and actionable flood risk information. The challenges related to transforming data and employing suitable visualization techniques serve as crucial learning points, contributing to the broader knowledge in the field.
+
+The projected outcomes of improved accuracy, visual representation, and accessibility of flood risk data are of paramount importance. This research not only advances architectural data visualization strategies but also extends its benefits to the wider domain of flood risk management and decision-making. By enhancing our ability to communicate complex flood risk information effectively, this research strives to contribute to more resilient communities, better-informed decision-making, and proactive mitigation measures in flood-prone areas.
 
 **6.2 MSRP Research Forum Poster**
 
 ![MSRP 2023 Poster](Assets/Poster.png)
+<p align="center"><em> Figure 13: MIT Summer Research Program 2023 poster by Carolina Pérez Méndez </em><p>
 
 # **Appendix**
 
