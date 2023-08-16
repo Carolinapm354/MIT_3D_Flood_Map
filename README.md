@@ -1075,7 +1075,7 @@ To reduce a model's file size we had to split the model into three parts. We tri
 
 Finally, Raycasting in Three.js refers to the process of casting a virtual ray from a point in a 3D scene and determining what that ray intersects with. This technique is commonly used for tasks like picking objects in a 3D environment, implementing interactive features, and detecting collisions between objects and the ray. We wanted to use it to intersect with our 3D model and read the properties of a clicked on child. But we were unsuccessful in doing this task. 
 
-`Code Block #: `
+`Code Block #: Raycasting `
 ```Javascript   
  raycast: function (point) {
         const mouse = new THREE.Vector2();
