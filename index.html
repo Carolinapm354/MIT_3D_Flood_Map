@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Add Multiple 3D Models</title>
+  <title>MIT 3D Flood Map</title>
   <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
   <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
   <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
@@ -104,7 +104,7 @@
     let directionalLight;
 
     loader.load(
-      'https://raw.githubusercontent.com/Carolinapm354/test3d/main/RELOAD-Ed.gltf',
+      'https://raw.githubusercontent.com/Carolinapm354/test3d/main/MIT3Dbuildings.gltf',
       (gltf) => {
         model1 = gltf;
         gltf.scene.scale.set(.3048, .3048, .3048);
@@ -113,7 +113,7 @@
     );
 
     loader2.load(
-      'https://raw.githubusercontent.com/Carolinapm354/test3d/main/E4pt3.gltf',
+      'https://raw.githubusercontent.com/Carolinapm354/test3d/main/FHpt3.gltf',
       (gltf) => {
         model2 = gltf;
         gltf.scene.scale.set(.738, .738, .738);
@@ -134,7 +134,7 @@
     );
 
     loader4.load(
-      'https://raw.githubusercontent.com/Carolinapm354/test3d/main/E4pt2.gltf',
+      'https://raw.githubusercontent.com/Carolinapm354/test3d/main/FHpt2.gltf',
       (gltf) => {
         model4 = gltf;
         gltf.scene.scale.set(0.738, 0.738, 0.738);
