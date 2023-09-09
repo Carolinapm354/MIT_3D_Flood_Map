@@ -6,7 +6,7 @@ def custom_serializer(obj):
         return obj  # Return the original value
     raise TypeError(f'Type {type(obj)} not serializable')
 
-f = open('test3d/RELOAD-Ed.json')
+f = open('MIT_3D_Flood_Map/RELOAD-Ed.json')
 
 # returns JSON object as
 # a dictionary
@@ -31,7 +31,7 @@ for item in data['nodes']:
 
         item["extras"] = tempdict
 
-        with open('test3d/RELOAD-Ed.json', 'w') as file:
+        with open('MIT_3D_Flood_Map/RELOAD-Ed.json', 'w') as file:
             json.dump(data, file, default=custom_serializer)
     except:
         break

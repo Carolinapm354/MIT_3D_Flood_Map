@@ -6,14 +6,14 @@
 ### Supervised under Mayank Ojha and Miho Mazereeuw
 
 
-# **Table of Contents**
+<!-- # **Table of Contents**
 
 1. [Abstract](#abstract)
 2. [Introduction](#introduction)
    
-   2.1 [Objectives](**2.1Objectivesofthestudy**)<br>
+   2.1 [Objectives](###2.1-objectives-of-the-study)<br>
    
-   2.2 [Purpose](#Purpose)<br>
+   2.2 [Purpose](#2.2-purpose)<br>
    
    2.3 [Hypothesis](#hypothesis)<br>
    
@@ -46,7 +46,34 @@
    6.2 [Research Poster](#research-poster)
    
 7. [Appendix](#appendix)
+8. [Acknowledgments](#acknowledgements) -->
+
+
+# **Table of Contents**
+
+1. [Abstract](#abstract)
+2. [Introduction](#introduction)
+   1. [Objectives](#21-objectives-of-the-study)
+   2. [Purpose](#22-purpose)
+   3. [Hypothesis](#23-hypothesis)
+   4. [Scope](#24-scope)
+   5. [Prerequisites](#25-prerequisites)
+3. [Methodology](#methodology)
+   1. [Strategizing and Researching Past Projects](#1-strategizing-and-researching-past-projects)
+   2. [Starting with Mapbox Studio and Style](#2-starting-with-mapbox-studio-and-style)
+   3. [Setting Up the Code](#3-setting-up-the-code)
+   4. [Uploading my own model into Mapbox](#4-uploading-my-own-model-into-mapbox)
+   5. [Attaching the Metadata to the glTF file](#5-attaching-metadata-to-the-gltf-file)
+   6. [Adding more Models, Scaling and Positioning](#6-adding-more-models-scaling-and-positioning)
+   7. [Style, lights, and popups](#7-style-lights-and-popups)
+4. [Results](#results)
+5. [Discussion](#discussion)
+6. [Conclusion](#conclusion)
+   1. [General Conclusion](#61-general-conclusion)
+   2. [MSRP Research Forum Poster](#62-msrp-research-forum-poster)
+7. [Appendix](#appendix)
 8. [Acknowledgments](#acknowledgements)
+
 
 
 # **Abstract**
@@ -65,31 +92,29 @@ The MIT campus serves as an ideal case study for this research, offering a diver
 
 By addressing the limitations and sources of uncertainty in current flood mapping processes, we can bridge the gap between scientific data and meaningful understanding. Through interactive data visualization, we strive to empower individuals, communities, and decision-makers to proactively respond to flood risks and build a more resilient future. The findings and insights gained from this research have the potential to inform and improve flood risk communication strategies not only on the MIT campus but also in other vulnerable areas around the world. The knowledge gained from this process will extend beyond the campus, benefiting residential areas, commercial zones, and cities collaborating with communities on urban adaptation and mitigation initiatives.
 
-This report will include a step-by-step guide to how this map came into existence. It will also include the specific technical challenges that we encountered in its development, such as importing 3D data into Mapbox, a mapping platform, and transforming typical 2D data into 3D GIS data. And it will demonstrate how to employ suitable visualization techniques in flood maps, and how we designed our intuitive interface. Our comprehensive documentation encourages other designers and architects to continue experimenting with interactive three-dimensional mapping through web development tools and it shall facilitate the process for first-time users. The results of this research, including this report and findings on how to create map, are meant to help grow and improve data representation into the comprehensive "MIT Climate Resilience" dashboard being developed by the Urban Risk Lab within the framework of their Climate Grand Challenge, entitled "Preparing for a New World of Weather and Climate Extremes", which is an initiative aimed to deliver "high-impact climate solutions" and researching "game-changing advances." By executing this, we can reach a wide range of users and ensure wider accessibility and dissemination of flood risk information. Our research seeks to enhance the accuracy, visual representation, and accessibility of flood risk data, enabling stakeholders to make informed decisions and take action to improve resilience.
-
-The findings from this research have the potential to advance the field of architectural data visualization and inform future practices in flood risk management. By lowering the knowledge barriers and improving the quality of representation and analysis, we can contribute to a more informed and resilient community. Through this research, we are pushing the boundaries of effective flood risk communication by bridging the gap between scientific data and meaningful understanding. By employing innovative approaches and techniques in interactive data visualization, we are empowering individuals, communities, and decision-makers in their quest to build a safer and more resilient future.
+This report will include a step-by-step guide to how this map came into existence. It will also include the specific technical challenges that we encountered in its development, such as importing 3D data into Mapbox, a mapping platform, and transforming typical 2D data into 3D GIS data. And it will demonstrate how to employ suitable visualization techniques in flood maps, and how we designed our intuitive interface. Our comprehensive documentation encourages other designers and architects to continue experimenting with interactive three-dimensional mapping through web development tools and it shall facilitate the process for first-time users. The results of this research, including this report and findings on how to create map, are meant to help grow and improve data representation into the comprehensive "MIT Climate Resilience" dashboard being developed by the Urban Risk Lab within the framework of their Climate Grand Challenge, entitled "Preparing for a New World of Weather and Climate Extremes", which is an initiative aimed to deliver "high-impact climate solutions" and researching "game-changing advances." By executing this, we can reach a wide range of users and ensure wider accessibility and dissemination of flood risk information. Our research seeks to enhance the accuracy, visual representation, and accessibility of flood risk data.
 
 In conclusion, this research report explores the technical aspects and challenges involved in creating an interactive 3D flood map, focusing on the specific case of the MIT campus. By leveraging interactive data visualization techniques, we aim to enhance flood risk communication, promote understanding and engagement among stakeholders, and ultimately contribute to the development of proactive measures for mitigating flood risks. With the ever-increasing climate uncertainties, the development of effective flood risk communication strategies is paramount for building resilient communities and safeguarding lives and assets.
 
-**2.1 Objectives of the study**
+### **2.1 Objectives of the study**
 
 ![Objectives Diagram](Assets/Objectives_diagram.png)
 
 Figure 1: Objectives Diagram
 
-**2.2 Purpose**
+### **2.2 Purpose**
 
 The research that will be conducted during the summer holds significant importance as it not only expands on architectural data visualization strategies for communicating flood risk but also contributes to advancing the field. It can enhance both the quality of representation and analysis and lower the knowledge barriers that impede non-expert audiences' understanding of flood hazards in risk communication. ("3D Geovisualization Interfaces as Flood Risk Management Platforms: Capability, Potential, and Implications for Practice," 2020) The findings and insights gained from this research can potentially inform future practices in architectural data visualization, benefiting both the field itself and the broader community involved in flood risk management and decision-making.
 
-**2.3 Hypothesis**
+### **2.3 Hypothesis**
 
 The hypothesis of this research is that creating interactive data visualizations tailored to the needs of various stakeholders will facilitate their active involvement in the decision-making process regarding flood risk mitigation. By providing user-friendly interfaces, intuitive controls, and customizable features, these interactive visualizations will enhance understanding, engagement, and informed decision-making among diverse audiences. The hypothesis suggests that such interactive data visualizations can effectively communicate complex flood risk information, foster stakeholder engagement, and ultimately promote proactive measures for mitigating flood risks at the community and individual levels.
 
-**2.4 Scope**
+### **2.4 Scope**
 
 This research is part of the MIT Summer Research Program, an immersive 9-week program for international and national students with an interest in executing cutting-edge research with renowned professors at one of the best institutions in the world. This summer I worked with the Urban Risk Lab during the duration of this program.
 
-**2.5 Prerequisites**
+### **2.5 Prerequisites**
 
 In this section, we will identify and define all programs, platforms, websites, and tools used to develop the map.
 
@@ -163,7 +188,7 @@ E.4 OBJ: is a 3d standard format. It has the ability to recognixe 3d objects' su
 
 # **Methodology**
 
-  **1. Strategizing and Researching Past Projects**
+### **1. Strategizing and Researching Past Projects**
 
 Getting started by identifying creative innovative ways to communicate flood risk. By brainstorming an effective way to execute this mission, we agreed that the best experimental approach for this summer's case study was developing a three-dimensional map of the MIT campus, which allows us to study flood problems in depth. It gives us the opportunity to experiment with Mapbox mapping capabilities, the cloud mapping platform used to employ the task.
 
@@ -189,37 +214,37 @@ Morgenstadt: City of the Future is an initiative by Fraunhofer Society in 2010 �
 
 
 
-In our pursuit to enhance flood data visualizations, we have undertaken a holistic approach that seeks to revolutionize flood mapping and address previous limitations. Our research diverges from conventional efforts in two fundamental aspects, symbolizing our commitment to advancing flood risk management.
+In our pursuit to enhance flood data visualizations, we have undertaken an approach that seeks to revolutionize flood mapping and address previous limitations. Our research diverges from conventional efforts in two fundamental aspects, symbolizing our commitment to advancing flood risk management.
 
-Firstly, our primary focus revolves around the comprehensive development of flood maps for the existing conditions at MIT. By meticulously studying and understanding the intricate flood risk scenarios within the MIT campus area, we aim to create accurate and informative flood data visualizations. This profound understanding empowers us to identify vulnerable areas and potential mitigation strategies, laying the groundwork for a more resilient and prepared community.
+First, our primary focus revolves around the comprehensive development of flood maps for the existing conditions at MIT. By meticulously studying and understanding the intricate flood risk scenarios within the MIT campus area, we aim to create accurate and informative flood data visualizations. This profound understanding empowers us to identify vulnerable areas and potential mitigation strategies, laying the groundwork for a more resilient and prepared community.
 
 Secondly, we have embarked on executing the flood mapping process through a cutting-edge WebGL-powered mapping platform. This innovative platform introduces a host of unparalleled advantages, notably rendering high-performing maps that deliver lightweight and fast-running outcomes. By embracing this advanced technology, we transcend the limitations of conventional mapping approaches, enabling seamless access and usability of the flood maps for all users.
 
-Through these transformative changes, we are poised to revolutionize flood data visualizations, optimizing their effectiveness and applicability in decision-making processes. By harnessing the power of a holistic approach and innovative technology, we envision a future where flood risk management is elevated to new heights, fostering a safer, more resilient, and sustainable environment at MIT and beyond. As we continue to push the boundaries of flood data visualizations, our endeavor remains steadfast in making meaningful contributions to the field of urban resilience and disaster preparedness.
+Through these transformative changes, we are poised to revolutionize flood data visualizations, optimizing their effectiveness and applicability in decision-making processes. By harnessing the power of innovative technology, we envision a future where flood risk management is elevated to new heights, fostering a safer, more resilient, and sustainable environment at MIT and beyond. As we continue to push the boundaries of flood data visualizations, our endeavor remains steadfast in making meaningful contributions to the field of urban resilience and disaster preparedness.
 
- **2. Starting with Mapbox Studio and Style**
+### **2. Starting with Mapbox Studio and Style**
 
-Choosing Mapbox as our main platform was crucial because it is well-suited to create interactive 3d maps. Mapbox enables us to visualize the MIT campus in three dimensions, which is essential for accurately depicting elevation changes and simulating the impact of flooding. Most importantly it gives us the flexibility and versatility to edit the map directly in Mapbox Studio by importing, filtering, and styling layers from shapefiles and geojson. Simultaneously, it allows us to use Mapbox GL js to edit the map and add additional data to the map through code. And it also, allows the map to be published in the GitHub repository and it is compatible with the series of maps contained in the MIT Climate Resilience dashboard.
+Choosing Mapbox as our main platform was crucial because it is well-suited to create interactive 3d maps. Mapbox enables us to visualize the MIT campus in three dimensions, which is essential for accurately depicting elevation changes and simulating the impact of flooding. Most importantly it gives us the flexibility and versatility to edit the map directly in Mapbox Studio by importing, filtering, and styling layers from shapefiles and geojson. Simultaneously, it enables us to use Mapbox GL js to edit the map and add additional data to the map through code. And it also, allows the map to be published in the GitHub repository and it is compatible with the series of maps contained in the MIT Climate Resilience dashboard.
 
 First we start by opening Mapbox, creating an account with MIT institutional email and an access token, which Mapbox uses to associate your account with your requests to Mapbox API resources. Then we move to opening and editing a style in Mapbox Studio. For this particular map, I chose "Mapbox Light."
 
 `Style URL:`  mapbox://styles/mapbox/light-v11
 
-This style is useful for highlighting colored-data layers. Once the style has uploaded, one has editing capabilities to edit the style as one desires. Most importantly, we can start by importing layers.
+This style is useful for highlighting colored-data layers. Once the style has uploaded, we have editing capabilities to edit the style as one desires. And most importantly, we can start importing layers.
 
 As provided by the Urban Risk Lab, the first two layers to be added were: 
 
 * <em>"MIT Building.geojson"</em> 
 
-The MIT Building layer which contains the silhouette of all MIT buildings on campus.
+The MIT Building layer contains the silhouette of all MIT buildings on campus.
 
 * <em>"2070\_100y\_Storm\_24h.geojson"</em> 
 
-The Flood Hazard layer containing the highest water level during a flood caused by a hypothetical 11.7-inch rainfall over 24 hours on campus, considering altered climatic conditions, is referred to as the peak flood elevation. This event has a 10% chance of occurring every year. However, over a span of 50 years, there's a 39% likelihood of experiencing this particular event. The parameters for this simulated storm are founded on projected climate alterations anticipated for the year 2070.
+The Flood Hazard layer contains the highest water level during a flood caused by a hypothetical 11.7-inch rainfall over 24 hours on campus, considering altered climatic conditions, is referred to as the peak flood elevation. This event has a 10% chance of occurring every year. However, over a span of 50 years, there's a 39% likelihood of experiencing this particular event. The parameters for this simulated storm are founded on projected climate alterations anticipated for the year 2070.
 
 These 2D layers will be used as references for placing the 3D models.  
 
-After importing the layers, in the Mapbox Studio style editor turn on 3d buildings by clicking on the buildings component to open the component properties panel and click the 3d building toggle to "on". This step is important because it allows us to right click and drag on mouse to explore map three-dimensionally. You can also "toggle on" the 3D terrain to demonstate different terrain elevation in three-dimensions. 
+After importing the layers, in the Mapbox Studio style editor, turn on 3d buildings by clicking on the buildings component to open the component properties panel and click the 3d building toggle to "on". This step is important because it allows us to explore map three-dimensionally. You can also "toggle on" the 3D terrain to demonstate different terrain elevation in three-dimensions. 
 
 
 
@@ -234,11 +259,11 @@ After importing the layers, in the Mapbox Studio style editor turn on 3d buildin
 
 After editing, it is crucial to publish the style to preserve changes in future steps.
 
-  **3. Setting up the Code**
+### **3. Setting up the Code**
 
-For this step we first start by downloading Visual Studio Code. Start by creating a file and opening it in vs code. Create a basic "index.html" inside the file.
+For this step we first start by downloading Visual Studio Code (vs code). Start by creating a file and opening it in vs code. Create a basic "index.html" inside the file.
 
-Go back to Mapbox in the browser and install Mapbox GL JS to create a web map with Mapbox GL JS. There are two methods for installing it by using the Mapbox CDN or a module bundler, as recommended by Mapbox the node package manage (npm). After installing the npm package, include the GL JS CSS file by pasting this on the \<HEAD\>of the html file created previously.
+Go back to Mapbox in the browser and install Mapbox GL JS to create a web map with Mapbox GL JS. There are two methods to install it by using the Mapbox CDN or a module bundler, as recommended by Mapbox the node package manage (npm). After installing the npm package, include the GL JS CSS file by pasting this on the \<HEAD\>of the html file created previously.
 
 ```Code Block 1: HTML code snippet including stylesheet to  Mapbox GL JS library version 2.8.1.```
 ```javascript
@@ -274,7 +299,7 @@ First, we can start by inserting our Mapbox individual user access token to trac
 
  Then, we can start setting a map style and an initial view. For changing the style, we can use the style URL from our published Mapbox style and copy-paste it after "style:" between the apostrophes. 
  
- By downloading a VS code plugin called "Live Server", we can use it to open a window to view the index.html. Right-click and click on "Open with Live server" a window shall appear with the Mapbox style. Every time a change is made in Mapbox Studio style, it shall be published in order to view the updated version of the style in the HTML file. 
+ By downloading a VS code plugin called "Live Server", we can use it to open a window to view the index.html. Right-click anywhere on the HML file and click on "Open with Live server" a window shall appear with the Mapbox style. Every time a change is made in Mapbox Studio style, it shall be published in order to view the updated version of the style in the HTML file. 
  
  To set an initial view, we can use "bboxfinder" to find the latitude and longitude of a specific location and replace it where it says "center "on the map class code.
 
@@ -282,7 +307,7 @@ The next step is loading a basic web map using a Mapbox example. And luckily, th
 
 
 
-> **Note:** This code already includes the Mapbox GL JS setup so it is not necesary to copy the entire code if you already did the previous part. 
+> **Note:** This code already includes the Mapbox GL JS setup, which means it is not necesary to copy the entire code if you already did the previous part. 
 
 >   
 > **Note:** This URL provides more information about the documentation of the plugin: [Three.js – JavaScript 3D Library (threejs.org)](https://threejs.org/)
@@ -369,13 +394,11 @@ Lets break down this code.
 
 
 
-Once the is saved in the index.html file of VS code, the map and the 3D object (the satellite) must be visible when the live server is open. After going live, you will notice that it is wrongfully placed in another part of the world. You can use "bboxfinder once again to place the satellite accordingly, by changing the latitude and longitude in "const modelorigin: ()" under the "Parameters to ensure the model is georeferenced correctly on the map".
+Once you save the index.html file on VS code, the map and the 3D object (the satellite) must be visible when the live server is open. After going live, you will notice that it is wrongfully placed in another part of the world map. You can use "bboxfinder once again to place the satellite accordingly, by changing the latitude and longitude in "const modelorigin: ()" under the "Parameters to ensure the model is georeferenced correctly on the map".
 
-  **4. Uploading my own model into Mapbox**
+### **4. Uploading my own model into Mapbox**
 
 We now know it is possible to load a 3d object into Mapbox. The challenge now is figuring out how to import one of our own models into Mapbox.
-
-
 
 
 
@@ -412,7 +435,7 @@ After this open a new terminal and enter:
 `1. `
 
  ```
- cd .\test3d\
+ cd .\repository_name\
  ```
 
  Press "enter" and on the next line code: 
@@ -439,7 +462,7 @@ git push
 
 You can verify that this process was executed correctly by viewing the GLTF file directly on your repository through your Github account. If it appears, this process was done correctly. If not, then trace back your steps to make sure you didn't miss anything.
 
-This process ensured uploading the GLTF file to the repository now we have to trace it by creating the URL.
+This process ensured uploading the GLTF file to the repository. Now, we have to trace the file by creating the URL.
 
 > **Its main composition is:**
 > 'https://raw.githubusercontent.com/username/repository\_name/branch/title\_of\_file'
@@ -450,7 +473,7 @@ An example of the URL is:
 
 Once the model is uploaded, open it in blender find the model origin and use "bboxfinder" to recenter the model.
 
-  **5. Attaching Metadata to the GLTF file**
+### **5. Attaching Metadata to the GLTF file**
 
   
 
@@ -462,29 +485,29 @@ Once the model is uploaded, open it in blender find the model origin and use "bb
 >
 > Follow this URL to download:  [ESRI Shapefile Cambridge Citywide Data](https://www.cambridgema.gov/GIS/3D/3ddata/esrishapefile)
 
-The specific file we are looking for is called <em>"Camb3D_Bldg_Active_MP_SHP.zip"</em>. This file contains all of Cambridge 3D buildings with corresponding metadata. Extract this zip file and open this file on Qgis. 
+The specific file we are looking for is called <em>"Camb3D_Bldg_Active_MP_SHP.zip"</em>. This file contains all of Cambridge 3D buildings with corresponding metadata. Extract this zip file and open the ESRI Shapefile in Qgis. 
 
 In addition to this step, open the 2D MIT Building layer on top of it. 
 
-Right Click on the <em>"Camb3D_Bldg_Active_MP_SHP"</em> layer and select toggle editing. On Qgis main ribbon, choose <em>"Select Features by Area or Single Click"</em> and start deleting all the buildings that are not part of MIT (the color of the building will change to yellow when selected). We are mainly doing this to reduce file size, but it is also important to emphasize the MIT buildings only in our map. It is important to use the imported 2D MIT Building layer as reference when deleting. 
+Right Click on the <em>"Camb3D_Bldg_Active_MP_SHP"</em> layer and select toggle editing. On Qgis main ribbon, choose <em>"Select Features by Area or Single Click"</em> and start deleting all the buildings that are not part of MIT (the color of the building will change to yellow when selected). We are mainly doing this to the reduce file size, but it is also important to emphasize the MIT buildings in our map. It is important to use the imported 2D MIT Building layer as reference when deleting. 
 
 Once all the unwanted buildings are deleted. Right Click on <em>"Camb3D_Bldg_Active_MP_SHP"</em> and click on  <em>"Save Layer Edits"</em>. 
 
 Great! Now you ready to download Qgis2three.js plugin by first searching on the "Menu tool bar" on Qgis and clicking on "Manage and Install Plugins". Search for "Qgis2three.js" and install the plugin. 
 
-Once the plugin has been installed, make sure the CRS is set to "EPSG:3857" and open the plugin. 
+Once the plugin has been installed, make sure the Coordinate Reference System (CRS) is set to "EPSG:3857" and open the plugin. 
 
->**Note:**  Set Coordinate Reference System to EPSG:3857. This important because the GLTF model we will be exporting might be distorted based on the CRS it is placed. 
+>**Note:**  Set the CRS to EPSG:3857. This important because the GLTF model that we will be exporting might get distorted based on the placed CRS.
 
-A window must popup with the plugin displaying a blue sky gradient. On the left side of the window turn on <em>"Camb3D_Bldg_Active_MP_SHP"</em> by checking the box on the left side of the name. Since the layer already had 3D properties there is no need to extrude the layer, but we must right click on the layer open the layer properties and check the box for "Export attributes" in the Attributes section. As of right now, you should be seeing the three-dimensional layer. If not, right click on the layer found in the layer panel and select "Zoom to layer Objects".
+A window must popup with the plugin displaying a blue sky gradient. On the left side of the window, turn on <em>"Camb3D_Bldg_Active_MP_SHP"</em> by checking the box on the left side of the name. Since the layer already had 3D properties there is no need to extrude the layer, but we must right click on the layer, open the layer properties, and check the box for "Export attributes" in the Attributes section. As of right now, you should be seeing the three-dimensional layer. If not, right click on the layer found in the layer panel and select "Zoom to layer Objects".
 
-Before exporting the scene, we can adjust the scene settings by opening the "scene setting" and changing the "World Coordinates (WC)" and "Base Extent (BE)". For this particular 3d model we left the WC as "Center of Base Extent" and BE as "Use map canvas extent".
+Before exporting the scene, we can adjust the scene settings by opening the "scene setting" and changing the "World Coordinates (WC)" and "Base Extent (BE)". For this particular 3D model, we left the WC as "Center of Base Extent" and BE as "Use map canvas extent".
 
-Now, we can finally exporting the scene as a GLTF by clicking on "file" and "Save scene as GLTF". 
+Now, we can finally export the scene as a GLTF by clicking on "file" and "Save scene as GLTF". 
 
-Now that we have our gltf file, we may want to open it on the gltfeditor website online. In doing so, we can study the strusture of the GLTF file by identifying the children, nodes, and meshes. Every children has a number that corresponds to each building. This helpful because it allows to make sure that everybuilding has the correct ttributes or metadata. 
+Now that we have our gltf file, we may want to open it on the gltfeditor website online to study the strusture of the GLTF file. We can do this by identifying the children, nodes, and meshes of the object. Every children has a number that corresponds to each building. This is helpful because it allows to make sure that every building has the correct attributes. 
 
-So, the GLTF file exported from the plugin contained the correct attribute the problem is that all attributes we exported as strings. We needed them to be keys and values. 
+The GLTF file exported from the plugin contained the correct attributes. The problem is that all attributes have been exported as strings. They must be keys and values. 
 
 We fixed this by temporarily using python and coding the following: 
 
@@ -532,52 +555,56 @@ for item in data['nodes']:
 
 Lets break down the code, step by step:
 
-1. Fist, we start by importing the json module: <em>import json</em>, then we define a custom serialization function (lines 3-7). This function is used to handle the serialization of certain types (specifically, `int` and `float`) during the JSON dumping process.
+1. Fist, we start by importing the json module: `import json`, then we define a custom serialization function (lines 3-7). This function is used to handle the serialization of certain types (specifically, `int` and `float`) during the JSON dumping process.
 
-2. We move on to open our JSON file containing the 3D object for reading: <em>f = open('test3d/RELOAD-Ed.json')</em>. 
-Then, we load JSON data from the file into a dictionary:<em>
-data = json.load(f)</em>. The JSON content from the file is loaded into the `data` dictionary.
+2. We move on to opening our JSON file containing the 3D object for reading: `f = open('test3d/RELOAD-Ed.json')`. 
+Then, we load JSON data from the file into a dictionary: `data = json.load(f)`. The JSON content from the file is loaded into the `data` dictionary.
 
-3. After this step, we define a list of property names: <em>names = ["Model_ID", "Building_I", ... "created_da"]</em>. This list contains names corresponding to various properties of each building.
+3. After this step, we define a list of property names: `names = ["Model_ID", "Building_I", ... "created_da"]`. This list contains names corresponding to various properties of each building.
 
-4. Then loop through each item in the 'nodes' section of the JSON data by coding: <em>for item in data['nodes']:</em>
-. This loop iterates through each item in the 'nodes' section of the JSON data.
+4. Then loop through each item in the 'nodes' section of the JSON data by coding: `for item in data['nodes']:`. This loop iterates through each item in the 'nodes' section of the JSON data.
 
 5. After looping, extract properties from 'extras'by coding:
-   <em> try:
-       properties = item["extras"]["properties"]</em>.
-  By doing this, we are accessing the "properties" key within the "extras" section of the current item.
+    `try:
+       properties = item["extras"]["properties"]`.
+  By doing this, we are accessing the `properties` key within the `extras` section of the current item.
 
 6. After extracting the properties, create a temporary dictionary for property manipulation:
-  <em> tempdict = {}</em>. This dictionary will hold the modified properties for the current item.
+   `tempdict = {}`. This dictionary will hold the modified properties for the current item.
 
-9. Now, loop through property names and populating `tempdict`by adding lines 29-33 of code block 6.This loop iterates through the `names` list, attempting to convert each property's value to a float (if it's numeric). If the conversion fails, it simply assigns the original value to the `tempdict`.
+9. Now, loop through property names and populating `tempdict`by adding lines 29-33 of code block 6. This loop iterates through the `names` list, attempting to convert each property's value to a float (if it's numeric). If the conversion fails, it simply assigns the original value to the `tempdict`.
 
-10. Update the 'extras' section of the item by: <em> item["extras"] = tempdict</em>>. The original 'extras' section of the current item is updated with the modified properties stored in `tempdict`.
- Adding on the 'extra' section is crucial because it allows to making the necessary changes to add attributes without altering the code. 
+10. Update the 'extras' section of the item by: `item["extras"] = tempdict`. The original `extras` section of the current item is updated with the modified properties stored in `tempdict`.
+ Adding on the `extra` section is crucial because it allows us to make the necessary changes to add attributes without altering the code. 
 
 11. Write the modified JSON data back to the file:
-<em>with open('test3d/RELOAD-Ed.json', 'w') as file:
-        json.dump(data, file, default=custom_serializer)</em>
+`with open('test3d/RELOAD-Ed.json', 'w') as file:
+        json.dump(data, file, default=custom_serializer)`
 
     The modified JSON data is written back to the same file, utilizing the custom serialization function defined earlier.
 
-12. And, finally add the exception handling for handling errors: <em>exccept: break</em>If any exception occurs during the above process, the loop is broken.
+12. And, finally add the exception handling for handling errors: `exccept: break`. If any exception occurs during the above process, the loop is broken.
 
-After doing this save the GLTF file and push it through the Github reposity and loaded into the map. It should but you might notice something off with the model's position and scale. 
+After doing this save the main.py and the GLTF file to push them through the Github reposity and load the GLTF into the map. It should appear, but you might notice something off with the model's position and scale. 
 
 
-  **6. Adding More Models, Scaling, and Positioning**
+### **6. Adding More Models, Scaling, and Positioning**
    
   * **Adding More than one model** 
 
     * Adding Flood Hazard Layer
     
-     Before we start scaling and positioning our model properly. Lets work on loading all of the models we need to load to develop this map. Now that we have our MIT Buildings model, lets work with our flood hazard layer. 
+     Before we start scaling and positioning our model properly. Lets work on loading all of the models we need to develop this map. Now that we have our MIT Buildings model, lets work with our flood hazard layer. 
     
-     Similarly, to how we imported <em>"Camb3D_Bldg_Active_MP_SHP"</em> layer into Qgis, do the same with <em>"2070\_100y\_Storm\_24h.geojson"</em> , our flood hazard layer. Create 3 copies of the layer by right clicking on the layer, choosing <em> Export > Save Feature as </em>. A window must appear with a heading that states: <em>Save Vector Layer as</em>. Choose ESRI Shapefile as format, create a nme for the shapefile, and save it on a file on your computer. Repeat this step 2 more times. Make sure they all have different names. (You can name them: FHpt1, FHpt2, and FHpt3) We are doing this because the original file is too large to push through the github repository (maximum is 50MB) and it would be too heavy to render properly on the map. In response eto this problem we split into three parts. The way you split is up to you but make sure you don't delete important data as you are spliting the files. We reduced the file size of each layer by doing the same thing with the MIT Buildings. (Toggle editing layer > "Select Features by Area or Single Click"> select the parts you want to delete > delete > "Save Layer Edits"). Repeat this step on all layers, until you have the 3 individual layers with three diferent parts of the original flood hazard layer. Be careful when executing this task, don't delete important data and don't duplicate data. If you accidentally delete something you can always revisit the <em>"2070\_100y\_Storm\_24h.geojson"</em> layer. 
+     Similarly, to how we imported <em>"Camb3D_Bldg_Active_MP_SHP"</em> layer into Qgis, do the same with <em>"2070\_100y\_Storm\_24h.geojson"</em> , our flood hazard layer. Create 3 copies of the layer by right clicking on the layer, choosing <em> Export > Save Feature as </em>. A window must appear with a heading that states: <em>Save Vector Layer as</em>. Choose ESRI Shapefile as format, create a name for the shapefile, and save it on a file on your computer. 
      
-     After setting the three layers, verify that the CRS is placed correctly and then open the plugin. Check the box of one of the layers (ex: FHpt1). 
+     Repeat this step 2 more times. Make sure they all have different names. (You can name them: FHpt1, FHpt2, and FHpt3) The reason for this is because the original file is too large to push through the github repository (maximum is 50MB) and it would be too heavy to render properly on the map. In response to this problem we split the layer into three parts.As you split the layer, make sure you don't delete important data. We reduced the file size of each layer by doing the same thing with the MIT Buildings Layer. STart by: 
+     
+      (Toggle editing layer > "Select Features by Area or Single Click"> select the parts you want to delete > delete > "Save Layer Edits").
+  
+      Repeat this step on all layers, until you have the 3 individual layers with three diferent parts of the original flood hazard layer. Be careful when executing this task, do not delete important data and do not duplicate data. If you accidentally delete something you can always revisit the <em>"2070\_100y\_Storm\_24h.geojson"</em> layer. 
+     
+     After setting the three layers, verify that the CRS is placed correctly and then open the plugin. Then, check the box of one of the layers (ex: FHpt1) on the left panel. 
 
      >**Note:** If you see an infinite line, close the plugin and set the CRS to 3857.  
      
@@ -586,15 +613,17 @@ After doing this save the GLTF file and push it through the Github reposity and 
      ![Property_box](Assets/Property_box.png)
      <p align="center"><em>Figure 4: Layer Property Box </em><p>
      
-     To extrude the layer accordingly, make sure that "Type" is on "Extruded", the "Altitude" is an "Expresion" and its formula is: <em>"GNDLEV2D * .3048"</em> meaning Ground ELevation (2D) x the conversion: 1ft=.3048m. (It is necesary to covert from feet to meters to avoid errorsthe units o. Its important to recognize that the layers are set to feet and mapbox uses meters.) The "Height must also be changed using the formula: <em>DEPTH2D * .3048</em>. 
+     To extrude the layer accordingly, make sure that "Type" is on "Extruded", the "Altitude" is an "Expresion" and its formula is: <em>"GNDLEV2D * .3048"</em> meaning Ground ELevation (2D) x the conversion: 1ft=.3048m. (It is necesary to covert from feet to meters to avoid unit errors. Its important to recognize that the Shapefile layers are set to feet and mapbox uses meters.) The "Height must also be changed using the formula: <em>DEPTH2D * .3048</em>. 
      
      You can repeat this step for each layer. 
      
-     When you start saving the scene to export the model as a GLTF make sure to have the checked boxes of the layers you want to export. Meaning that we want three seperate GLTF files and for each you must check the layer you want to export and hide (uncheck the box) the ones you don't want to export. If you don't hide the unwanted layers, everything will be exported as a single GLTF, and it will be too large to push through GitHub. You need to export the three GLTF files individually. 
+     When you start saving the scene to export the model as a GLTF make sure to have the checked boxes of the layers you want to export. Meaning that we want three seperate GLTF files and for each you must check the layer you want to export and hide (uncheck the box) the layers you don't want to export. 
+     
+     If you don't hide the unwanted layers, everything will be exported as a single GLTF, and it will be too large to push through GitHub. You need to export the three GLTF files individually. 
 
     * Altering the code to add more than one model
     
-    Now that we have all our models to create the map, lets alter the code to fit in more than one map. It is very simple we are going to be loading different models by using multiple loaders under the same camera. 
+    Now that we have all our models to create the map, lets alter the code to fit in more than one map. It is very simple. We are going to be loading different models by using multiple loaders under the same camera. 
 
 Start by declaring the 4 variables named Model1, Model2, Model3, and Model4.
 
@@ -622,7 +651,7 @@ loader2.load('model2.gltf', (gltf) => {
 // ... Load other models (loader3, loader4) similarly
 ```
   
-Make sure to replace "model#.gltf with the URL from Github containg the GLTF. After this you can go live and all models must appear on the map. If you can't find a particular model than it must be related with the scale and or position of object. Let's see. 
+Make sure to replace "model#.gltf with the URL from Github containg the GLTF. After this you can go live and all models must appear on the map. If you can't find a particular model, then it must be related with the scale and or position of object. Let's see. 
 
   * **Scaling and Positioning Models** 
 
@@ -640,7 +669,7 @@ under each loader before adding the scene.
 
 This will help set a particular models' scale and position in the x-y-z axis. In position you can maintain y=0, which marks the elevation of the model. 
 
-Now that we know how to manually control it we don't know the exact numbers to place. In response to this problem we created sliders to help us manually move an object on the live server without having to do run the code everytime guessing the correct numbers. 
+Now that we know how to manually control it, we don't know the exact translation values to place the model correctly. In response to this problem, we created sliders to help us manually move an object on the live server without having to run the code continuosly. 
 
 1. To create the sliders start by adding the HTML Input Elements:
 
@@ -684,7 +713,7 @@ In this section, a container named "positioningandscaling-controls" holds all th
 
 To create each slider: 
 
-*"input id="model2-position-x-slider" type="range" min="-1690" max="-1660" step="1" value="-1673" /"*
+`"input id="model2-position-x-slider" type="range" min="-1690" max="-1660" step="1" value="-1673" /"`
 
 This input element creates the actual slider control. It has several attributes:
   * *id:* Uniquely identifies the slider, which is used for the label's for attribute.
@@ -694,7 +723,7 @@ This input element creates the actual slider control. It has several attributes:
 
 *span id="model2-position-x-value">-1673</span>*.
 
-This <span> element is used to display the current value of the slider. Initially, it displays the default value set in the slider's value attribute ("-1673" in this case).
+This <span> element is used to display the current value of the slider. Initially, it displays the default value set in the slider's value attribute (In this example the value is set to "-1673" ).
 
 
 Copy and paste Model2 controls code for all models and change the model # accordingly. 
@@ -743,7 +772,7 @@ Copy and paste Model2 controls code for all models and change the model # accord
           document.getElementById('model2-scale-xyz-value').textContent = (scaleXYZ / 100).toFixed(1);
         });
 ```
-These sliders will allow us us to freely move and scale our models on the live server. We will use the 2D layers from Mapbox style as a guide to place and scale the objects. Then we can erase or hide layers directly in mpapbox.
+These sliders will allow us us to freely move and scale our models on the live server. We will use the 2D layers from Mapbox style as referennces to place and scale the objects. Then we can erase or hide layers directly in mapbox.
 
 3. Style the control box
 
@@ -759,18 +788,18 @@ These sliders will allow us us to freely move and scale our models on the live s
   </style>
 ```
 On the right side of each slide a number appears with the values corresponding to the exact location and scale you desire. After obtaining the x-y-z numbers you must replace them here: 
- *gltf.scene.scale.set(x,y,z);gltf.scene.position.set(x,y,z);* .
+ `gltf.scene.scale.set(x,y,z);gltf.scene.position.set(x,y,z);` .
  
- > **Note:** This is important to maintain a fixed position and scale. If you don't update these values, then your model will be out of place everytime you reload the page. Keep in mind the slider are used to figure out the numbers needed to place and scale the models properly but to save the location and scale you have to change the x-y-z values to the exact numbers. 
+ > **Note:** This is important to maintain a fixed position and scale. If you don't update these values, then your model will be out of place everytime you reload the page. Keep in mind the slider are used to figure out the numbers needed to place and scale the models properly, but to save the location and scale you have to change the x-y-z values to the exact numbers. 
 
 
-  **7. Style, Lights, & Pop Ups**
+### **7. Style, Lights, and Popups**
 
  *  **Style: Changing the color of a 3d model.** 
 
-  There are two primary ways to do this. First, we can change the color by changing the base color factor of a material by modifying the appropriate properties in the glTF file. The base color factor is typically represented as a 4-component RGBA (Red, Green, Blue, Alpha) color value.
+  There are two primary ways to execute this task. First, we can change the color by changing the base color factor of a material by modifying the appropriate properties in the glTF file. The base color factor is typically represented as a 4-component RGBA (Red, Green, Blue, Alpha) color value.
 
-1. Open the "MIT BUILDINGS" glTF file: it contains information about the 3D model, including its materials and textures. You can open the file using a text editor or a JSON editor.
+1. Open the "MIT 3D BUILDINGS" glTF file: it contains information about the 3D model, including its materials and textures. You can open the file using a text editor or a JSON editor.
 
 2. Locate the material: Look for the materials you want to modify (ctr + F: materials ). Materials are defined under the "materials" property in the glTF file. Each material has various properties, and the base color factor is typically represented as "pbrMetallicRoughness" under the "extensions" property.
 
@@ -911,14 +940,9 @@ The first few lines of code are the setup functions that allows us to click anyw
 
 First,
 
-<em>map.on('style.load', function () {...})</em> 
+`map.on('click', function (e) {...})`
 
-sets up an event listener that waits for the map's style to finish loading. When the style finishes loading, the provided function is executed. This indicates that the map has been set up and is ready to be interacted with.
-
-
-<em>map.on('click', function (e) {...})</em>
-
-Inside the previous event listener, this line sets up another event listener that listens for a click event on the map. When the user clicks on the map, the provided function is executed, and the e parameter holds information about the click event, including the clicked location's latitude and longitude.
+Inside the <em>map.on('style.load', function () {...})</em>  event listener, add the line highlighted above which sets up another event listener that listens for a click event on the map. When the user clicks on the map, the provided function is executed, and the e parameter holds information about the click event, including the clicked location's latitude and longitude.
 
 After this setup, we start with "Data Preparation:
 
@@ -926,11 +950,11 @@ The <em> var description = null</em> initializes a variable named description wh
 The latitude and longitude of the clicked location are extracted from e.lngLat.
 scenes holds an array of scene elements which are later iterated over.
 
-This is how we create event listeners for clicking on map to display popups.
+This is how we create an event listener for clicking on map to display popups.
 
 ---
 
-After setting the event listeners responding to the clicked coordinates, we have to find the closest building to where the user clicked. The code iterates over each child in the scenes array, which presumably represents different buildings or objects on the map:
+After setting the event listener responding to the clicked coordinates, we have to find the closest building to where the user clicked. The code iterates over each child in the scenes array, which presumably represents different buildings or objects on the map:
 
 `COde Block 22: Denest to find the Children of Model1` 
 
@@ -973,7 +997,7 @@ scenes.forEach(function (child, index) {
 });
 
 ```
-Then we must iterates over each element (child) in the scenes array using the forEach loop. For each child, it accesses the userData property, which presumably holds additional data about the child.
+Then we must iterate over each element (child) in the scenes array using the forEach loop. For each child, it accesses the userData property, which presumably holds additional data about the child.
 
 The latitude and longitude of the current child's center are extracted from userData and stored in Center_Lat and Center_Lon.
 A temporary distance (tempDistance) is calculated between the clicked location's latitude and longitude (latitude and longitude) and the current child's center latitude and longitude.
@@ -1038,11 +1062,17 @@ Our main result was the development of the map.
 
 <p align="center"><em> Figure 10: MIT Dome - Building 10 (Aerial) </em><p>
 
+How does it works? 
+
+The 3D MIT Flood Map allows users to navigate the campus. The interactive map allows users to explore the simulated flood scenario (year 2070 -100 year storm) by navigating through the 3D environment. Users can zoom in and out, pan around the map, and click on specific locations to access detailed information. As of right now, the information visible only accounts for the buildings, but we want to add relevant information about water depths and potential impacts on buildings and infrastructure.
+
 For future steps, we would like to:
 
 * Export the attributes for the Flood Hazard Layer. 
 * Add more details to the 3D models. It would be ideal for us to add windows, basements, and doorways to the MIT buildings in order for us to see which entrances and inside features are vulnerble to flooding. 
 * Study different flood scenearios in respect to different modeled storm such as (10 year or 50 year storm) and we would also like to use this data visualization strategy in different parts of the world affected by severe flooding. 
+
+The interactive 3D flood map serves as a valuable educational and planning tool. It raises awareness about the potential risks of flooding due to climate change and provides insights for future mitigation strategies and infrastructure improvements.
 
 # **Discussion**
 
@@ -1082,11 +1112,16 @@ So throughout this entire, you might of noticed that 3D GIS Data Ciy of Cambridg
 
 This was one of the most difficult task because we could not find an automatic way to do it. We ended up manually doing it by setting the position and scale under the GLTF loader and by using slider to find the exact x-y-z values.
 
-But we did research different strategies to try to execute the task. Among the results we found were: if you upload a GLTF model directly from sketchup it will maintain its scale but not its position nor its properties. 
+But we did research different strategies to try to execute the task. Among the results we found were: if you upload a GLTF model directly from sketchup it will maintain its scale but not its position nor its properties.
 
-...
+We found out that if we set our model origin in (0,0) and if we change the Qgisthree.js exporting scene settings, we able to place our model in lat.lon. (0,0). Star by changing the expor scene settings: for the Origin XY Plane choose "Center of Base Extent" and for base extent choose "fixed extent". If you place in Center X and Center Y "0", then when you load the model, it will appear at (0,0) lat. & lon. which falls about 380 miles south of Ghana and 670 miles west of Gabon. Seeing that this works, we should've been able to change the lat. and lon. coordinates in "fixed extent" to our exact loaction at the MIT campus (Note: convert coordinates from EPSG: 4326 to 3857), but for an unknown reason it did not work.
 
-.....
+A problem that we must take into account is the centroide of the model. Although we were able to place it at (0,0) coordinates, we will still have to translate the object to our desired postion because the centroide the center of the bounding box of all elements inside the model not just the center of the building itself, which makes it very difficult to place accurately. 
+
+In addition to this,there is always going to be a margin of error due to the fact that data collected was created by different developers and scientists. This means that the GIS data MIT Building layer might not exactly match with the City of Cambridge Building layer. 
+
+We believe the key lies with understanding the plugin and finding the coordinates for the centroide of the model. It is not an impossible task but it is very challenging. 
+
 
 * Reducing File size
 
@@ -1127,7 +1162,7 @@ These were some of the main problems we faced in the different development stage
 
 # **Conclusion**
 
-**6.1 General Conclusion**
+### **6.1 General Conclusion**
 
 In conclusion, this summer research project was very successful. Although we had many challenges to overcome, we developed an MIT 3D Flood Map that holds the potential to significantly enhance flood risk communication through innovative interactive data visualization strategies. 
 
@@ -1135,7 +1170,7 @@ Creating this type of flood map demonstrated the practicality and potential of t
 
 The projected outcomes of improved accuracy, visual representation, and accessibility of flood risk data are of paramount importance. This research not only advances architectural data visualization strategies but also extends its benefits to the wider domain of flood risk management and decision-making. By enhancing our ability to communicate complex flood risk information effectively, this research strives to contribute to more resilient communities, better-informed decision-making, and proactive mitigation measures in flood-prone areas.
 
-**6.2 MSRP Research Forum Poster**
+### **6.2 MSRP Research Forum Poster**
 
 ![MSRP 2023 Poster](Assets/Poster.png)
 <p align="center"><em> Figure 13: MIT Summer Research Program 2023 poster by Carolina Pérez Méndez </em><p>
